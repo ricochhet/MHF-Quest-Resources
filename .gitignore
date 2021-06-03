@@ -1,4 +1,4 @@
-/bin/
-/obj/
-/.vscode/
+*/bin/
+*/obj/
+*/.vscode/
 /QuestBinTools/QuestBins/

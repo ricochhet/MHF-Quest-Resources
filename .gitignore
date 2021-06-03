@@ -1,4 +1,11 @@
 */bin/
+/bin/
+/obj/
 */obj/
+/.vscode/
 */.vscode/
+/ReFrontier/
+ReFrontier-master.zip
 /QuestBinTools/QuestBins/
+/References
+*/References/

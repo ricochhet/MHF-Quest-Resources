@@ -19,6 +19,10 @@ Progress enabler "quests" can be found here: [mhfz_progression](https://archive.
 
 **THESE STEPS ARE NOT FULLY TESTED AND MAY NOT BE 100% ACCURATE**
 
+There is some batch scripts included. They have not been fully tested yet. 
+
+Please make sure you compiled each ReFrontierTool and input the full path including filename to the exe, and whatever file is specified.
+
 ### Setup Part 1
 - Build ALL tools in ReFrontier. As they will be useful for different parts, although if you don't want to follow some of the other "extra" stuff, just build the `ReFrontier` tool.
 - Download the `mhfz_progression` files linked above.

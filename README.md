@@ -41,7 +41,7 @@ Please make sure you compiled each ReFrontierTool and input the full path includ
 - Open the newly decompiled bin in HxD or 010. Use either the `Quest-Editor (advanced)` or the one from the link above for a reference point on what bytes are what.
 - Edit different bytes based on values from the Editor, and `*Dictionary.cs` files in `Quest-Editor/Utils`.
 - Drop the **EDITED** `*.bin` file back in the ReFrontier directory. 
-- Run the following: `ReFrontier 21981d0.bin -compress 4,100 -close` (Please note the compression type and level is a guess, I haven't actually gotten this far. I'm too lazy :P).
+- Run the following: `ReFrontier 21981d0.bin -compress 3,100 -close` (Please note the compression type and level is a guess, I haven't actually gotten this far. I'm too lazy :P).
 - Run `ReFrontier 21981d0.bin -encrypt -close`. (In all fairness, I'm unsure this and the step before are actually necessary)
 - Drop your edited quest file back in the `Erupe\bin\quests` directory. 
 - Test it out in game.

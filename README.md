@@ -1,5 +1,6 @@
 # MHF-Quest-Resources
 **NOTE: This repo does not function in the slightest. Do not expect anything to function for the average person.**
+TODO: Add quest text strings to Quest-Editor, e.g. Quest name, Description, etc...
 
 Quest resources for Monster Hunter Frontier (and other stuff)
 

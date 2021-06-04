@@ -1,6 +1,6 @@
 # MHF-Quest-Resources
 **NOTE: This repo does not function in the slightest. Do not expect anything to function for the average person.**
-TODO: Add quest text strings to Quest-Editor, e.g. Quest name, Description, etc...
+TODO: Figure out how English translations are handled. (Needs ENG Patch files (Don't ask for these))
 
 Quest resources for Monster Hunter Frontier (and other stuff)
 

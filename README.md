@@ -23,6 +23,16 @@ There is some batch scripts included. They have not been fully tested yet.
 
 Please make sure you compiled each ReFrontierTool and input the full path including filename to the exe, and whatever file is specified.
 
+## Quest-Editor Info
+- Build `/Quest-Editor`
+- Open command line by exe, run via `Quest-Editor <FILE_PATH>`, e.x. `Quest-Editor ../QuestData/quests/21978d0.bin`.
+- Assumed you have **decompiled the quest file FIRST** it should output a LOT of data for quest editing (helpful in something like HxD or 010).
+
+## Batch Script Info
+- Batch scripts are categorized by: Number(Reference Only) Letter(Script Type).
+- `0#A_*` scripts allow you to input path for each file during run.
+- `0#B_*` scripts are for predefined paths (you'll have to open the file to edit the path variables before use).
+
 ### Setup Part 1
 - Build ALL tools in ReFrontier. As they will be useful for different parts, although if you don't want to follow some of the other "extra" stuff, just build the `ReFrontier` tool.
 - Download the `mhfz_progression` files linked above.

@@ -26,7 +26,7 @@ Please make sure you compiled each ReFrontierTool and input the full path includ
 
 ## Quest-Editor Info
 - Build `/Quest-Editor`
-- Open command line by exe, run via `Quest-Editor <FILE_PATH>`, e.x. `Quest-Editor ../QuestData/quests/21978d0.bin`.
+- Open command line by exe, run via `Quest-Editor <FILE_PATH> <ARGUMENTS>`, e.x. `Quest-Editor ../QuestData/quests/21978d0.bin -log`.
 - Assumed you have **decompiled the quest file FIRST** it should output a LOT of data for quest editing (helpful in something like HxD or 010).
 
 ## Batch Script Info

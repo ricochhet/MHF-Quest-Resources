@@ -1,6 +1,18 @@
 # MHF-Quest-Resources
 **NOTE: This repo does not function in the slightest. Do not expect anything to function for the average person.**
-TODO: Figure out how English translations are handled. (Needs ENG Patch files (Don't ask for these))
+
+**I can make no guarentees that anything here will be fully function, if at all, there's a lot to test, and a lot to learn. I WILL get around to everything eventually. But any help would be greatly appreciated.**
+
+### TODO + NOTES (If you want to contribute, feel free!)
+- Figure out how English translations are handled. (Needs ENG Patch files (Don't ask for these))
+- See what different ReFrontier tools do, and how they function. 
+- Figure out different files, i.e. txb, bin, pac, gab, suffix, mhfpac.bin, mhfdat.bin, mhfinf.bin
+- **Important** figure out how ENGLISH TRANSLATIONS are handled, as well as how to (**MOST IMPORTANT**) ADD QUESTS, not just edit existing ones. 
+    - Potentially related to `mhfdat.bin` or it's just as simple as creating a new ID?
+    - Example: Are `21978d0, 21978d1, 21978d2, 21978n0, 21978n1, 21978n2` different quests? Are they related?
+    - What do the `d/n 0-2` at the end of quests actually represent?
+    - Reiterating. Can I add my own completely unique quest by using a random string, does it need to follow the format of the existing quests?
+    - Assuming the above, I could in theory do something like `99999a5` or assuming it needs to follow a format, maybe, `99999d0`
 
 Quest resources for Monster Hunter Frontier (and other stuff)
 
@@ -13,7 +25,7 @@ Progress enabler "quests" can be found here: [mhfz_progression](https://archive.
 
 ### Prerequisites 
 - HxD / 010
-- Some way to view quest offsets / hex - [MHF-QuestEditor](https://github.com/Yuvi-App/MHF-QuestEditor) or Quest-Editor tools found in this repo.
+- Some way to view quest indexes and hex - [MHF-QuestEditor](https://github.com/Yuvi-App/MHF-QuestEditor) or Quest-Editor tools found in this repo.
 - ReFrontier Tools by Vuze [here](https://github.com/mhvuze/ReFrontier)
 
 **NOTE: This setup is not meant for noobs, you should be fairly knowledgeable about the subject before fully attempting all of this.**
@@ -28,6 +40,9 @@ Please make sure you compiled each ReFrontierTool and input the full path includ
 - Build `/Quest-Editor`
 - Open command line by exe, run via `Quest-Editor <FILE_PATH> <ARGUMENTS>`, e.x. `Quest-Editor ../QuestData/quests/21978d0.bin -log`.
 - Assumed you have **decompiled the quest file FIRST** it should output a LOT of data for quest editing (helpful in something like HxD or 010).
+- I've included an extra little tool for now to help with quest editing as well. This tool simply replaces a string with its HEX alternative.
+- Run this tool via `Quest-Editor -strToHex <MY_STRING>`, e.x. `Quest-Editor -strToHex ≪樹海探索≫\n樹海の特産【下位】`.
+- You SHOULD get an output that looks like this if you tried the example: `81 E1 8E F7 8A 43 92 54 8D F5 81 E2 0A 8E F7 8A 43 82 CC 93 C1 8E 59 81 79 89 BA 88 CA 81 7A`.
 
 ## Batch Script Info
 - Batch scripts are categorized by: Number(Reference Only) Letter(Script Type).

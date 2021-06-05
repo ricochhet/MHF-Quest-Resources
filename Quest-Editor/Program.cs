@@ -57,7 +57,8 @@ namespace QuestBinTools
 
         private static string fileName;
         private static StreamWriter writeStream;
-        private static bool CreatLogFile;
+        private static bool CreateLogFile;
+        private static bool StrToHex;
 
         /*private static string ReturnItemInfo;
         private static string ReturnMonsterInfoA;
@@ -75,10 +76,6 @@ namespace QuestBinTools
             }
             fs.Close();
 
-            /* We have to specify an extra coding provider for more encoding options. 
-            https://docs.microsoft.com/en-us/dotnet/api/system.text.codepagesencodingprovider?view=net-5.0
-            */
-            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             BaseFile = File.ReadAllBytes(FilePath);
             brInput = new BinaryReader(new FileStream(FilePath, FileMode.Open));
             BaseFile.Reverse();
@@ -139,10 +136,30 @@ namespace QuestBinTools
             var char_bytes = charByteList.ToArray();
             str = encoding.GetString(char_bytes);
 
-            Console.WriteLine("===== NULLTERMINATEDSTRING ====={0}",
+            Console.WriteLine("\n===== NULL TERMINATED STRING ====={0}",
+                $"\nValue: {str.Replace("\n", "<NLINE>")}\n\nBytes: {ReturnByteArrayString(char_bytes)}\n\nHex: {ReturnByteArrayHexString(char_bytes)}\n");
+
+            WriteLine("\n===== NULL TERMINATED STRING ====={0}",
                 $"\nValue: {str.Replace("\n", "<NLINE>")}\n\nBytes: {ReturnByteArrayString(char_bytes)}\n\nHex: {ReturnByteArrayHexString(char_bytes)}\n");
 
             return str;
+        }
+
+        public static StringBuilder StringToHex(string String, string enc) 
+        {
+            /* Replace new line string with a real new line, C# treats "\n" as System.Environment.Newline, 
+            while it treats "\\n" as a string with the text, "\n" */
+            String = String.Replace("\\n", "\n").Replace("<NLINE>", "\n"); // Optionally alternative: System.Environment.NewLine;
+            byte[] bytes = Encoding.GetEncoding(enc).GetBytes(String);
+            StringBuilder hex = new StringBuilder();
+
+            foreach (byte b in bytes)
+            {
+                /* We have to use "X2" otherwise certain bytes don't show nicely. */
+                hex.Append(b.ToString("X2") + " ");
+            }
+
+            return hex;
         }
 
         static void WriteLine(string String, params object[] Objs) 
@@ -161,12 +178,25 @@ namespace QuestBinTools
 
         static void Main(string[] args)
         {
+            /* We have to specify an extra coding provider for more encoding options. 
+            https://docs.microsoft.com/en-us/dotnet/api/system.text.codepagesencodingprovider?view=net-5.0
+            */
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
             if (args.Length < 1) { Console.WriteLine("Too few arguments."); return; }
             string input = args[0];
-            if (args.Any("-log".Contains)) { CreatLogFile = true; }
+            if (args.Any("-log".Contains)) { CreateLogFile = true; StrToHex = false;}
+            if (args.Any("-strToHex".Contains)) { StrToHex = true; }
 
-            // Check file
-            if (File.Exists(input) || Directory.Exists(input))
+            if (StrToHex) 
+            {
+                string pattern = "-strToHex ";
+                string argStr = string.Join(" ", args, 1, args.Length - 1).Replace(pattern, "");
+
+                Console.WriteLine(StringToHex(argStr, "shift-jis"));
+            }
+            // Check file 
+            else if (File.Exists(input) || Directory.Exists(input))
             {
                 FileAttributes inputAttr = File.GetAttributes(input);
                 // Directories
@@ -178,7 +208,7 @@ namespace QuestBinTools
                 else
                 {
                     FileLoader(input);
-                    if (CreatLogFile) 
+                    if (CreateLogFile) 
                     {
                         Directory.CreateDirectory("output");
                         fileName = $"output\\{Path.GetFileName(input)}.txt";
@@ -197,68 +227,86 @@ namespace QuestBinTools
                     }
 
                     Items.initiate();
-
-                    Console.WriteLine("\n===== QUEST DATA =====");
+                    
+                    Console.WriteLine("======================\n===== QUEST DATA =====\n======================\n\n");
 
                     WriteLine($"{Path.GetFileName(input)}");
-                    WriteLine("\n===== QUEST DATA =====");
+                    WriteLine("======================\n===== QUEST DATA =====\n======================\n\n");
+
+                    Console.WriteLine("===============================\n========== RANK DATA ==========\n===============================");
+                    WriteLine("===============================\n========== RANK DATA ==========\n===============================");
 
                     LoadRank(BaseFile);
-                    Console.WriteLine("===== RANK INFO: ====={0}\n===== RANK VALUE: ====={1}\n===== RANK BANDS: ====={2}\n==== RANK UNK: ====={3}\n", 
+                    Console.WriteLine("\n\n===== RANK INFO: ====={0}\n===== RANK VALUE: ====={1}\n===== RANK BANDS: ====={2}\n==== RANK UNK: ====={3}\n", 
                         ReturnRankInfo, ReturnRankValue, ReturnRankBands, ReturnRankUnk);
 
-                    WriteLine("===== RANK INFO: ====={0}\n===== RANK VALUE: ====={1}\n===== RANK BANDS: ====={2}\n==== RANK UNK: ====={3}\n", 
+                    WriteLine("\n\n===== RANK INFO: ====={0}\n===== RANK VALUE: ====={1}\n===== RANK BANDS: ====={2}\n==== RANK UNK: ====={3}\n", 
                         ReturnRankInfo, ReturnRankValue, ReturnRankBands, ReturnRankUnk);
-
                     
                     LoadRewardInfo(BaseFile);
-                    Console.WriteLine("===== QUEST FEE: ====={0}\n===== PRIMARY REWARD: ====={1}\n===== REWARDA ====={2}\n===== REWARDB ====={3}\n",
+                    Console.WriteLine("===== QUEST FEE: ====={0}\n===== PRIMARY REWARD: ====={1}\n===== REWARD A ====={2}\n===== REWARD B ====={3}\n",
                         ReturnQuestFee, ReturnPrimaryReward, ReturnRewardA, ReturnRewardB);
 
-                    WriteLine("===== QUEST FEE: ====={0}\n===== PRIMARY REWARD: ====={1}\n===== REWARDA ====={2}\n===== REWARDB ====={3}\n",
+                    WriteLine("===== QUEST FEE: ====={0}\n===== PRIMARY REWARD: ====={1}\n===== REWARD A ====={2}\n===== REWARD B ====={3}\n",
                         ReturnQuestFee, ReturnPrimaryReward, ReturnRewardA, ReturnRewardB);
 
+                    Console.WriteLine("===================================\n========== LOCATION DATA ==========\n===================================");
+                    WriteLine("===================================\n========== LOCATION DATA ==========\n===================================");
 
                     LoadLocations(BaseFile);
-                    Console.WriteLine("===== LOCATION: ====={0}\n", 
+                    Console.WriteLine("\n\n===== LOCATION: ====={0}\n", 
                         ReturnLocationInfo);
 
-                    WriteLine("===== LOCATION: ====={0}\n", 
+                    WriteLine("\n\n===== LOCATION: ====={0}\n", 
                         ReturnLocationInfo);
 
+                    Console.WriteLine("==========================================\n========== MONSTER VARIANT DATA ==========\n==========================================");
+                    WriteLine("==========================================\n========== MONSTER VARIANT DATA ==========\n==========================================");
 
                     LoadMonsterVariant(BaseFile);
-                    Console.WriteLine("===== MONSTERVARIANT1A: ====={0}\n===== MONSTERVARIANT1B: ====={1}\n===== MONSTERVARIANT2A: ====={2}\n===== MONSTERVARIANT2B: ====={3}\n", 
+                    Console.WriteLine("\n\n===== MONSTER VARIANT 1A: ====={0}\n===== MONSTER VARIANT 1B: ====={1}\n===== MONSTER VARIANT 2A: ====={2}\n===== MONSTER VARIANT 2B: ====={3}\n", 
                         ReturnMonsterVariant1AInfo, ReturnMonsterVariant2AInfo, ReturnMonsterVariant1BInfo, ReturnMonsterVariant2BInfo);
 
-                    WriteLine("===== MONSTERVARIANT1A: ====={0}\n===== MONSTERVARIANT1B: ====={1}\n===== MONSTERVARIANT2A: ====={2}\n===== MONSTERVARIANT2B: ====={3}\n", 
+                    WriteLine("\n\n===== MONSTER VARIANT 1A: ====={0}\n===== MONSTER VARIANT 1B: ====={1}\n===== MONSTER VARIANT 2A: ====={2}\n===== MONSTER VARIANT 2B: ====={3}\n", 
                         ReturnMonsterVariant1AInfo, ReturnMonsterVariant2AInfo, ReturnMonsterVariant1BInfo, ReturnMonsterVariant2BInfo);
 
+                    Console.WriteLine("===================================\n========== MAIN OBJ DATA ==========\n===================================");
+                    WriteLine("===================================\n========== MAIN OBJ DATA ==========\n===================================");
 
                     LoadMainObjective(BaseFile);
-                    Console.WriteLine("===== MAIN OBJECTIVE HEX: ====={0}\n===== MAIN OBJECTIVE TYPE: ====={1}\n===== MAIN OBJECTIVE QUANT: ====={2}\n===== MAIN OBJECTIVE: ====={3}\n",
+                    Console.WriteLine("\n\n===== MAIN OBJECTIVE HEX: ====={0}\n===== MAIN OBJECTIVE TYPE: ====={1}\n===== MAIN OBJECTIVE QUANT: ====={2}\n===== MAIN OBJECTIVE: ====={3}\n",
                         ReturnObjectiveMainHex, ReturnObjectiveMainType, ReturnObjectiveMainQuant, ReturnMainObj);
 
-                    WriteLine("===== MAIN OBJECTIVE HEX: ====={0}\n===== MAIN OBJECTIVE TYPE: ====={1}\n===== MAIN OBJECTIVE QUANT: ====={2}\n===== MAIN OBJECTIVE: ====={3}\n",
+                    WriteLine("\n\n===== MAIN OBJECTIVE HEX: ====={0}\n===== MAIN OBJECTIVE TYPE: ====={1}\n===== MAIN OBJECTIVE QUANT: ====={2}\n===== MAIN OBJECTIVE: ====={3}\n",
                         ReturnObjectiveMainHex, ReturnObjectiveMainType, ReturnObjectiveMainQuant, ReturnMainObj);
 
+                    Console.WriteLine("====================================\n========== SUB A OBJ DATA ==========\n====================================");
+                    WriteLine("====================================\n========== SUB A OBJ DATA ==========\n====================================");
 
                     LoadSubAObjective(BaseFile);
-                    Console.WriteLine("===== SUBA OBJECTIVE HEX: ====={0}\n===== SUBA OBJECTIVE TYPE: ====={1}\n===== SUBA OBJECTIVE QUANT: ====={2}\n===== SUBA OBJECTIVE: ====={3}\n",
+                    Console.WriteLine("\n\n===== SUB A OBJECTIVE HEX: ====={0}\n===== SUB A OBJECTIVE TYPE: ====={1}\n===== SUB A OBJECTIVE QUANT: ====={2}\n===== SUB A OBJECTIVE: ====={3}\n",
                         ReturnObjectiveSubAHex, ReturnObjectiveSubAType, ReturnObjectiveSubAQuant, ReturnSubAObj); 
 
-                    WriteLine("===== SUBA OBJECTIVE HEX: ====={0}\n===== SUBA OBJECTIVE TYPE: ====={1}\n===== SUBA OBJECTIVE QUANT: ====={2}\n===== SUBA OBJECTIVE: ====={3}\n",
+                    WriteLine("\n\n===== SUB A OBJECTIVE HEX: ====={0}\n===== SUB A OBJECTIVE TYPE: ====={1}\n===== SUB A OBJECTIVE QUANT: ====={2}\n===== SUB A OBJECTIVE: ====={3}\n",
                         ReturnObjectiveSubAHex, ReturnObjectiveSubAType, ReturnObjectiveSubAQuant, ReturnSubAObj); 
+
+                    Console.WriteLine("====================================\n========== SUB B OBJ DATA ==========\n====================================");
+                    WriteLine("====================================\n========== SUB B OBJ DATA ==========\n====================================");
 
                     LoadSubBObjective(BaseFile);
-                    Console.WriteLine("===== SUBB OBJECTIVE HEX: ====={0}\n===== SUBB OBJECTIVE TYPE: ====={1}\n===== SUBB OBJECTIVE QUANT: ====={2}\n===== SUBB OBJECTIVE: ====={3}\n",
+                    Console.WriteLine("\n\n===== SUB B OBJECTIVE HEX: ====={0}\n===== SUB B OBJECTIVE TYPE: ====={1}\n===== SUB B OBJECTIVE QUANT: ====={2}\n===== SUB B OBJECTIVE: ====={3}\n",
                         ReturnObjectiveSubBHex, ReturnObjectiveSubBType, ReturnObjectiveSubBQuant, ReturnSubBObj);
 
-                    WriteLine("===== SUBB OBJECTIVE HEX: ====={0}\n===== SUBB OBJECTIVE TYPE: ====={1}\n===== SUBB OBJECTIVE QUANT: ====={2}\n===== SUBB OBJECTIVE: ====={3}\n",
+                    WriteLine("\n\n===== SUB B OBJECTIVE HEX: ====={0}\n===== SUB B OBJECTIVE TYPE: ====={1}\n===== SUB B OBJECTIVE QUANT: ====={2}\n===== SUB B OBJECTIVE: ====={3}\n",
                         ReturnObjectiveSubBHex, ReturnObjectiveSubBType, ReturnObjectiveSubBQuant, ReturnSubBObj);
+
+                    Console.WriteLine("========================================\n========== QUEST TEXT STRINGS ==========\n========================================\n");
+                    WriteLine("========================================\n========== QUEST TEXT STRINGS ==========\n========================================\n");
 
                     
                     LoadQuestTextStrings(BaseFile);
+
+                    // StringToHex("≪樹海探索≫\n樹海の特産【下位】");
                 }
             }
             else Console.WriteLine("ERROR: Input file does not exist.");
@@ -278,91 +326,91 @@ namespace QuestBinTools
             brInput.BaseStream.Seek(ReadPointer, SeekOrigin.Begin);
 
             ReturnDeliverString = ReadNullTerminatedString(brInput, Encoding.GetEncoding("Shift-JIS")).Replace("\n", "<NLINE>");
-            Console.WriteLine("\n===== DELIVERSTRING =====\n{0}",
-                $"Value: {ReturnDeliverString}\n");
+            Console.WriteLine("===== DELIVER STRING =====\n{0}",
+                $"Value: {ReturnDeliverString}\n\n\n");
 
-            WriteLine("\n===== DELIVERSTRING =====\n{0}",
-                $"Value: {ReturnDeliverString}\n");
+            WriteLine("===== DELIVER STRING =====\n{0}",
+                $"Value: {ReturnDeliverString}\n\n\n");
 
             QuestStringsStart = BitConverter.ToInt32(FileData, 232);
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
             
             ReturnQuestTypeName = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
-            Console.WriteLine("\n===== QUESTTYPENAME =====\n{0}",
-                $"Value: {ReturnQuestTypeName}\n");
+            Console.WriteLine("===== QUEST TYPE NAME =====\n{0}",
+                $"Value: {ReturnQuestTypeName}\n\n\n");
 
-            WriteLine("\n===== QUESTTYPENAME =====\n{0}",
-                $"Value: {ReturnQuestTypeName}\n");
+            WriteLine("===== QUEST TYPE NAME =====\n{0}",
+                $"Value: {ReturnQuestTypeName}\n\n\n");
 
             QuestStringsStart += 4;
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
 
             ReturnObjMainString = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
-            Console.WriteLine("\n===== OBJMAINSTRING =====\n{0}",
-                $"Value: {ReturnQuestTypeName}\n");
+            Console.WriteLine("===== OBJ MAIN STRING =====\n{0}",
+                $"Value: {ReturnQuestTypeName}\n\n\n");
 
-            WriteLine("\n===== OBJMAINSTRING =====\n{0}",
-                $"Value: {ReturnQuestTypeName}\n");
+            WriteLine("===== OBJ MAIN STRING =====\n{0}",
+                $"Value: {ReturnQuestTypeName}\n\n\n");
 
             QuestStringsStart += 4;
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
             
             ReturnObjAString = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
-            Console.WriteLine("\n===== OBJASTRING =====\n{0}",
-                $"Value: {ReturnObjAString}\n");
+            Console.WriteLine("===== OBJ A STRING =====\n{0}",
+                $"Value: {ReturnObjAString}\n\n\n");
 
-            WriteLine("\n===== OBJASTRING =====\n{0}",
-                $"Value: {ReturnObjAString}\n");
+            WriteLine("===== OBJ A STRING =====\n{0}",
+                $"Value: {ReturnObjAString}\n\n\n");
 
             QuestStringsStart += 4;
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
             
             ReturnObjBString = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
-            Console.WriteLine("\n===== OBJBSTRING =====\n{0}",
-                $"Value: {ReturnObjBString}\n");
+            Console.WriteLine("===== OBJ B STRING =====\n{0}",
+                $"Value: {ReturnObjBString}\n\n\n");
 
-            WriteLine("\n===== OBJBSTRING =====\n{0}",
-                $"Value: {ReturnObjBString}\n");
+            WriteLine("===== OBJ B STRING =====\n{0}",
+                $"Value: {ReturnObjBString}\n\n\n");
 
             QuestStringsStart += 4;
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
             
             ReturnClearReqString = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
-            Console.WriteLine("\n===== CLEARREQSTRING =====\n{0}",
-                $"Value: {ReturnClearReqString}\n");
+            Console.WriteLine("===== CLEAR REQ STRING =====\n{0}",
+                $"Value: {ReturnClearReqString}\n\n\n");
 
-            WriteLine("\n===== CLEARREQSTRING =====\n{0}",
-                $"Value: {ReturnClearReqString}\n");
+            WriteLine("===== CLEAR REQ STRING =====\n{0}",
+                $"Value: {ReturnClearReqString}\n\n\n");
 
             QuestStringsStart += 4;
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
             
             ReturnFailReqString = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
-            Console.WriteLine("\n===== FAILREQSTRING =====\n{0}",
-                $"Value: {ReturnFailReqString}\n");
+            Console.WriteLine("===== FAIL REQ STRING =====\n{0}",
+                $"Value: {ReturnFailReqString}\n\n\n");
 
-            WriteLine("\n===== FAILREQSTRING =====\n{0}",
-                $"Value: {ReturnFailReqString}\n");
+            WriteLine("===== FAIL REQ STRING =====\n{0}",
+                $"Value: {ReturnFailReqString}\n\n\n");
 
             QuestStringsStart += 4;
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
             
             ReturnHirerString = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
-            Console.WriteLine("\n===== HIRERSTRING =====\n{0}",
-                $"Value: {ReturnHirerString}\n");
+            Console.WriteLine("===== HIRER STRING =====\n{0}",
+                $"Value: {ReturnHirerString}\n\n\n");
 
-            WriteLine("\n===== HIRERSTRING =====\n{0}",
-                $"Value: {ReturnHirerString}\n");
+            WriteLine("===== HIRER STRING =====\n{0}",
+                $"Value: {ReturnHirerString}\n\n\n");
 
             QuestStringsStart += 4;
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
             
             ReturnDescriptionString = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
-            Console.WriteLine("\n===== DESCRIPTIONSTRING =====\n{0}",
-                $"Value: {ReturnDescriptionString}\n");
+            Console.WriteLine("===== DESCRIPTION STRING =====\n{0}",
+                $"Value: {ReturnDescriptionString}\n\n\n");
 
-            WriteLine("\n===== DESCRIPTIONSTRING =====\n{0}",
-                $"Value: {ReturnDescriptionString}\n");
+            WriteLine("===== DESCRIPTION STRING =====\n{0}",
+                $"Value: {ReturnDescriptionString}\n\n\n");
         }
 
         public static string ReturnItem(byte[] FileData, int index)
@@ -377,10 +425,10 @@ namespace QuestBinTools
                 item = BitConverter.ToInt16(FileData, index).ToString();
             }
 
-            Console.WriteLine("===== ITEMINFO: ====={0}\n", 
+            Console.WriteLine("===== ITEM INFO: ====={0}\n", 
                 $"\nValue: {item}\nInt16 (LE ?): {BitConverter.ToInt16(FileData, index)}\nBy Index: {FileData[index]}\nBy Index (Hex): 0x{FileData[index].ToString("X2")}\nIndex: {index}\n");
             
-            WriteLine("===== ITEMINFO: ====={0}\n", 
+            WriteLine("===== ITEM INFO: ====={0}\n", 
                 $"\nValue: {item}\nInt16 (LE ?): {BitConverter.ToInt16(FileData, index)}\nBy Index: {FileData[index]}\nBy Index (Hex): 0x{FileData[index].ToString("X2")}\nIndex: {index}\n");
             
 
@@ -389,10 +437,10 @@ namespace QuestBinTools
 
         public static string ReturnObjectiveHex(byte[] FileData, int index)
         {
-            Console.WriteLine("===== OBJECTIVEHEX: ====={0}",
+            Console.WriteLine("\n\n===== OBJECTIVE HEX: ====={0}",
                 $"\nValue: {BitConverter.ToString(new byte[] { FileData[index], FileData[index + 1], FileData[index + 2], FileData[index + 3] }).Replace("-", "")}\nIndexes 1: INDEX: {FileData[index]} | INDEX+1: {FileData[index + 1]} | INDEX+2: {FileData[index + 2]} | INDEX+3: {FileData[index + 3]}\nHex 1: {BitConverter.ToString(new byte[] { FileData[index], FileData[index + 1], FileData[index + 2], FileData[index + 3] })}\nHex 2: {FileData[index]} {FileData[index + 1]} {FileData[index + 2]} {FileData[index + 3]}\nIndex: {index}\n");
 
-            WriteLine("===== OBJECTIVEHEX: ====={0}",
+            WriteLine("\n\n===== OBJECTIVE HEX: ====={0}",
                 $"\nValue: {BitConverter.ToString(new byte[] { FileData[index], FileData[index + 1], FileData[index + 2], FileData[index + 3] }).Replace("-", "")}\nIndexes 1: INDEX: {FileData[index]} | INDEX+1: {FileData[index + 1]} | INDEX+2: {FileData[index + 2]} | INDEX+3: {FileData[index + 3]}\nHex 1: {BitConverter.ToString(new byte[] { FileData[index], FileData[index + 1], FileData[index + 2], FileData[index + 3] })}\nHex 2: {FileData[index]} {FileData[index + 1]} {FileData[index + 2]} {FileData[index + 3]}\nIndex: {index}\n");
 
             return BitConverter.ToString(new byte[] { FileData[index], FileData[index + 1], FileData[index + 2], FileData[index + 3] }).Replace("-", "");
@@ -410,10 +458,10 @@ namespace QuestBinTools
                 monster = BitConverter.ToInt16(FileData, index).ToString();
             }
 
-            Console.WriteLine("===== MONSTERINFOA: ====={0}\n", 
+            Console.WriteLine("===== MONSTER INFO A: ====={0}\n", 
                 $"\nValue: {monster}\nInt16 (LE ?): {BitConverter.ToInt16(FileData, index)}\nBy Index: {FileData[index]}\nBy Index (Hex): 0x{FileData[index].ToString("X2")}\nIndex: {index}\n");
             
-            WriteLine("===== MONSTERINFOA: ====={0}\n", 
+            WriteLine("===== MONSTER INFO A: ====={0}\n", 
                 $"\nValue: {monster}\nInt16 (LE ?): {BitConverter.ToInt16(FileData, index)}\nBy Index: {FileData[index]}\nBy Index (Hex): 0x{FileData[index].ToString("X2")}\nIndex: {index}\n");
 
             return monster;
@@ -431,10 +479,10 @@ namespace QuestBinTools
                 monster = monsterID.ToString();
             }
 
-            Console.WriteLine("===== MONSTERINFOB: ====={0}\n", 
+            Console.WriteLine("===== MONSTER INFO B: ====={0}\n", 
                 $"\nValue: {monster}\nID: {(byte)monsterID}\nStr: {monsterID.ToString()}");
 
-            WriteLine("===== MONSTERINFOB: ====={0}\n", 
+            WriteLine("===== MONSTER INFO B: ====={0}\n", 
                 $"\nValue: {monster}\nID: {(byte)monsterID}\nStr: {monsterID.ToString()}");
 
             return monster;
@@ -450,18 +498,18 @@ namespace QuestBinTools
                     continue;
                 if (Monsters.MonsterNames.TryGetValue(FileData[i], out monsterAdd))
                 {
-                    Console.WriteLine("===== INTERCEPTION DATA SECT1 ====={0}",
+                    Console.WriteLine("\n\n===== INTERCEPTION DATA SECT 1 ====={0}",
                         $"\nValue: {monster}\nAdd: {monsterAdd}\nBy Index: {FileData[i]}\nBy Index (Hex): 0x{FileData[i].ToString("X2")}\nIndex: {i}\n");
 
-                    WriteLine("===== INTERCEPTION DATA SECT1 ====={0}",
+                    WriteLine("\n\n===== INTERCEPTION DATA SECT 1 ====={0}",
                         $"\nValue: {monster}\nAdd: {monsterAdd}\nBy Index: {FileData[i]}\nBy Index (Hex): 0x{FileData[i].ToString("X2")}\nIndex: {i}\n");
                 }
                 else
                 {
-                    Console.WriteLine("===== INTERCEPTION DATA SECT2 ====={0}",
+                    Console.WriteLine("\n\n===== INTERCEPTION DATA SECT 2 ====={0}",
                         $"\nValue: {monster}\nAdd: {monsterAdd}\nSingle {BitConverter.ToSingle(FileData, i).ToString()} / {BitConverter.ToSingle(FileData, i)}\nBy Index: {FileData[i]}\nBy Index (Hex): 0x{FileData[i].ToString("X2")}\nIndex: {i}\n");
                     
-                    WriteLine("===== INTERCEPTION DATA SECT2 ====={0}",
+                    WriteLine("\n\n===== INTERCEPTION DATA SECT 2 ====={0}",
                         $"\nValue: {monster}\nAdd: {monsterAdd}\nSingle {BitConverter.ToSingle(FileData, i).ToString()} / {BitConverter.ToSingle(FileData, i)}\nBy Index: {FileData[i]}\nBy Index (Hex): 0x{FileData[i].ToString("X2")}\nIndex: {i}\n");
                         
                     monsterAdd = BitConverter.ToSingle(FileData, i).ToString();
@@ -469,30 +517,30 @@ namespace QuestBinTools
 
                 if (i == 377)
                 {
-                    Console.WriteLine("===== INTERCEPTION DATA SECT3 ====={0}",
+                    Console.WriteLine("\n\n===== INTERCEPTION DATA SECT 3 ====={0}",
                         $"\nValue: {monster}\nAdd: {monsterAdd}\nBy Index: {FileData[i]}\nBy Index (Hex): 0x{FileData[i].ToString("X2")}\nIndex: {i}\n");
                     
-                    WriteLine("===== INTERCEPTION DATA SECT3 ====={0}",
+                    WriteLine("\n\n===== INTERCEPTION DATA SECT 3 ====={0}",
                         $"\nValue: {monster}\nAdd: {monsterAdd}\nBy Index: {FileData[i]}\nBy Index (Hex): 0x{FileData[i].ToString("X2")}\nIndex: {i}\n");
                     
                     monster += monsterAdd;
                 }
                 else
                 {
-                    Console.WriteLine("===== INTERCEPTION DATA SECT4 ====={0}",
+                    Console.WriteLine("\n\n===== INTERCEPTION DATA SECT 4 ====={0}",
                         $"\nValue: {monster}\nAdd: {monsterAdd}\nBy Index: {FileData[i]}\nBy Index (Hex): 0x{FileData[i].ToString("X2")}\nIndex: {i}\n");
 
-                    WriteLine("===== INTERCEPTION DATA SECT4 ====={0}",
+                    WriteLine("\n\n===== INTERCEPTION DATA SECT 4 ====={0}",
                         $"\nValue: {monster}\nAdd: {monsterAdd}\nBy Index: {FileData[i]}\nBy Index (Hex): 0x{FileData[i].ToString("X2")}\nIndex: {i}\n");
 
                     monster += $", {monsterAdd}";
                 }
             }
 
-            Console.WriteLine("===== INTERCEPTION SECT5 ====={0}",
+            Console.WriteLine("\n\n===== INTERCEPTION SECT 5 ====={0}",
                 $"\nValue: {monster}\nAdd: {monsterAdd}\n");
 
-            WriteLine("===== INTERCEPTION SECT5 ====={0}",
+            WriteLine("\n\n===== INTERCEPTION SECT 5 ====={0}",
                 $"\nValue: {monster}\nAdd: {monsterAdd}\n");
 
             return monster;

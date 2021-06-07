@@ -60,10 +60,47 @@ namespace QuestBinTools
         private static bool CreateLogFile;
         private static bool StrToHex;
 
-        /*private static string ReturnItemInfo;
-        private static string ReturnMonsterInfoA;
-        private static string ReturnMonsterInfoB;
-        private static string ReturnInterceptionInfo;*/
+        private static int QuestStringsStartIndexA = 48;
+        private static int QuestStringsStartIndexB = 232;
+        private static int QuestStringsStartPointer = 4;
+        private static int QuestFeeIndex = 204;
+        private static int PrimaryRewardIndex = 208;
+        private static int RewardAIndex = 216;
+        private static int RewardBIndex = 220;
+        private static int LocationIndex = 228;
+        private static int RankIndex = 72;
+        private static int Variant1AIndex = 337;
+        private static int Variant2AIndex = 338;
+        private static int Variant1BIndex = 345;
+        private static int Variant2BIndex = 346;
+        private static int ObjectiveHexIncIndexA = 1;
+        private static int ObjectiveHexIncIndexB = 2;
+        private static int ObjectiveHexIncIndexC = 3;
+        private static int InterceptionLoopIndexA = 377;
+        private static int InterceptionLoopIndexB = 382;
+        private static int InterceptionLoopIndexSub = 1;
+        private static int MonsterCoordStartIndex = 24;
+        private static int MonsterCoordTypePointer = 8;
+        private static int MonsterCoordTypePointerIncIndex = 4;
+        private static int MonsterCoordSpawnIncIndex = 1;
+        private static int MonsterCoordStatPointer = 12;
+        private static int MonsterCoordCheckIndex = 0;
+        private static int MonsterCoordLoopIndexSub = 1;
+
+        private static int MainObjHexIndex = 240;
+        private static int MainObjIndex = 244;
+        private static int MainObjQuantIndex = 246;
+        private static int MainObjQuantMult = 100;
+
+        private static int SubAObjHexIndex = 248;
+        private static int SubAObjIndex = 252;
+        private static int SubAObjQuantIndex = 254;
+        private static int SubAObjQuantMult = 100;
+
+        private static int SubBObjHexIndex = 256;
+        private static int SubBObjIndex = 260;
+        private static int SubBObjQuantIndex = 262;
+        private static int SubBObjQuantMult = 100;
 
         public static Structs.QuestInfo FileLoader(string FilePath)
         {
@@ -305,23 +342,13 @@ namespace QuestBinTools
 
                     
                     LoadQuestTextStrings(BaseFile);
-
-                    // StringToHex("≪樹海探索≫\n樹海の特産【下位】");
                 }
             }
             else Console.WriteLine("ERROR: Input file does not exist.");
-
-            /* Input a quest path */
-            // FileLoader("./QuestBinTools/QuestBins/21978d0.bin");
-            // Items.initiate();
-            // LoadMonsterVariant(BaseFile);
-            // LoadRewardInfo(BaseFile);
-            // LoadLocations(BaseFile);
-            // LoadMainObjective(BaseFile);
         }
 
         static void LoadQuestTextStrings(byte[] FileData) {
-            int QuestStringsStart = BitConverter.ToInt32(FileData, 48);
+            int QuestStringsStart = BitConverter.ToInt32(FileData, QuestStringsStartIndexA);
             int ReadPointer = BitConverter.ToInt32(FileData, QuestStringsStart);
             brInput.BaseStream.Seek(ReadPointer, SeekOrigin.Begin);
 
@@ -332,7 +359,7 @@ namespace QuestBinTools
             WriteLine("===== DELIVER STRING =====\n{0}",
                 $"Value: {ReturnDeliverString}\n\n\n");
 
-            QuestStringsStart = BitConverter.ToInt32(FileData, 232);
+            QuestStringsStart = BitConverter.ToInt32(FileData, QuestStringsStartIndexB);
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
             
             ReturnQuestTypeName = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
@@ -342,7 +369,7 @@ namespace QuestBinTools
             WriteLine("===== QUEST TYPE NAME =====\n{0}",
                 $"Value: {ReturnQuestTypeName}\n\n\n");
 
-            QuestStringsStart += 4;
+            QuestStringsStart += QuestStringsStartPointer;
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
 
             ReturnObjMainString = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
@@ -352,7 +379,7 @@ namespace QuestBinTools
             WriteLine("===== OBJ MAIN STRING =====\n{0}",
                 $"Value: {ReturnQuestTypeName}\n\n\n");
 
-            QuestStringsStart += 4;
+            QuestStringsStart += QuestStringsStartPointer;
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
             
             ReturnObjAString = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
@@ -362,7 +389,7 @@ namespace QuestBinTools
             WriteLine("===== OBJ A STRING =====\n{0}",
                 $"Value: {ReturnObjAString}\n\n\n");
 
-            QuestStringsStart += 4;
+            QuestStringsStart += QuestStringsStartPointer;
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
             
             ReturnObjBString = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
@@ -372,7 +399,7 @@ namespace QuestBinTools
             WriteLine("===== OBJ B STRING =====\n{0}",
                 $"Value: {ReturnObjBString}\n\n\n");
 
-            QuestStringsStart += 4;
+            QuestStringsStart += QuestStringsStartPointer;
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
             
             ReturnClearReqString = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
@@ -382,7 +409,7 @@ namespace QuestBinTools
             WriteLine("===== CLEAR REQ STRING =====\n{0}",
                 $"Value: {ReturnClearReqString}\n\n\n");
 
-            QuestStringsStart += 4;
+            QuestStringsStart += QuestStringsStartPointer;
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
             
             ReturnFailReqString = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
@@ -392,7 +419,7 @@ namespace QuestBinTools
             WriteLine("===== FAIL REQ STRING =====\n{0}",
                 $"Value: {ReturnFailReqString}\n\n\n");
 
-            QuestStringsStart += 4;
+            QuestStringsStart += QuestStringsStartPointer;
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
             
             ReturnHirerString = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
@@ -402,7 +429,7 @@ namespace QuestBinTools
             WriteLine("===== HIRER STRING =====\n{0}",
                 $"Value: {ReturnHirerString}\n\n\n");
 
-            QuestStringsStart += 4;
+            QuestStringsStart += QuestStringsStartPointer;
             brInput.BaseStream.Seek(BitConverter.ToInt32(FileData, QuestStringsStart), SeekOrigin.Begin);
             
             ReturnDescriptionString = ReadNullTerminatedString(brInput, Encoding.GetEncoding("shift-jis")).Replace("\n", "<NLINE>");
@@ -438,10 +465,10 @@ namespace QuestBinTools
         public static string ReturnObjectiveHex(byte[] FileData, int index)
         {
             Console.WriteLine("\n\n===== OBJECTIVE HEX: ====={0}",
-                $"\nValue: {BitConverter.ToString(new byte[] { FileData[index], FileData[index + 1], FileData[index + 2], FileData[index + 3] }).Replace("-", "")}\nIndexes 1: INDEX: {FileData[index]} | INDEX+1: {FileData[index + 1]} | INDEX+2: {FileData[index + 2]} | INDEX+3: {FileData[index + 3]}\nHex 1: {BitConverter.ToString(new byte[] { FileData[index], FileData[index + 1], FileData[index + 2], FileData[index + 3] })}\nHex 2: {FileData[index]} {FileData[index + 1]} {FileData[index + 2]} {FileData[index + 3]}\nIndex: {index}\n");
+                $"\nValue: {BitConverter.ToString(new byte[] { FileData[index], FileData[index + ObjectiveHexIncIndexA], FileData[index + ObjectiveHexIncIndexB], FileData[index + ObjectiveHexIncIndexC] }).Replace("-", "")}\nIndexes 1: INDEX: {FileData[index]} | INDEX+1: {FileData[index + ObjectiveHexIncIndexA]} | INDEX+2: {FileData[index + ObjectiveHexIncIndexB]} | INDEX+3: {FileData[index + ObjectiveHexIncIndexC]}\nHex 1: {BitConverter.ToString(new byte[] { FileData[index], FileData[index + ObjectiveHexIncIndexA], FileData[index + ObjectiveHexIncIndexB], FileData[index + ObjectiveHexIncIndexC] })}\nHex 2: {FileData[index]} {FileData[index + ObjectiveHexIncIndexA]} {FileData[index + ObjectiveHexIncIndexB]} {FileData[index + ObjectiveHexIncIndexC]}\nIndex: {index}\n");
 
             WriteLine("\n\n===== OBJECTIVE HEX: ====={0}",
-                $"\nValue: {BitConverter.ToString(new byte[] { FileData[index], FileData[index + 1], FileData[index + 2], FileData[index + 3] }).Replace("-", "")}\nIndexes 1: INDEX: {FileData[index]} | INDEX+1: {FileData[index + 1]} | INDEX+2: {FileData[index + 2]} | INDEX+3: {FileData[index + 3]}\nHex 1: {BitConverter.ToString(new byte[] { FileData[index], FileData[index + 1], FileData[index + 2], FileData[index + 3] })}\nHex 2: {FileData[index]} {FileData[index + 1]} {FileData[index + 2]} {FileData[index + 3]}\nIndex: {index}\n");
+                $"\nValue: {BitConverter.ToString(new byte[] { FileData[index], FileData[index + ObjectiveHexIncIndexA], FileData[index + ObjectiveHexIncIndexB], FileData[index + ObjectiveHexIncIndexC] }).Replace("-", "")}\nIndexes 1: INDEX: {FileData[index]} | INDEX+1: {FileData[index + ObjectiveHexIncIndexA]} | INDEX+2: {FileData[index + ObjectiveHexIncIndexB]} | INDEX+3: {FileData[index + ObjectiveHexIncIndexC]}\nHex 1: {BitConverter.ToString(new byte[] { FileData[index], FileData[index + ObjectiveHexIncIndexA], FileData[index + ObjectiveHexIncIndexB], FileData[index + ObjectiveHexIncIndexC] })}\nHex 2: {FileData[index]} {FileData[index + ObjectiveHexIncIndexA]} {FileData[index + ObjectiveHexIncIndexB]} {FileData[index + ObjectiveHexIncIndexC]}\nIndex: {index}\n");
 
             return BitConverter.ToString(new byte[] { FileData[index], FileData[index + 1], FileData[index + 2], FileData[index + 3] }).Replace("-", "");
         }
@@ -492,7 +519,7 @@ namespace QuestBinTools
         {
             string monster = "";
             string monsterAdd = null;
-            for (int i = 377; i <= 382 - 1; i++)
+            for (int i = InterceptionLoopIndexA; i <= InterceptionLoopIndexB - InterceptionLoopIndexSub; i++)
             {
                 if (FileData[i] == 0)
                     continue;
@@ -515,7 +542,7 @@ namespace QuestBinTools
                     monsterAdd = BitConverter.ToSingle(FileData, i).ToString();
                 }
 
-                if (i == 377)
+                if (i == InterceptionLoopIndexA)
                 {
                     Console.WriteLine("\n\n===== INTERCEPTION DATA SECT 3 ====={0}",
                         $"\nValue: {monster}\nAdd: {monsterAdd}\nBy Index: {FileData[i]}\nBy Index (Hex): 0x{FileData[i].ToString("X2")}\nIndex: {i}\n");
@@ -548,26 +575,26 @@ namespace QuestBinTools
 
         static void LoadRewardInfo(byte[] FileData)
         {
-            int QuestFee = BitConverter.ToInt32(FileData, 204);
-            int PrimaryReward = BitConverter.ToInt32(FileData, 208);
-            int RewardA = BitConverter.ToInt32(FileData, 216);
-            int RewardB = BitConverter.ToInt32(FileData, 220);
+            int QuestFee = BitConverter.ToInt32(FileData, QuestFeeIndex);
+            int PrimaryReward = BitConverter.ToInt32(FileData, PrimaryRewardIndex);
+            int RewardA = BitConverter.ToInt32(FileData, RewardAIndex);
+            int RewardB = BitConverter.ToInt32(FileData, RewardBIndex);
 
-            ReturnQuestFee = $"\nValue: {QuestFee}\nInt32 (LE): {BitConverter.ToInt32(FileData, 204)}\nBy Index: {FileData[204]}\nBy Index (Hex): 0x{FileData[204].ToString("X2")}\nIndex: 204\n";
-            ReturnPrimaryReward = $"\nValue: {PrimaryReward}\nInt32 (LE): {BitConverter.ToInt32(FileData, 208)}\nBy Index: {FileData[208]}\nBy Index (Hex): 0x{FileData[208].ToString("X2")}\nIndex: 208\n";
-            ReturnRewardA = $"\nValue: {RewardA}\nInt32 (LE): {BitConverter.ToInt32(FileData, 216)}\nBy Index: {FileData[216]}\nBy Index (Hex): 0x{FileData[216].ToString("X2")}\nIndex: 216\n";
-            ReturnRewardB = $"\nValue: {RewardB}\nInt32 (LE): {BitConverter.ToInt32(FileData, 220)}\nBy Index: {FileData[220]}\nBy Index (Hex): 0x{FileData[220].ToString("X2")}\nIndex: 220\n";
+            ReturnQuestFee = $"\nValue: {QuestFee}\nInt32 (LE): {BitConverter.ToInt32(FileData, QuestFeeIndex)}\nBy Index: {FileData[QuestFeeIndex]}\nBy Index (Hex): 0x{FileData[QuestFeeIndex].ToString("X2")}\nIndex: {QuestFeeIndex}\n";
+            ReturnPrimaryReward = $"\nValue: {PrimaryReward}\nInt32 (LE): {BitConverter.ToInt32(FileData, PrimaryRewardIndex)}\nBy Index: {FileData[PrimaryRewardIndex]}\nBy Index (Hex): 0x{FileData[PrimaryRewardIndex].ToString("X2")}\nIndex: {PrimaryRewardIndex}\n";
+            ReturnRewardA = $"\nValue: {RewardA}\nInt32 (LE): {BitConverter.ToInt32(FileData, RewardAIndex)}\nBy Index: {FileData[RewardAIndex]}\nBy Index (Hex): 0x{FileData[RewardAIndex].ToString("X2")}\nIndex: {RewardAIndex}\n";
+            ReturnRewardB = $"\nValue: {RewardB}\nInt32 (LE): {BitConverter.ToInt32(FileData, RewardBIndex)}\nBy Index: {FileData[RewardBIndex]}\nBy Index (Hex): 0x{FileData[RewardBIndex].ToString("X2")}\nIndex: {RewardBIndex}\n";
         }
 
         static void LoadLocations(byte[] FileData)
         {
             string location = null;
-            if (LocationList.Locations.TryGetValue(BitConverter.ToInt32(FileData, 228), out location))
+            if (LocationList.Locations.TryGetValue(BitConverter.ToInt32(FileData, LocationIndex), out location))
             {
                 //
             }
 
-            ReturnLocationInfo = $"\nValue: {location}\nInt32 (LE): {BitConverter.ToInt32(FileData, 228)}\nBy Index: {FileData[228]}\nBy Index (Hex): 0x{FileData[228].ToString("X2")}\nIndex: 228\n";
+            ReturnLocationInfo = $"\nValue: {location}\nInt32 (LE): {BitConverter.ToInt32(FileData, LocationIndex)}\nBy Index: {FileData[LocationIndex]}\nBy Index (Hex): 0x{FileData[LocationIndex].ToString("X2")}\nIndex: {LocationIndex}\n";
         }
 
         static void LoadRank(byte[] FileData) 
@@ -576,55 +603,55 @@ namespace QuestBinTools
             int RankValue = 0;
             string RankBands = null;
             string RankUnk = null;
-            if (Ranks.RankBands.TryGetValue(BitConverter.ToInt32(FileData, 72), out StatTable))
+            if (Ranks.RankBands.TryGetValue(BitConverter.ToInt32(FileData, RankIndex), out StatTable))
             {
-                RankValue = BitConverter.ToInt32(FileData, 72);
+                RankValue = BitConverter.ToInt32(FileData, RankIndex);
                 RankBands = StatTable;
-                StatTable = $"{BitConverter.ToInt32(FileData, 72)}   |   {StatTable}";
+                StatTable = $"{BitConverter.ToInt32(FileData, RankIndex)}   |   {StatTable}";
             }
             else
             {
-                RankUnk = BitConverter.ToInt32(FileData, 72).ToString();
-                StatTable = BitConverter.ToInt32(FileData, 72).ToString();
+                RankUnk = BitConverter.ToInt32(FileData, RankIndex).ToString();
+                StatTable = BitConverter.ToInt32(FileData, RankIndex).ToString();
             }
 
-            ReturnRankInfo = $"\nValue: {StatTable}\nInt32 (LE): {BitConverter.ToInt32(FileData, 72)}\nBy Index: {FileData[72]}\nBy Index (Hex): 0x{FileData[72].ToString("X2")}\nIndex: 72\n";
-            ReturnRankValue = $"\nValue: {RankValue}\nInt32 (LE): {BitConverter.ToInt32(FileData, 72)}\nBy Index: {FileData[72]}\nBy Index (Hex): 0x{FileData[72].ToString("X2")}\nIndex: 72\n";
-            ReturnRankBands = $"\nValue: {RankBands}\nInt32 (LE): {BitConverter.ToInt32(FileData, 72)}\nBy Index: {FileData[72]}\nBy Index (Hex): 0x{FileData[72].ToString("X2")}\nIndex: 72\n";
-            ReturnRankUnk = $"\nValue: {RankUnk}\nInt32 (LE): {BitConverter.ToInt32(FileData, 72)}\nBy Index: {FileData[72]}\nBy Index (Hex): 0x{FileData[72].ToString("X2")}\nIndex: 72\n";
+            ReturnRankInfo = $"\nValue: {StatTable}\nInt32 (LE): {BitConverter.ToInt32(FileData, RankIndex)}\nBy Index: {FileData[RankIndex]}\nBy Index (Hex): 0x{FileData[RankIndex].ToString("X2")}\nIndex: {RankIndex}\n";
+            ReturnRankValue = $"\nValue: {RankValue}\nInt32 (LE): {BitConverter.ToInt32(FileData, RankIndex)}\nBy Index: {FileData[RankIndex]}\nBy Index (Hex): 0x{FileData[RankIndex].ToString("X2")}\nIndex: {RankIndex}\n";
+            ReturnRankBands = $"\nValue: {RankBands}\nInt32 (LE): {BitConverter.ToInt32(FileData, RankIndex)}\nBy Index: {FileData[RankIndex]}\nBy Index (Hex): 0x{FileData[RankIndex].ToString("X2")}\nIndex: {RankIndex}\n";
+            ReturnRankUnk = $"\nValue: {RankUnk}\nInt32 (LE): {BitConverter.ToInt32(FileData, RankIndex)}\nBy Index: {FileData[RankIndex]}\nBy Index (Hex): 0x{FileData[RankIndex].ToString("X2")}\nIndex: {RankIndex}\n";
         }
 
         static void LoadMonsterVariant(byte[] FileData) 
         {
-            string Variant1A = FileData[337].ToString("X2");
-            string Variant2A = FileData[338].ToString("X2");
-            string Variant1B = FileData[345].ToString("X2");
-            string Variant2B = FileData[346].ToString("X2");
+            string Variant1A = FileData[Variant1AIndex].ToString("X2");
+            string Variant2A = FileData[Variant2AIndex].ToString("X2");
+            string Variant1B = FileData[Variant1BIndex].ToString("X2");
+            string Variant2B = FileData[Variant2BIndex].ToString("X2");
 
-            ReturnMonsterVariant1AInfo = $"\nValue: {Variant1A}\nData: {FileData[337]}\nBy Index: {FileData[337]}\nBy Index (Hex): 0x{FileData[337].ToString("X2")}\nIndex: 337\nString: X2\n";
-            ReturnMonsterVariant2AInfo = $"\nValue: {Variant2A}\nData: {FileData[338]}\nBy Index: {FileData[338]}\nBy Index (Hex): 0x{FileData[338].ToString("X2")}\nIndex: 338\nString: X2\n";;
-            ReturnMonsterVariant1BInfo = $"\nValue: {Variant1B}\nData: {FileData[345]}\nBy Index: {FileData[345]}\nBy Index (Hex): 0x{FileData[345].ToString("X2")}\nIndex: 345\nString: X2\n";;
-            ReturnMonsterVariant2BInfo = $"\nValue: {Variant2B}\nData: {FileData[346]}\nBy Index: {FileData[346]}\nBy Index (Hex): 0x{FileData[346].ToString("X2")}\nIndex: 346\nString: X2\n";;
+            ReturnMonsterVariant1AInfo = $"\nValue: {Variant1A}\nData: {FileData[Variant1AIndex]}\nBy Index: {FileData[Variant1AIndex]}\nBy Index (Hex): 0x{FileData[Variant1AIndex].ToString("X2")}\nIndex: {Variant1AIndex}\nString: X2\n";
+            ReturnMonsterVariant2AInfo = $"\nValue: {Variant2A}\nData: {FileData[Variant2AIndex]}\nBy Index: {FileData[Variant2AIndex]}\nBy Index (Hex): 0x{FileData[Variant2AIndex].ToString("X2")}\nIndex: {Variant2AIndex}\nString: X2\n";;
+            ReturnMonsterVariant1BInfo = $"\nValue: {Variant1B}\nData: {FileData[Variant1BIndex]}\nBy Index: {FileData[Variant1BIndex]}\nBy Index (Hex): 0x{FileData[Variant1BIndex].ToString("X2")}\nIndex: {Variant1BIndex}\nString: X2\n";;
+            ReturnMonsterVariant2BInfo = $"\nValue: {Variant2B}\nData: {FileData[Variant2BIndex]}\nBy Index: {FileData[Variant2BIndex]}\nBy Index (Hex): 0x{FileData[Variant2BIndex].ToString("X2")}\nIndex: {Variant2BIndex}\nString: X2\n";;
         }
 
         static void LoadMonsterCoords(byte[] FileData) 
         {
-            int monsterStart = BitConverter.ToInt32(FileData, 24);
-            int monsterTypePointer = BitConverter.ToInt32(FileData, monsterStart + 8);
+            int monsterStart = BitConverter.ToInt32(FileData, MonsterCoordStartIndex);
+            int monsterTypePointer = BitConverter.ToInt32(FileData, monsterStart + MonsterCoordTypePointer);
             int monsterSpawns = 0;
-            while (BitConverter.ToInt32(FileData, monsterTypePointer) > 0) 
+            while (BitConverter.ToInt32(FileData, monsterTypePointer) > MonsterCoordCheckIndex) 
             {
-                monsterTypePointer += 4;
-                monsterSpawns += 1;
+                monsterTypePointer += MonsterCoordTypePointerIncIndex;
+                monsterSpawns += MonsterCoordSpawnIncIndex;
             }
 
-            int monsterStatPointer = BitConverter.ToInt32(FileData, monsterStart + 12);
+            int monsterStatPointer = BitConverter.ToInt32(FileData, monsterStart + MonsterCoordStatPointer);
             Console.WriteLine($"{monsterStatPointer}");
-            if (monsterSpawns > 0) 
+            if (monsterSpawns > MonsterCoordCheckIndex) 
             {
                 var MonsterData = new Structs.MonsterSpawn[monsterSpawns];
                 brInput.BaseStream.Seek(monsterStatPointer, SeekOrigin.Begin);
-                for (int i = 0, loopTo = monsterSpawns - 1; i <= loopTo; i++) 
+                for (int i = 0, loopTo = monsterSpawns - MonsterCoordLoopIndexSub; i <= loopTo; i++) 
                 {
                     var cMon = new Structs.MonsterSpawn();
                     cMon.Monster = ReturnMonster(brInput.ReadInt32());
@@ -651,7 +678,7 @@ namespace QuestBinTools
 
         static void LoadMainObjective(byte[] FileData)
         {
-            string objectiveMainHex = ReturnObjectiveHex(FileData, 240);
+            string objectiveMainHex = ReturnObjectiveHex(FileData, MainObjHexIndex);
             string objectiveMainType = null;
             object ObjectiveMainQuant;
             string MainObj = null;
@@ -667,11 +694,11 @@ namespace QuestBinTools
 
             if (objectiveMainType == "Hunt" | objectiveMainType == "Slay" | objectiveMainType == "Damage" | objectiveMainType == "Slay or Damage" | objectiveMainType == "Capture")
             {
-                MainObj = ReturnMonster(FileData, 244);
+                MainObj = ReturnMonster(FileData, MainObjIndex);
             }
             else if (objectiveMainType == "Break Part")
             {
-                MainObj = BitConverter.ToInt16(FileData, 244).ToString();
+                MainObj = BitConverter.ToInt16(FileData, MainObjIndex).ToString();
             }
             else if (objectiveMainType == "Slay All")
             {
@@ -679,24 +706,24 @@ namespace QuestBinTools
             }
             else
             {
-                MainObj = ReturnItem(FileData, 244);
+                MainObj = ReturnItem(FileData, MainObjIndex);
             }
 
-            ObjectiveMainQuant = BitConverter.ToInt16(FileData, 246);
+            ObjectiveMainQuant = BitConverter.ToInt16(FileData, MainObjQuantIndex);
             if (objectiveMainType == "Damage" || objectiveMainType == "Slay or Damage")
             {
-                ObjectiveMainQuant = (int)ObjectiveMainQuant * 100;
+                ObjectiveMainQuant = (int)ObjectiveMainQuant * MainObjQuantMult;
             }
-
-            ReturnObjectiveMainHex = $"\nValue: {objectiveMainHex}\nReturnObjHex: {ReturnObjectiveHex(FileData, 240)}\nHex 1: (IndexInfo): (BCtoSTR): INDEX: {FileData[240]} | INDEX+1: {FileData[240 + 1]} | INDEX+2: {FileData[240 + 2]} | INDEX+3: {FileData[240 + 3]}\nHex 2: {BitConverter.ToString(new byte[] { FileData[240], FileData[240 + 1], FileData[240 + 2], FileData[240 + 3] })}\nHex 3: {FileData[240]} {FileData[240 + 1]} {FileData[240 + 2]} {FileData[240 + 3]}\nIndex: 240\n";
+            
+            ReturnObjectiveMainHex = $"\nValue: {objectiveMainHex}\nReturnObjHex: {ReturnObjectiveHex(FileData, MainObjHexIndex)}\nHex 1: (IndexInfo): (BCtoSTR): INDEX: {FileData[MainObjHexIndex]} | INDEX+1: {FileData[MainObjHexIndex + ObjectiveHexIncIndexA]} | INDEX+2: {FileData[MainObjHexIndex + ObjectiveHexIncIndexB]} | INDEX+3: {FileData[MainObjHexIndex + ObjectiveHexIncIndexC]}\nHex 2: {BitConverter.ToString(new byte[] { FileData[MainObjHexIndex], FileData[MainObjHexIndex + ObjectiveHexIncIndexA], FileData[MainObjHexIndex + ObjectiveHexIncIndexB], FileData[MainObjHexIndex + ObjectiveHexIncIndexC] })}\nHex 3: {FileData[MainObjHexIndex]} {FileData[MainObjHexIndex + ObjectiveHexIncIndexA]} {FileData[MainObjHexIndex + ObjectiveHexIncIndexB]} {FileData[MainObjHexIndex + ObjectiveHexIncIndexC]}\nIndex: {MainObjHexIndex}\n";
             ReturnObjectiveMainType = $"\nValue: {objectiveMainType}\nIndex: N/A\n";
-            ReturnObjectiveMainQuant = $"\nValue: {ObjectiveMainQuant} (* 100)\nInt16 (LE ?): {BitConverter.ToInt16(FileData, 246)}\nIndex: 246\n";
-            ReturnMainObj = $"\nValue: {MainObj}\nInt16 (LE ?): {BitConverter.ToInt16(FileData, 244).ToString()} / {BitConverter.ToInt16(FileData, 244)}\nBy Index: {FileData[244]}\nBy Index (Hex): 0x{FileData[244].ToString("X2")}\nIndex: 244\n";
+            ReturnObjectiveMainQuant = $"\nValue: {ObjectiveMainQuant} (* {MainObjQuantMult})\nInt16 (LE ?): {BitConverter.ToInt16(FileData, MainObjQuantIndex)}\nIndex: {MainObjQuantIndex}\n";
+            ReturnMainObj = $"\nValue: {MainObj}\nInt16 (LE ?): {BitConverter.ToInt16(FileData, MainObjIndex).ToString()} / {BitConverter.ToInt16(FileData, MainObjIndex)}\nBy Index: {FileData[MainObjIndex]}\nBy Index (Hex): 0x{FileData[MainObjIndex].ToString("X2")}\nIndex: {MainObjIndex}\n";
         }
 
         static void LoadSubAObjective(byte[] FileData)
         {
-            string objectiveSubAHex = ReturnObjectiveHex(FileData, 248);
+            string objectiveSubAHex = ReturnObjectiveHex(FileData, SubAObjHexIndex);
             string objectiveSubAType = null;
             object ObjectiveSubAQuant;
             string SubAObj  = null;
@@ -712,11 +739,11 @@ namespace QuestBinTools
 
             if (objectiveSubAType == "Hunt" | objectiveSubAType == "Slay" | objectiveSubAType == "Damage" | objectiveSubAType == "Slay or Damage" | objectiveSubAType == "Capture")
             {
-                SubAObj = ReturnMonster(FileData, 252);
+                SubAObj = ReturnMonster(FileData, SubAObjIndex);
             }
             else if (objectiveSubAType == "Break Part")
             {
-                SubAObj = BitConverter.ToInt16(FileData, 252).ToString();
+                SubAObj = BitConverter.ToInt16(FileData, SubAObjIndex).ToString();
             }
             else if (objectiveSubAType == "Slay All")
             {
@@ -724,7 +751,7 @@ namespace QuestBinTools
             }
             else
             {
-                SubAObj = ReturnItem(FileData, 252);
+                SubAObj = ReturnItem(FileData, SubAObjIndex);
             }
 
             if (SubAObj == "0" | string.IsNullOrEmpty(SubAObj))
@@ -732,21 +759,21 @@ namespace QuestBinTools
                 SubAObj = "None";
             }
 
-            ObjectiveSubAQuant = BitConverter.ToInt16(FileData, 254);
+            ObjectiveSubAQuant = BitConverter.ToInt16(FileData, SubAObjQuantIndex);
             if (objectiveSubAType == "Damage" || objectiveSubAType == "Slay or Damage")
             {
-                ObjectiveSubAQuant = (int)ObjectiveSubAQuant * 100;
+                ObjectiveSubAQuant = (int)ObjectiveSubAQuant * SubAObjQuantMult;
             }
 
-            ReturnObjectiveSubAHex = $"\nValue: {objectiveSubAHex}\nReturnObjHex: {ReturnObjectiveHex(FileData, 248)}\nHex 1: (IndexInfo): (BCtoSTR): INDEX: {FileData[248]} | INDEX+1: {FileData[248 + 1]} | INDEX+2: {FileData[248 + 2]} | INDEX+3: {FileData[248 + 3]}\nHex 2: {BitConverter.ToString(new byte[] { FileData[248], FileData[248 + 1], FileData[248 + 2], FileData[248 + 3] })}\nHex 3: {FileData[248]} {FileData[248 + 1]} {FileData[248 + 2]} {FileData[248 + 3]}\nIndex: 248\n";
+            ReturnObjectiveSubAHex = $"\nValue: {objectiveSubAHex}\nReturnObjHex: {ReturnObjectiveHex(FileData, SubAObjHexIndex)}\nHex 1: (IndexInfo): (BCtoSTR): INDEX: {FileData[SubAObjHexIndex]} | INDEX+1: {FileData[SubAObjHexIndex + ObjectiveHexIncIndexA]} | INDEX+2: {FileData[SubAObjHexIndex + ObjectiveHexIncIndexB]} | INDEX+3: {FileData[SubAObjHexIndex + ObjectiveHexIncIndexC]}\nHex 2: {BitConverter.ToString(new byte[] { FileData[SubAObjHexIndex], FileData[SubAObjHexIndex + ObjectiveHexIncIndexA], FileData[SubAObjHexIndex + ObjectiveHexIncIndexB], FileData[SubAObjHexIndex + ObjectiveHexIncIndexC] })}\nHex 3: {FileData[SubAObjHexIndex]} {FileData[SubAObjHexIndex + ObjectiveHexIncIndexA]} {FileData[SubAObjHexIndex + ObjectiveHexIncIndexB]} {FileData[SubAObjHexIndex + ObjectiveHexIncIndexC]}\nIndex: {SubAObjHexIndex}\n";
             ReturnObjectiveSubAType = $"\nValue: {objectiveSubAType}\nIndex: N/A\n";
-            ReturnObjectiveSubAQuant = $"\nValue: {ObjectiveSubAQuant} (* 100)\nInt16 (LE ?): {BitConverter.ToInt16(FileData, 254)}\nIndex: 254\n";
-            ReturnSubAObj = $"\nValue: {SubAObj}\nInt16 (LE ?): {BitConverter.ToInt16(FileData, 252).ToString()} / {BitConverter.ToInt16(FileData, 252)}\nBy Index: {FileData[252]}\nBy Index (Hex): 0x{FileData[252].ToString("X2")}\nIndex: 252\n";
+            ReturnObjectiveSubAQuant = $"\nValue: {ObjectiveSubAQuant} (* {SubAObjQuantMult})\nInt16 (LE ?): {BitConverter.ToInt16(FileData, SubAObjQuantIndex)}\nIndex: {SubAObjQuantIndex}\n";
+            ReturnSubAObj = $"\nValue: {SubAObj}\nInt16 (LE ?): {BitConverter.ToInt16(FileData, SubAObjIndex).ToString()} / {BitConverter.ToInt16(FileData, SubAObjIndex)}\nBy Index: {FileData[SubAObjIndex]}\nBy Index (Hex): 0x{FileData[SubAObjIndex].ToString("X2")}\nIndex: {SubAObjIndex}\n";
         }
 
         static void LoadSubBObjective(byte[] FileData)
         {
-            string objectiveSubBHex = ReturnObjectiveHex(FileData, 256);
+            string objectiveSubBHex = ReturnObjectiveHex(FileData, SubBObjHexIndex);
             string objectiveSubBType = null;
             object ObjectiveSubBQuant;
             string SubBObj  = null;
@@ -762,11 +789,11 @@ namespace QuestBinTools
 
             if (objectiveSubBType == "Hunt" | objectiveSubBType == "Slay" | objectiveSubBType == "Damage" | objectiveSubBType == "Slay or Damage" | objectiveSubBType == "Capture")
             {
-                SubBObj = ReturnMonster(FileData, 260);
+                SubBObj = ReturnMonster(FileData, SubBObjIndex);
             }
             else if (objectiveSubBType == "Break Part")
             {
-                SubBObj = BitConverter.ToInt16(FileData, 260).ToString();
+                SubBObj = BitConverter.ToInt16(FileData, SubBObjIndex).ToString();
             }
             else if (objectiveSubBType == "Slay All")
             {
@@ -774,7 +801,7 @@ namespace QuestBinTools
             }
             else
             {
-                SubBObj = ReturnItem(FileData, 260);
+                SubBObj = ReturnItem(FileData, SubBObjIndex);
             }
 
             if (SubBObj == "0" | string.IsNullOrEmpty(SubBObj))
@@ -782,16 +809,16 @@ namespace QuestBinTools
                 SubBObj = "None";
             }
 
-            ObjectiveSubBQuant = BitConverter.ToInt16(FileData, 262);
+            ObjectiveSubBQuant = BitConverter.ToInt16(FileData, SubBObjQuantIndex);
             if (objectiveSubBType == "Damage" || objectiveSubBType == "Slay or Damage")
             {
-                ObjectiveSubBQuant = (int)ObjectiveSubBQuant * 100;
+                ObjectiveSubBQuant = (int)ObjectiveSubBQuant * SubBObjQuantMult;
             }
 
-            ReturnObjectiveSubBHex = $"\nValue: {objectiveSubBHex}\nReturnObjHex: {ReturnObjectiveHex(FileData, 256)}\nHex 1: (IndexInfo): (BCtoSTR): INDEX: {FileData[256]} | INDEX+1: {FileData[256 + 1]} | INDEX+2: {FileData[256 + 2]} | INDEX+3: {FileData[256 + 3]}\nHex 2: {BitConverter.ToString(new byte[] { FileData[256], FileData[256 + 1], FileData[256 + 2], FileData[256 + 3] })}\nHex 3: {FileData[256]} {FileData[256 + 1]} {FileData[256 + 2]} {FileData[256 + 3]}\nIndex: 256\n";
+            ReturnObjectiveSubBHex = $"\nValue: {objectiveSubBHex}\nReturnObjHex: {ReturnObjectiveHex(FileData, SubBObjHexIndex)}\nHex 1: (IndexInfo): (BCtoSTR): INDEX: {FileData[SubBObjHexIndex]} | INDEX+1: {FileData[SubBObjHexIndex + ObjectiveHexIncIndexA]} | INDEX+2: {FileData[SubBObjHexIndex + ObjectiveHexIncIndexB]} | INDEX+3: {FileData[SubBObjHexIndex + ObjectiveHexIncIndexC]}\nHex 2: {BitConverter.ToString(new byte[] { FileData[SubBObjHexIndex], FileData[SubBObjHexIndex + ObjectiveHexIncIndexA], FileData[SubBObjHexIndex + ObjectiveHexIncIndexB], FileData[SubBObjHexIndex + ObjectiveHexIncIndexC] })}\nHex 3: {FileData[SubBObjHexIndex]} {FileData[SubBObjHexIndex + ObjectiveHexIncIndexA]} {FileData[SubBObjHexIndex + ObjectiveHexIncIndexB]} {FileData[SubBObjHexIndex + ObjectiveHexIncIndexC]}\nIndex: {SubBObjHexIndex}\n";
             ReturnObjectiveSubBType = $"\nValue: {objectiveSubBType}\nIndex: N/A\n";
-            ReturnObjectiveSubBQuant = $"\nValue: {ObjectiveSubBQuant} (* 100)\nInt16 (LE ?): {BitConverter.ToInt16(FileData, 262)}\nIndex: 262\n";
-            ReturnSubBObj = $"\nValue: {SubBObj}\nInt16 (LE ?): {BitConverter.ToInt16(FileData, 260).ToString()} / {BitConverter.ToInt16(FileData, 260)}\nBy Index: {FileData[260]}\nBy Index (Hex): 0x{FileData[260].ToString("X2")}\nIndex: 260\n";
+            ReturnObjectiveSubBQuant = $"\nValue: {ObjectiveSubBQuant} (* {SubBObjQuantMult})\nInt16 (LE ?): {BitConverter.ToInt16(FileData, SubBObjQuantIndex)}\nIndex: {SubBObjQuantIndex}\n";
+            ReturnSubBObj = $"\nValue: {SubBObj}\nInt16 (LE ?): {BitConverter.ToInt16(FileData, SubBObjIndex).ToString()} / {BitConverter.ToInt16(FileData, SubBObjIndex)}\nBy Index: {FileData[SubBObjIndex]}\nBy Index (Hex): 0x{FileData[SubBObjIndex].ToString("X2")}\nIndex: {SubBObjIndex}\n";
         }
     }
 }

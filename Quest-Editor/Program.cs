@@ -63,22 +63,29 @@ namespace QuestBinTools
         private static int QuestStringsStartIndexA = 48;
         private static int QuestStringsStartIndexB = 232;
         private static int QuestStringsStartPointer = 4;
+
         private static int QuestFeeIndex = 204;
         private static int PrimaryRewardIndex = 208;
         private static int RewardAIndex = 216;
         private static int RewardBIndex = 220;
+
         private static int LocationIndex = 228;
+        
         private static int RankIndex = 72;
+
         private static int Variant1AIndex = 337;
         private static int Variant2AIndex = 338;
         private static int Variant1BIndex = 345;
         private static int Variant2BIndex = 346;
+
         private static int ObjectiveHexIncIndexA = 1;
         private static int ObjectiveHexIncIndexB = 2;
         private static int ObjectiveHexIncIndexC = 3;
+
         private static int InterceptionLoopIndexA = 377;
         private static int InterceptionLoopIndexB = 382;
         private static int InterceptionLoopIndexSub = 1;
+
         private static int MonsterCoordStartIndex = 24;
         private static int MonsterCoordTypePointer = 8;
         private static int MonsterCoordTypePointerIncIndex = 4;

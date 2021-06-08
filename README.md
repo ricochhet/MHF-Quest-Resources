@@ -81,6 +81,7 @@ Please make sure you compiled each ReFrontierTool and input the full path includ
 - Open a command line here as well, and run `FrontierDataTool modshop mhfdat.bin`
 - Assuming this was succesful, put this bin file back into the ReFrontier directory and run the following commands:
 - `ReFrontier mhfdat.bin -compress 4,100 -close` (Note: I'm not entirely sure compression is needed, but these files can be big decompressed, so it's nice to have smol file :)) )
+- Make sure you're encrypting the file found in output, and not a different one, and that the .meta file is next to the file in output. (.meta files are only generated if the file being decompressed has encryption, quest files are not encrypted.)
 - `ReFrontier mhfdat.bin -encrypt -close` (This step is 100% required, otherwise you'll get an anomally error when you run the game.)
 
 ### Misc

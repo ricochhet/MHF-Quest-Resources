@@ -3,7 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 
-namespace QuestBinTools
+namespace QuestEditor
 {
     public class Items
     {

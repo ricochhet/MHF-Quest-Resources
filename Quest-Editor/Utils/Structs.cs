@@ -1,5 +1,5 @@
 
-namespace QuestBinTools
+namespace QuestEditor
 {
     public class Structs
     {

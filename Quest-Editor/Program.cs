@@ -40,6 +40,18 @@ namespace QuestEditor
 
             QuestReader.ObjectDumper(QuestReader.ReturnRewardBDict);
             QuestReader.NewLine();
+
+            QuestReader.ObjectDumper(QuestReader.ReturnMonsterVariant1AInfoDict);
+            QuestReader.NewLine();
+
+            QuestReader.ObjectDumper(QuestReader.ReturnMonsterVariant2AInfoDict);
+            QuestReader.NewLine();
+
+            QuestReader.ObjectDumper(QuestReader.ReturnMonsterVariant1BInfoDict);
+            QuestReader.NewLine();
+
+            QuestReader.ObjectDumper(QuestReader.ReturnMonsterVariant2BInfoDict);
+            QuestReader.NewLine();
         }
     }
 }

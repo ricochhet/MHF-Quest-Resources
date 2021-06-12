@@ -91,6 +91,42 @@ namespace QuestEditor
         public int Index { get; set; }
     }
 
+    internal class ReturnMonsterVariant1AInfoDict
+    {
+        public string Value { get; set; }
+        public int Int32LE { get; set; }
+        public byte ByIndex { get; set; }
+        public string ByIndexHex { get; set; }
+        public int Index { get; set; }
+    }
+
+    internal class ReturnMonsterVariant2AInfoDict
+    {
+        public string Value { get; set; }
+        public int Int32LE { get; set; }
+        public byte ByIndex { get; set; }
+        public string ByIndexHex { get; set; }
+        public int Index { get; set; }
+    }
+
+    internal class ReturnMonsterVariant1BInfoDict
+    {
+        public string Value { get; set; }
+        public int Int32LE { get; set; }
+        public byte ByIndex { get; set; }
+        public string ByIndexHex { get; set; }
+        public int Index { get; set; }
+    }
+
+    internal class ReturnMonsterVariant2BInfoDict
+    {
+        public string Value { get; set; }
+        public int Int32LE { get; set; }
+        public byte ByIndex { get; set; }
+        public string ByIndexHex { get; set; }
+        public int Index { get; set; }
+    }
+
     class QuestReader
     {
         public static byte[] BaseFile;
@@ -107,6 +143,11 @@ namespace QuestEditor
         public static ReturnPrimaryRewardDict ReturnPrimaryRewardDict = new ReturnPrimaryRewardDict();
         public static ReturnRewardADict ReturnRewardADict = new ReturnRewardADict();
         public static ReturnRewardBDict ReturnRewardBDict = new ReturnRewardBDict();
+
+        public static ReturnMonsterVariant1AInfoDict ReturnMonsterVariant1AInfoDict = new ReturnMonsterVariant1AInfoDict();
+        public static ReturnMonsterVariant2AInfoDict ReturnMonsterVariant2AInfoDict = new ReturnMonsterVariant2AInfoDict();
+        public static ReturnMonsterVariant1BInfoDict ReturnMonsterVariant1BInfoDict = new ReturnMonsterVariant1BInfoDict();
+        public static ReturnMonsterVariant2BInfoDict ReturnMonsterVariant2BInfoDict = new ReturnMonsterVariant2BInfoDict();
 
         public static string ReturnLocationInfo;
 
@@ -810,6 +851,31 @@ namespace QuestEditor
             string Variant2A = FileData[Variant2AIndex].ToString("X2");
             string Variant1B = FileData[Variant1BIndex].ToString("X2");
             string Variant2B = FileData[Variant2BIndex].ToString("X2");
+
+            ReturnMonsterVariant1AInfoDict.Value = Variant1A;
+            ReturnMonsterVariant1AInfoDict.Int32LE = BitConverter.ToInt32(FileData, Variant1AIndex);
+            ReturnMonsterVariant1AInfoDict.ByIndex = FileData[Variant1AIndex];
+            ReturnMonsterVariant1AInfoDict.ByIndexHex = FileData[Variant1AIndex].ToString("X2");
+            ReturnMonsterVariant1AInfoDict.Index = Variant1AIndex;
+
+            ReturnMonsterVariant2AInfoDict.Value = Variant2A;
+            ReturnMonsterVariant2AInfoDict.Int32LE = BitConverter.ToInt32(FileData, Variant2AIndex);
+            ReturnMonsterVariant2AInfoDict.ByIndex = FileData[Variant2AIndex];
+            ReturnMonsterVariant2AInfoDict.ByIndexHex = FileData[Variant2AIndex].ToString("X2");
+            ReturnMonsterVariant2AInfoDict.Index = Variant2AIndex;
+
+            ReturnMonsterVariant1BInfoDict.Value = Variant1B;
+            ReturnMonsterVariant1BInfoDict.Int32LE = BitConverter.ToInt32(FileData, Variant1BIndex);
+            ReturnMonsterVariant1BInfoDict.ByIndex = FileData[Variant1BIndex];
+            ReturnMonsterVariant1BInfoDict.ByIndexHex = FileData[Variant1BIndex].ToString("X2");
+            ReturnMonsterVariant1BInfoDict.Index = Variant1BIndex;
+
+            ReturnMonsterVariant2BInfoDict.Value = Variant2B;
+            ReturnMonsterVariant2BInfoDict.Int32LE = BitConverter.ToInt32(FileData, Variant2BIndex);
+            ReturnMonsterVariant2BInfoDict.ByIndex = FileData[Variant2BIndex];
+            ReturnMonsterVariant2BInfoDict.ByIndexHex = FileData[Variant2BIndex].ToString("X2");
+            ReturnMonsterVariant2BInfoDict.Index = Variant2BIndex;
+
 
             ReturnMonsterVariant1AInfo = $"\nValue: {Variant1A}\nData: {FileData[Variant1AIndex]}\nBy Index: {FileData[Variant1AIndex]}\nBy Index (Hex): 0x{FileData[Variant1AIndex].ToString("X2")}\nIndex: {Variant1AIndex}\nString: X2\n";
             ReturnMonsterVariant2AInfo = $"\nValue: {Variant2A}\nData: {FileData[Variant2AIndex]}\nBy Index: {FileData[Variant2AIndex]}\nBy Index (Hex): 0x{FileData[Variant2AIndex].ToString("X2")}\nIndex: {Variant2AIndex}\nString: X2\n";;

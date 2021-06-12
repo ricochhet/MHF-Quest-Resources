@@ -13,6 +13,33 @@ namespace QuestEditor
         static void Main(string[] args)
         {
             QuestReader.LoadQuestData(args);
+
+            QuestReader.ObjectDumper(QuestReader.ReturnLocationDict);
+            QuestReader.NewLine();
+
+            QuestReader.ObjectDumper(QuestReader.ReturnRankInfoDict);
+            QuestReader.NewLine();
+
+            QuestReader.ObjectDumper(QuestReader.ReturnRankValueDict);
+            QuestReader.NewLine();
+            
+            QuestReader.ObjectDumper(QuestReader.ReturnRankBandsDict);
+            QuestReader.NewLine();
+
+            QuestReader.ObjectDumper(QuestReader.ReturnRankUnkDict);
+            QuestReader.NewLine();
+
+            QuestReader.ObjectDumper(QuestReader.ReturnQuestFeeDict);
+            QuestReader.NewLine();
+
+            QuestReader.ObjectDumper(QuestReader.ReturnPrimaryRewardDict);
+            QuestReader.NewLine();
+
+            QuestReader.ObjectDumper(QuestReader.ReturnRewardADict);
+            QuestReader.NewLine();
+
+            QuestReader.ObjectDumper(QuestReader.ReturnRewardBDict);
+            QuestReader.NewLine();
         }
     }
 }

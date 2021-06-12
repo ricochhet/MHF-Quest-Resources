@@ -5,16 +5,110 @@ using System.Text;
 using System.Collections.Generic;
 using DamienG.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.ComponentModel;
+
 
 namespace QuestEditor
 {
+    internal class ReturnLocationDict
+    {
+        public string Value { get; set; }
+        public int Int32LE { get; set; }
+        public byte ByIndex { get; set; }
+        public string ByIndexHex { get; set; }
+        public int Index { get; set; }
+    }
+
+    internal class ReturnRankInfoDict
+    {
+        public string Value { get; set; }
+        public int Int32LE { get; set; }
+        public byte ByIndex { get; set; }
+        public string ByIndexHex { get; set; }
+        public int Index { get; set; }
+    }
+
+    internal class ReturnRankValueDict
+    {
+        public int Value { get; set; }
+        public int Int32LE { get; set; }
+        public byte ByIndex { get; set; }
+        public string ByIndexHex { get; set; }
+        public int Index { get; set; }
+    }
+
+    internal class ReturnRankBandsDict
+    {
+        public string Value { get; set; }
+        public int Int32LE { get; set; }
+        public byte ByIndex { get; set; }
+        public string ByIndexHex { get; set; }
+        public int Index { get; set; }
+    }
+
+    internal class ReturnRankUnkDict
+    {
+        public string Value { get; set; }
+        public int Int32LE { get; set; }
+        public byte ByIndex { get; set; }
+        public string ByIndexHex { get; set; }
+        public int Index { get; set; }
+    }
+
+    internal class ReturnQuestFeeDict
+    {
+        public int Value { get; set; }
+        public int Int32LE { get; set; }
+        public byte ByIndex { get; set; }
+        public string ByIndexHex { get; set; }
+        public int Index { get; set; }
+    }
+
+    internal class ReturnPrimaryRewardDict
+    {
+        public int Value { get; set; }
+        public int Int32LE { get; set; }
+        public byte ByIndex { get; set; }
+        public string ByIndexHex { get; set; }
+        public int Index { get; set; }
+    }
+
+    internal class ReturnRewardADict
+    {
+        public int Value { get; set; }
+        public int Int32LE { get; set; }
+        public byte ByIndex { get; set; }
+        public string ByIndexHex { get; set; }
+        public int Index { get; set; }
+    }
+
+    internal class ReturnRewardBDict
+    {
+        public int Value { get; set; }
+        public int Int32LE { get; set; }
+        public byte ByIndex { get; set; }
+        public string ByIndexHex { get; set; }
+        public int Index { get; set; }
+    }
+
     class QuestReader
     {
         public static byte[] BaseFile;
         public static BinaryReader brInput;
 
+        public static ReturnLocationDict ReturnLocationDict = new ReturnLocationDict();
+        
+        public static ReturnRankInfoDict ReturnRankInfoDict = new ReturnRankInfoDict();
+        public static ReturnRankValueDict ReturnRankValueDict = new ReturnRankValueDict();
+        public static ReturnRankBandsDict ReturnRankBandsDict = new ReturnRankBandsDict();
+        public static ReturnRankUnkDict ReturnRankUnkDict = new ReturnRankUnkDict();
+
+        public static ReturnQuestFeeDict ReturnQuestFeeDict = new ReturnQuestFeeDict();
+        public static ReturnPrimaryRewardDict ReturnPrimaryRewardDict = new ReturnPrimaryRewardDict();
+        public static ReturnRewardADict ReturnRewardADict = new ReturnRewardADict();
+        public static ReturnRewardBDict ReturnRewardBDict = new ReturnRewardBDict();
+
         public static string ReturnLocationInfo;
-        public static Dictionary<string, string> ReturnLocationDict = new Dictionary<string, string>();
 
         public static string ReturnRankInfo;
         public static string ReturnRankValue;
@@ -207,6 +301,16 @@ namespace QuestEditor
             return hex;
         }
 
+        public static void ObjectDumper(object obj)
+        {
+            foreach(PropertyDescriptor descriptor in TypeDescriptor.GetProperties(obj))
+            {
+                string name = descriptor.Name;
+                object value = descriptor.GetValue(obj);
+                Console.WriteLine("Key: {0}        Value: {1}",name,value);
+            }
+        }
+
         public static void ReadDict(Dictionary<string, string> dictionary) 
         {
             for (int i = 0; i < dictionary.Count; i++) 
@@ -214,6 +318,11 @@ namespace QuestEditor
                 Console.WriteLine("Key: {0}        Value: {1}", 
                     dictionary.ElementAt(i).Key, dictionary.ElementAt(i).Value);
             }
+        }
+
+        public static void NewLine()
+        {
+            Console.WriteLine("\n");
         }
 
         public static void WriteLine(string String, params object[] Objs) 
@@ -597,6 +706,31 @@ namespace QuestEditor
             int RewardA = BitConverter.ToInt32(FileData, RewardAIndex);
             int RewardB = BitConverter.ToInt32(FileData, RewardBIndex);
 
+            ReturnQuestFeeDict.Value = QuestFee;
+            ReturnQuestFeeDict.Int32LE = BitConverter.ToInt32(FileData, QuestFeeIndex);
+            ReturnQuestFeeDict.ByIndex = FileData[QuestFeeIndex];
+            ReturnQuestFeeDict.ByIndexHex = FileData[QuestFeeIndex].ToString("X2");
+            ReturnQuestFeeDict.Index = QuestFeeIndex;
+
+            ReturnPrimaryRewardDict.Value = PrimaryReward;
+            ReturnPrimaryRewardDict.Int32LE = BitConverter.ToInt32(FileData, PrimaryRewardIndex);
+            ReturnPrimaryRewardDict.ByIndex = FileData[PrimaryRewardIndex];
+            ReturnPrimaryRewardDict.ByIndexHex = FileData[PrimaryRewardIndex].ToString("X2");
+            ReturnPrimaryRewardDict.Index = PrimaryRewardIndex;
+
+            ReturnRewardADict.Value = RewardA;
+            ReturnRewardADict.Int32LE = BitConverter.ToInt32(FileData, RewardAIndex);
+            ReturnRewardADict.ByIndex = FileData[RewardAIndex];
+            ReturnRewardADict.ByIndexHex = FileData[RewardAIndex].ToString("X2");
+            ReturnRewardADict.Index = RewardAIndex;
+
+            ReturnRewardBDict.Value = RewardB;
+            ReturnRewardBDict.Int32LE = BitConverter.ToInt32(FileData, RewardBIndex);
+            ReturnRewardBDict.ByIndex = FileData[RewardBIndex];
+            ReturnRewardBDict.ByIndexHex = FileData[RewardBIndex].ToString("X2");
+            ReturnRewardBDict.Index = RewardBIndex;
+
+
             ReturnQuestFee = $"\nValue: {QuestFee}\nInt32 (LE): {BitConverter.ToInt32(FileData, QuestFeeIndex)}\nBy Index: {FileData[QuestFeeIndex]}\nBy Index (Hex): 0x{FileData[QuestFeeIndex].ToString("X2")}\nIndex: {QuestFeeIndex}\n";
             ReturnPrimaryReward = $"\nValue: {PrimaryReward}\nInt32 (LE): {BitConverter.ToInt32(FileData, PrimaryRewardIndex)}\nBy Index: {FileData[PrimaryRewardIndex]}\nBy Index (Hex): 0x{FileData[PrimaryRewardIndex].ToString("X2")}\nIndex: {PrimaryRewardIndex}\n";
             ReturnRewardA = $"\nValue: {RewardA}\nInt32 (LE): {BitConverter.ToInt32(FileData, RewardAIndex)}\nBy Index: {FileData[RewardAIndex]}\nBy Index (Hex): 0x{FileData[RewardAIndex].ToString("X2")}\nIndex: {RewardAIndex}\n";
@@ -611,10 +745,12 @@ namespace QuestEditor
                 //
             }
 
-            ReturnLocationDict.Add("value", location.ToString());
-            ReturnLocationDict.Add("int32le", BitConverter.ToInt32(FileData, LocationIndex).ToString());
-            ReturnLocationDict.Add("byIndex", FileData[LocationIndex].ToString());
-            ReturnLocationDict.Add("byIndexHex", FileData[LocationIndex].ToString("X2"));
+            ReturnLocationDict.Value = location;
+            ReturnLocationDict.Int32LE = BitConverter.ToInt32(FileData, LocationIndex);
+            ReturnLocationDict.ByIndex = FileData[LocationIndex];
+            ReturnLocationDict.ByIndexHex = FileData[LocationIndex].ToString("X2");
+            ReturnLocationDict.Index = LocationIndex;
+            
 
             ReturnLocationInfo = $"\nValue: {location}\nInt32 (LE): {BitConverter.ToInt32(FileData, LocationIndex)}\nBy Index: {FileData[LocationIndex]}\nBy Index (Hex): 0x{FileData[LocationIndex].ToString("X2")}\nIndex: {LocationIndex}\n";
         }
@@ -636,6 +772,31 @@ namespace QuestEditor
                 RankUnk = BitConverter.ToInt32(FileData, RankIndex).ToString();
                 StatTable = BitConverter.ToInt32(FileData, RankIndex).ToString();
             }
+
+            ReturnRankInfoDict.Value = StatTable;
+            ReturnRankInfoDict.Int32LE = BitConverter.ToInt32(FileData, RankIndex);
+            ReturnRankInfoDict.ByIndex = FileData[RankIndex];
+            ReturnRankInfoDict.ByIndexHex = FileData[RankIndex].ToString("X2");
+            ReturnRankInfoDict.Index = RankIndex;
+
+            ReturnRankValueDict.Value = RankValue;
+            ReturnRankValueDict.Int32LE = BitConverter.ToInt32(FileData, RankIndex);
+            ReturnRankValueDict.ByIndex = FileData[RankIndex];
+            ReturnRankValueDict.ByIndexHex = FileData[RankIndex].ToString("X2");
+            ReturnRankValueDict.Index = RankIndex;
+
+            ReturnRankBandsDict.Value = RankBands;
+            ReturnRankBandsDict.Int32LE = BitConverter.ToInt32(FileData, RankIndex);
+            ReturnRankBandsDict.ByIndex = FileData[RankIndex];
+            ReturnRankBandsDict.ByIndexHex = FileData[RankIndex].ToString("X2");
+            ReturnRankBandsDict.Index = RankIndex;
+
+            ReturnRankUnkDict.Value = RankUnk;
+            ReturnRankUnkDict.Int32LE = BitConverter.ToInt32(FileData, RankIndex);
+            ReturnRankUnkDict.ByIndex = FileData[RankIndex];
+            ReturnRankUnkDict.ByIndexHex = FileData[RankIndex].ToString("X2");
+            ReturnRankUnkDict.Index = RankIndex;
+
 
             ReturnRankInfo = $"\nValue: {StatTable}\nInt32 (LE): {BitConverter.ToInt32(FileData, RankIndex)}\nBy Index: {FileData[RankIndex]}\nBy Index (Hex): 0x{FileData[RankIndex].ToString("X2")}\nIndex: {RankIndex}\n";
             ReturnRankValue = $"\nValue: {RankValue}\nInt32 (LE): {BitConverter.ToInt32(FileData, RankIndex)}\nBy Index: {FileData[RankIndex]}\nBy Index (Hex): 0x{FileData[RankIndex].ToString("X2")}\nIndex: {RankIndex}\n";

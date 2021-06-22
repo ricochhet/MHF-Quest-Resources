@@ -24,11 +24,14 @@ Progress enabler "quests" can be found here: [mhfz_progression](https://archive.
 As of June 22, 2021, The batch script are obsolete but are kept for future reference points.
 ~~**Until a proper quest editor is made, I would recommend using a hex editor such as HxD or 010 to actually edit / write files.**~~
 
+- Basic info: `<integration> <arguments> <parameters>
+    - Example: `QuestTool ./path/to/file.bin -log` / from source; `dotnet run QuestTool ./path/to/file.bin -log`.
+
 - This tool integrates [ReFrontier](https://github.com/mhvuze/ReFrontier). 
 - Usage of ReFrontier tools can be started by `ReFrontier` / `FrontierDataTool` / `FrontierTextTool`
     - Documentation for these tools will be explained in the future. 
 
-- The main tool `QuestTool` has various arguments and parameters. `QuestTool <arguments> <parameters>
+- The main tool `QuestTool` has various arguments and parameters. `QuestTool <arguments> <parameters>`
     - **Note:** Debug mode is enabled by default, change the Debug variable in QuestWriter from true to false if you want to actually write.
     - `-log` - logs the specified file - `QuestTool ./path/to/file.bin -log`
     - `-strToHex` - converts string to hex code - `QuestTool -strToHex My Text`

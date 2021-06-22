@@ -22,7 +22,7 @@ Progress enabler "quests" can be found here: [mhfz_progression](https://archive.
 
 ## Documentation
 As of June 22, 2021, The batch script are obsolete but are kept for future reference points.
-**Until a proper quest editor is made, I would recommend using a hex editor such as HxD or 010 to actually edit / write files.**
+~~**Until a proper quest editor is made, I would recommend using a hex editor such as HxD or 010 to actually edit / write files.**~~
 
 - This tool integrates [ReFrontier](https://github.com/mhvuze/ReFrontier). 
 - Usage of ReFrontier tools can be started by `ReFrontier` / `FrontierDataTool` / `FrontierTextTool`

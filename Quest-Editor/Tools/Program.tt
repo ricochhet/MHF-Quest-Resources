@@ -1,0 +1,605 @@
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.ComponentModel;
+using System.Collections.Generic;
+using DamienG.Security.Cryptography;
+using System.Text.RegularExpressions;
+using ReFrontier;
+
+namespace QuestEditor
+{
+    class Program
+    {
+        public static bool ReFrontierToolCheck = false;
+        public static bool FrontierDataToolCheck = false;
+        public static bool FrontierTextToolCheck = false;
+        public static bool QuestToolCheck = false;
+            public static string fileName;
+            // public static StreamWriter writeStream;
+            public static bool CreateLogFile = false;
+            public static bool StrToHex = false;
+            public static bool WriteQuest = false;
+                public static string outputFileName;
+            public static bool Debug = true;
+            public static bool ExecuteWriteFile = true;
+            public static bool OverwriteInvalidData = false;
+
+                public static bool WriteQuestLocation = false;
+
+                public static bool WriteMainQuestType = false;
+                public static bool WriteSubAQuestType = false;
+                public static bool WriteSubBQuestType = false;
+
+                public static bool WriteMainQuestGoal = false;
+                public static bool WriteSubAQuestGoal = false;
+                public static bool WriteSubBQuestGoal = false;
+
+        static void Main(string[] args)
+        {
+            /* We have to specify an extra coding provider for more encoding options. 
+            https://docs.microsoft.com/en-us/dotnet/api/system.text.codepagesencodingprovider?view=net-5.0
+            */
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+            // QuestReader.LoadQuestData(args);
+            if (args.Length < 1) { Console.WriteLine("Too few arguments."); return; }
+            string input = args[0];
+            string[] modifiedArgs = args.Skip(1).ToArray();
+
+            if (input == "QuestTool") { QuestToolCheck = true; ReFrontierToolCheck = false; FrontierDataToolCheck = false; FrontierTextToolCheck = false; }
+            if (input == "ReFrontier") { QuestToolCheck = false; ReFrontierToolCheck = true; FrontierDataToolCheck = false; FrontierTextToolCheck = false; }
+            if (input == "FrontierDataTool") { QuestToolCheck = false; ReFrontierToolCheck = false; FrontierDataToolCheck = true; FrontierTextToolCheck = false; }
+            if (input == "FrontierTextTool") { QuestToolCheck = false; ReFrontierToolCheck = false; FrontierDataToolCheck = false; FrontierTextToolCheck = true; }
+
+            if (QuestToolCheck) { Console.WriteLine("Integration: Quest Tool"); InitQuestToolIntegration(modifiedArgs); }
+            if (ReFrontierToolCheck) { Console.WriteLine("Integration: ReFrontier"); InitReFrontierIntegration(modifiedArgs); }
+            if (FrontierDataToolCheck) { Console.WriteLine("Integration: FrontierDataTool"); InitFrontierDataToolIntegration(modifiedArgs); }
+            if (FrontierTextToolCheck) { Console.WriteLine("Integration: FrontierTextTool"); InitFrontierTextToolIntegration(modifiedArgs); }
+
+            if (!QuestToolCheck && !ReFrontierToolCheck && !FrontierDataToolCheck && !FrontierTextToolCheck) { Console.WriteLine("No integrations specified"); }
+        }
+
+        public static void InitReFrontierIntegration(string[] args)
+        {
+            ReFrontier.ReFrontier.Initialize(args);
+        }
+
+        public static void InitFrontierDataToolIntegration(string[] args)
+        {
+            FrontierDataTool.FrontierDataTool.Initialize(args);
+        }
+
+        public static void InitFrontierTextToolIntegration(string[] args)
+        {
+            FrontierTextTool.FrontierTextTool.Initialize(args);
+        }
+
+        public static void InitQuestToolIntegration(string[] args)
+        {
+            if (args.Length < 1) { Console.WriteLine("Too few arguments."); return; }
+            string input = args[0];
+            if (args.Any("-log".Contains)) { CreateLogFile = true; StrToHex = false; WriteQuest = false; }
+            if (args.Any("-strToHex".Contains)) { StrToHex = true; }
+            if (args.Any("-edit".Contains)) { WriteQuest = true; }
+                if (args.Any("-mobjGoal".Contains) && WriteQuest) 
+                { 
+                    WriteMainQuestGoal = true;
+                    WriteSubAQuestGoal = false;
+                    WriteSubBQuestGoal = false;
+
+                    WriteMainQuestType = false;
+                    WriteSubAQuestType = false;
+                    WriteSubBQuestType = false;
+
+                    WriteQuestLocation = false;
+                }
+
+                if (args.Any("-aobjGoal".Contains) && WriteQuest) 
+                { 
+                    WriteMainQuestGoal = false;
+                    WriteSubAQuestGoal = true;
+                    WriteSubBQuestGoal = false;
+
+                    WriteMainQuestType = false;
+                    WriteSubAQuestType = false;
+                    WriteSubBQuestType = false;
+
+                    WriteQuestLocation = false;
+                }
+
+                if (args.Any("-bobjGoal".Contains) && WriteQuest) 
+                { 
+                    WriteMainQuestGoal = false;
+                    WriteSubAQuestGoal = false;
+                    WriteSubBQuestGoal = true;
+
+                    WriteMainQuestType = false;
+                    WriteSubAQuestType = false;
+                    WriteSubBQuestType = false;
+
+                    WriteQuestLocation = false;
+                }
+                
+                if (args.Any("-mobjType".Contains) && WriteQuest) 
+                { 
+                    WriteMainQuestGoal = false;
+                    WriteSubAQuestGoal = false;
+                    WriteSubBQuestGoal = false;
+
+                    WriteMainQuestType = true;
+                    WriteSubAQuestType = false;
+                    WriteSubBQuestType = false;
+
+                    WriteQuestLocation = false;
+                }
+
+                if (args.Any("-aobjType".Contains) && WriteQuest) 
+                { 
+                    WriteMainQuestGoal = false;
+                    WriteSubAQuestGoal = false;
+                    WriteSubBQuestGoal = false;
+
+                    WriteMainQuestType = false;
+                    WriteSubAQuestType = true;
+                    WriteSubBQuestType = false;
+
+                    WriteQuestLocation = false;
+                }
+
+                if (args.Any("-bobjType".Contains) && WriteQuest) 
+                { 
+                    WriteMainQuestGoal = false;
+                    WriteSubAQuestGoal = false;
+                    WriteSubBQuestGoal = false;
+
+                    WriteMainQuestType = false;
+                    WriteSubAQuestType = false;
+                    WriteSubBQuestType = true;
+
+                    WriteQuestLocation = false;
+                }
+
+                if (args.Any("-objLocal".Contains) && WriteQuest)
+                {
+                    WriteMainQuestGoal = false;
+                    WriteSubAQuestGoal = false;
+                    WriteSubBQuestGoal = false;
+
+                    WriteMainQuestType = false;
+                    WriteSubAQuestType = false;
+                    WriteSubBQuestType = false;
+
+                    WriteQuestLocation = true; 
+                }
+
+            if (StrToHex)
+            {
+                string argStr = StringUtils.ReturnArgParams(args, "-strToHex ");
+                Console.WriteLine("Output from \"{0}\": {1}", argStr, StringUtils.StringToHex(argStr, "shift-jis"));
+            }
+            // Check file 
+            else if (File.Exists(input) || Directory.Exists(input))
+            {
+                FileAttributes inputAttr = File.GetAttributes(input);
+                // Directories
+                if (inputAttr.HasFlag(FileAttributes.Directory))
+                {
+                    Console.WriteLine("ERROR: Please specify only a single file.");
+                }
+                // Single file
+                else
+                {
+                    FileLoader.LoadFile(input);
+
+                    if (CreateLogFile) 
+                    {
+                        Directory.CreateDirectory("output");
+                        fileName = $"output\\{Path.GetFileName(input)}.log";
+                        // StringUtils.WriteStream = writeStream;
+                        StringUtils.FileName = fileName;
+                        // File.Open(fileName, FileMode.Create);
+                        if (File.Exists(fileName))    
+                        {    
+                            // File.Delete(fileName);    
+                        }  
+                        using(File.Create(fileName)) 
+                        {
+                            Console.WriteLine("Creating LOGFILE: {0}", fileName);
+                            // writeStream = new StreamWriter(fileName);
+                        }
+
+                        QuestReader.WriteQuestLogFile(input);
+
+                        // writeStream = new StreamWriter(fileName);
+                    }
+
+                    if (WriteQuest)
+                    {
+                        // Initialize
+                        fileName = $"output\\{Path.GetFileName(input)}.log";
+                        outputFileName = $"output\\{Path.GetFileName(input)}";
+                        // StringUtils.WriteStream = writeStream;
+                        StringUtils.FileName = fileName;
+                        // QuestReader.InitQuestDataLoaders();
+                        QuestReader.InitQuestDataLoaders();
+
+                        if (WriteQuestLocation)
+                        {
+                            string argStr = StringUtils.ReturnArgParams(args, "-edit -objLocal");
+                            Console.WriteLine("Process 1 Byte Replace");
+                            Console.WriteLine("Current Location: {0}", QuestWriter.LoadLocations(QuestWriter.NewFile, QuestReader.LocationIndex));
+
+                            if (QuestWriter.LoadLocationsCheck(QuestWriter.NewFile, QuestReader.LocationIndex) || OverwriteInvalidData)
+                            {
+                                ExecuteWriteFile = true;
+                                QuestWriter.NewFile = QuestWriter.Replace1ByteArray(QuestWriter.NewFile, int.Parse(argStr), QuestReader.LocationIndex);
+
+                                if (QuestWriter.LoadLocationsCheck(QuestWriter.NewFile, QuestReader.LocationIndex) || OverwriteInvalidData)
+                                {
+                                    ExecuteWriteFile = true;
+                                    Console.WriteLine("New Location: {0}", QuestWriter.LoadLocations(QuestWriter.NewFile, QuestReader.LocationIndex));
+                                }
+                                else
+                                {
+                                    ExecuteWriteFile = false;
+                                    Console.WriteLine("Attempted to modify with invalid data. (OnWrite)");
+                                }
+                            }
+                            else
+                            {
+                                ExecuteWriteFile = false;
+                                Console.WriteLine("Attempted to modify with invalid data. (BeforeWrite)");
+                            }
+                        }
+
+                        if (WriteMainQuestType)
+                        {
+                            string argStr = StringUtils.ReturnArgParams(args, "-edit -mobjType ");
+                            Console.WriteLine("Process 4 Byte Replace");
+                            Console.WriteLine("Current Objective Type: {0}", QuestWriter.ReturnObjectiveType(QuestWriter.NewFile, QuestReader.MainObjHexIndex));
+
+                            if (QuestWriter.ReturnObjectiveTypeCheck(QuestWriter.NewFile, QuestReader.MainObjHexIndex) || OverwriteInvalidData)
+                            {
+                                ExecuteWriteFile = true;
+                                QuestWriter.NewFile = QuestWriter.Replace4ByteArray(QuestWriter.NewFile, new byte[] { 
+                                    Convert.ToByte(argStr.Split(",")[0]), 
+                                    Convert.ToByte(argStr.Split(",")[1]), 
+                                    Convert.ToByte(argStr.Split(",")[2]), 
+                                    Convert.ToByte(argStr.Split(",")[3]) }, 
+                                    QuestReader.MainObjHexIndex);
+
+                                if (QuestWriter.ReturnObjectiveTypeCheck(QuestWriter.NewFile, QuestReader.MainObjHexIndex) || OverwriteInvalidData)
+                                {
+                                    ExecuteWriteFile = true;
+                                    Console.WriteLine("New Objective Type: {0}", QuestWriter.ReturnObjectiveType(QuestWriter.NewFile, QuestReader.MainObjHexIndex));
+                                }
+                                else
+                                {
+                                    ExecuteWriteFile = false;
+                                    Console.WriteLine("Attempted to modify with invalid data. (OnWrite)");
+                                }
+                            }
+                            else
+                            {
+                                ExecuteWriteFile = false;
+                                Console.WriteLine("Attempted to modify with invalid data. (BeforeWrite)");
+                            }
+                            
+                            Console.WriteLine("Done.");
+                        }
+
+                        if (WriteSubAQuestType)
+                        {
+                            string argStr = StringUtils.ReturnArgParams(args, "-edit -aobjType ");
+                            Console.WriteLine("Process 4 Byte Replace");
+                            Console.WriteLine("Current Objective Type: {0}", QuestWriter.ReturnObjectiveType(QuestWriter.NewFile, QuestReader.SubAObjHexIndex));
+
+                            if (QuestWriter.ReturnObjectiveTypeCheck(QuestWriter.NewFile, QuestReader.SubAObjHexIndex) || OverwriteInvalidData)
+                            {
+                                ExecuteWriteFile = true;
+                                QuestWriter.NewFile = QuestWriter.Replace4ByteArray(QuestWriter.NewFile, new byte[] { 
+                                    Convert.ToByte(argStr.Split(",")[0]), 
+                                    Convert.ToByte(argStr.Split(",")[1]), 
+                                    Convert.ToByte(argStr.Split(",")[2]), 
+                                    Convert.ToByte(argStr.Split(",")[3]) }, 
+                                    QuestReader.SubAObjHexIndex);
+
+                                if (QuestWriter.ReturnObjectiveTypeCheck(QuestWriter.NewFile, QuestReader.SubAObjHexIndex) || OverwriteInvalidData)
+                                {
+                                    ExecuteWriteFile = true;
+                                    Console.WriteLine("New Objective Type: {0}", QuestWriter.ReturnObjectiveType(QuestWriter.NewFile, QuestReader.SubAObjHexIndex));
+                                }
+                                else
+                                {
+                                    ExecuteWriteFile = false;
+                                    Console.WriteLine("Attempted to modify with invalid data. (OnWrite)");
+                                }
+                            }
+                            else
+                            {
+                                ExecuteWriteFile = false;
+                                Console.WriteLine("Attempted to modify with invalid data. (BeforeWrite)");
+                            }
+                            
+                            Console.WriteLine("Done.");
+                        }
+
+                        if (WriteSubBQuestType)
+                        {
+                            string argStr = StringUtils.ReturnArgParams(args, "-edit -bobjType ");
+                            Console.WriteLine("Process 4 Byte Replace");
+                            Console.WriteLine("Current Objective Type: {0}", QuestWriter.ReturnObjectiveType(QuestWriter.NewFile, QuestReader.SubBObjHexIndex));
+
+                            if (QuestWriter.ReturnObjectiveTypeCheck(QuestWriter.NewFile, QuestReader.SubBObjHexIndex) || OverwriteInvalidData)
+                            {
+                                ExecuteWriteFile = true;
+                                QuestWriter.NewFile = QuestWriter.Replace4ByteArray(QuestWriter.NewFile, new byte[] { 
+                                    Convert.ToByte(argStr.Split(",")[0]), 
+                                    Convert.ToByte(argStr.Split(",")[1]), 
+                                    Convert.ToByte(argStr.Split(",")[2]), 
+                                    Convert.ToByte(argStr.Split(",")[3]) }, 
+                                    QuestReader.SubBObjHexIndex);
+
+                                if (QuestWriter.ReturnObjectiveTypeCheck(QuestWriter.NewFile, QuestReader.SubBObjHexIndex) || OverwriteInvalidData)
+                                {
+                                    ExecuteWriteFile = true;
+                                    Console.WriteLine("New Objective Type: {0}", QuestWriter.ReturnObjectiveType(QuestWriter.NewFile, QuestReader.SubBObjHexIndex));
+                                }
+                                else
+                                {
+                                    ExecuteWriteFile = false;
+                                    Console.WriteLine("Attempted to modify with invalid data. (OnWrite)");
+                                }
+                            }
+                            else
+                            {
+                                ExecuteWriteFile = false;
+                                Console.WriteLine("Attempted to modify with invalid data. (BeforeWrite)");
+                            }
+                            
+                            Console.WriteLine("Done.");
+                        }
+
+                        if (WriteMainQuestGoal)
+                        {
+                            string argStr = StringUtils.ReturnArgParams(args, "-edit -mobjGoal ");
+                            string objType = QuestWriter.ReturnObjectiveType(QuestWriter.NewFile, QuestReader.MainObjHexIndex);
+                            
+                            if (objType == "Hunt" | objType == "Slay" | objType == "Damage" | objType == "Slay or Damage" | objType == "Capture")
+                            {
+                                Console.WriteLine("Process 1 Byte Replace");
+                                Console.WriteLine("Current Objective Type: {0}", objType);
+                                
+                                if (QuestWriter.ReturnObjectiveMonsterCheck(QuestWriter.NewFile, QuestReader.MainObjIndex) || OverwriteInvalidData)
+                                {
+                                    ExecuteWriteFile = true;
+                                    Console.WriteLine("Current Goal/Target/Objective: {0}", QuestWriter.ReturnObjectiveMonster(QuestWriter.NewFile, QuestReader.MainObjIndex));
+                                    QuestWriter.NewFile = QuestWriter.Replace1ByteArray(QuestWriter.NewFile, int.Parse(argStr), QuestReader.MainObjIndex);
+
+                                    if (QuestWriter.ReturnObjectiveMonsterCheck(QuestWriter.NewFile, QuestReader.MainObjIndex) || OverwriteInvalidData) 
+                                    {
+                                        ExecuteWriteFile = true;
+                                        Console.WriteLine("New Goal/Target/Objective: {0}", QuestWriter.ReturnObjectiveMonster(QuestWriter.NewFile, QuestReader.MainObjIndex));
+                                    }
+                                    else
+                                    {
+                                        ExecuteWriteFile = false;
+                                        Console.WriteLine("Attempted to modify with invalid data. (OnWrite)");
+                                    }
+                                }
+                                else
+                                {
+                                    ExecuteWriteFile = false;
+                                    Console.WriteLine("Attempted to modify with invalid data. (BeforeWrite)");
+                                }
+                            }
+                            else if (objType == "Break Part")
+                            {
+                                Console.WriteLine("Cannot handle OBJTYPE: {0}", objType);
+                            }
+                            else if (objType == "Slay All")
+                            {
+                                Console.WriteLine("Cannot handle OBJTYPE: {0}", objType);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Process 2 Byte Replace");
+                                Console.WriteLine("Current Objective Type: {0}", objType);
+
+                                if (QuestWriter.ReturnObjectiveItemCheck(QuestWriter.NewFile, QuestReader.MainObjIndex) || OverwriteInvalidData)
+                                {
+                                    ExecuteWriteFile = true;
+                                    Console.WriteLine("Current Goal/Target/Objective: {0}", QuestWriter.ReturnObjectiveItem(QuestWriter.NewFile, QuestReader.MainObjIndex));
+                                    QuestWriter.NewFile = QuestWriter.Replace2ByteArray(QuestWriter.NewFile, int.Parse(argStr), QuestReader.MainObjIndex);
+
+                                    if (QuestWriter.ReturnObjectiveItemCheck(QuestWriter.NewFile, QuestReader.MainObjIndex) || OverwriteInvalidData)
+                                    {
+                                        ExecuteWriteFile = true;
+                                        Console.WriteLine("New Goal/Target/Objective: {0}", QuestWriter.ReturnObjectiveItem(QuestWriter.NewFile, QuestReader.MainObjIndex));
+                                    }
+                                    else
+                                    {
+                                        ExecuteWriteFile = false;
+                                        Console.WriteLine("Attempted to modify with invalid data. (OnWrite)");
+                                    }
+                                }
+                                else
+                                {
+                                    ExecuteWriteFile = false;
+                                    Console.WriteLine("Attempted to modify with invalid data. (BeforeWrite)");
+                                }
+                            }
+
+                            Console.WriteLine("Done.");
+                        }
+
+                        if (WriteSubAQuestGoal)
+                        {
+                            string argStr = StringUtils.ReturnArgParams(args, "-edit -aobjGoal ");
+                            string objType = QuestWriter.ReturnObjectiveType(QuestWriter.NewFile, QuestReader.SubAObjHexIndex);
+                            
+                            if (objType == "Hunt" | objType == "Slay" | objType == "Damage" | objType == "Slay or Damage" | objType == "Capture")
+                            {
+                                Console.WriteLine("Process 1 Byte Replace");
+                                Console.WriteLine("Current Objective Type: {0}", objType);
+                                
+                                if (QuestWriter.ReturnObjectiveMonsterCheck(QuestWriter.NewFile, QuestReader.SubAObjIndex) || OverwriteInvalidData)
+                                {
+                                    ExecuteWriteFile = true;
+                                    Console.WriteLine("Current Goal/Target/Objective: {0}", QuestWriter.ReturnObjectiveMonster(QuestWriter.NewFile, QuestReader.SubAObjIndex));
+                                    QuestWriter.NewFile = QuestWriter.Replace1ByteArray(QuestWriter.NewFile, int.Parse(argStr), QuestReader.SubAObjIndex);
+
+                                    if (QuestWriter.ReturnObjectiveMonsterCheck(QuestWriter.NewFile, QuestReader.SubAObjIndex) || OverwriteInvalidData) 
+                                    {
+                                        ExecuteWriteFile = true;
+                                        Console.WriteLine("New Goal/Target/Objective: {0}", QuestWriter.ReturnObjectiveMonster(QuestWriter.NewFile, QuestReader.SubAObjIndex));
+                                    }
+                                    else
+                                    {
+                                        ExecuteWriteFile = false;
+                                        Console.WriteLine("Attempted to modify with invalid data. (OnWrite)");
+                                    }
+                                }
+                                else
+                                {
+                                    ExecuteWriteFile = false;
+                                    Console.WriteLine("Attempted to modify with invalid data. (BeforeWrite)");
+                                }
+                            }
+                            else if (objType == "Break Part")
+                            {
+                                Console.WriteLine("Cannot handle OBJTYPE: {0}", objType);
+                            }
+                            else if (objType == "Slay All")
+                            {
+                                Console.WriteLine("Cannot handle OBJTYPE: {0}", objType);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Process 2 Byte Replace");
+                                Console.WriteLine("Current Objective Type: {0}", objType);
+
+                                if (QuestWriter.ReturnObjectiveItemCheck(QuestWriter.NewFile, QuestReader.SubAObjIndex) || OverwriteInvalidData)
+                                {
+                                    ExecuteWriteFile = true;
+                                    Console.WriteLine("Current Goal/Target/Objective: {0}", QuestWriter.ReturnObjectiveItem(QuestWriter.NewFile, QuestReader.SubAObjIndex));
+                                    QuestWriter.NewFile = QuestWriter.Replace2ByteArray(QuestWriter.NewFile, int.Parse(argStr), QuestReader.SubAObjIndex);
+
+                                    if (QuestWriter.ReturnObjectiveItemCheck(QuestWriter.NewFile, QuestReader.SubAObjIndex) || OverwriteInvalidData)
+                                    {
+                                        ExecuteWriteFile = true;
+                                        Console.WriteLine("New Goal/Target/Objective: {0}", QuestWriter.ReturnObjectiveItem(QuestWriter.NewFile, QuestReader.SubAObjIndex));
+                                    }
+                                    else
+                                    {
+                                        ExecuteWriteFile = false;
+                                        Console.WriteLine("Attempted to modify with invalid data. (OnWrite)");
+                                    }
+                                }
+                                else
+                                {
+                                    ExecuteWriteFile = false;
+                                    Console.WriteLine("Attempted to modify with invalid data. (BeforeWrite)");
+                                }
+                            }
+
+                            Console.WriteLine("Done.");
+                        }
+
+                        if (WriteSubBQuestGoal)
+                        {
+                            string argStr = StringUtils.ReturnArgParams(args, "-edit -bobjGoal ");
+                            string objType = QuestWriter.ReturnObjectiveType(QuestWriter.NewFile, QuestReader.SubBObjHexIndex);
+                            
+                            if (objType == "Hunt" | objType == "Slay" | objType == "Damage" | objType == "Slay or Damage" | objType == "Capture")
+                            {
+                                Console.WriteLine("Process 1 Byte Replace");
+                                Console.WriteLine("Current Objective Type: {0}", objType);
+                                
+                                if (QuestWriter.ReturnObjectiveMonsterCheck(QuestWriter.NewFile, QuestReader.SubBObjIndex) || OverwriteInvalidData)
+                                {
+                                    ExecuteWriteFile = true;
+                                    Console.WriteLine("Current Goal/Target/Objective: {0}", QuestWriter.ReturnObjectiveMonster(QuestWriter.NewFile, QuestReader.SubBObjIndex));
+                                    QuestWriter.NewFile = QuestWriter.Replace1ByteArray(QuestWriter.NewFile, int.Parse(argStr), QuestReader.SubBObjIndex);
+
+                                    if (QuestWriter.ReturnObjectiveMonsterCheck(QuestWriter.NewFile, QuestReader.SubBObjIndex) || OverwriteInvalidData) 
+                                    {
+                                        ExecuteWriteFile = true;
+                                        Console.WriteLine("New Goal/Target/Objective: {0}", QuestWriter.ReturnObjectiveMonster(QuestWriter.NewFile, QuestReader.SubBObjIndex));
+                                    }
+                                    else
+                                    {
+                                        ExecuteWriteFile = false;
+                                        Console.WriteLine("Attempted to modify with invalid data. (OnWrite)");
+                                    }
+                                }
+                                else
+                                {
+                                    ExecuteWriteFile = false;
+                                    Console.WriteLine("Attempted to modify with invalid data. (BeforeWrite)");
+                                }
+                            }
+                            else if (objType == "Break Part")
+                            {
+                                Console.WriteLine("Cannot handle OBJTYPE: {0}", objType);
+                            }
+                            else if (objType == "Slay All")
+                            {
+                                Console.WriteLine("Cannot handle OBJTYPE: {0}", objType);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Process 2 Byte Replace");
+                                Console.WriteLine("Current Objective Type: {0}", objType);
+
+                                if (QuestWriter.ReturnObjectiveItemCheck(QuestWriter.NewFile, QuestReader.SubBObjIndex) || OverwriteInvalidData)
+                                {
+                                    ExecuteWriteFile = true;
+                                    Console.WriteLine("Current Goal/Target/Objective: {0}", QuestWriter.ReturnObjectiveItem(QuestWriter.NewFile, QuestReader.SubBObjIndex));
+                                    QuestWriter.NewFile = QuestWriter.Replace2ByteArray(QuestWriter.NewFile, int.Parse(argStr), QuestReader.SubBObjIndex);
+
+                                    if (QuestWriter.ReturnObjectiveItemCheck(QuestWriter.NewFile, QuestReader.SubBObjIndex) || OverwriteInvalidData)
+                                    {
+                                        ExecuteWriteFile = true;
+                                        Console.WriteLine("New Goal/Target/Objective: {0}", QuestWriter.ReturnObjectiveItem(QuestWriter.NewFile, QuestReader.SubBObjIndex));
+                                    }
+                                    else
+                                    {
+                                        ExecuteWriteFile = false;
+                                        Console.WriteLine("Attempted to modify with invalid data. (OnWrite)");
+                                    }
+                                }
+                                else
+                                {
+                                    ExecuteWriteFile = false;
+                                    Console.WriteLine("Attempted to modify with invalid data. (BeforeWrite)");
+                                }
+                            }
+
+                            Console.WriteLine("Done.");
+                        }
+
+                        if (ExecuteWriteFile)
+                        {
+                            if (Debug)
+                            {
+                                Console.WriteLine("Debug mode is enabled.");
+                            }
+                            else
+                            {
+                                File.WriteAllBytes(outputFileName, QuestWriter.NewFile);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("ExecuteWriteFile is off.");
+                        }
+                    }
+                }
+            }
+            else Console.WriteLine("ERROR: Input file does not exist.");
+        }
+    }
+}

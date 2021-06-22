@@ -21,7 +21,22 @@ Progress enabler "quests" can be found here: [mhfz_progression](https://archive.
 "Modified" version of [MHF-QuestEditor](https://github.com/Yuvi-App/MHF-QuestEditor) in C#
 
 ## Documentation
+As of June 22, 2021, The batch script are obsolete but are kept for future reference points.
 **Until a proper quest editor is made, I would recommend using a hex editor such as HxD or 010 to actually edit / write files.**
+
+- This tool integrates [ReFrontier](https://github.com/mhvuze/ReFrontier). 
+- Usage of ReFrontier tools can be started by `ReFrontier` / `FrontierDataTool` / `FrontierTextTool`
+    - Documentation for these tools will be explained in the future. 
+
+- The main tool `QuestTool` has various arguments and parameters. `QuestTool <arguments> <parameters>
+    - **Note:** Debug mode is enabled by default, change the Debug variable in QuestWriter from true to false if you want to actually write.
+    - `-log` - logs the specified file - `QuestTool ./path/to/file.bin -log`
+    - `-strToHex` - converts string to hex code - `QuestTool -strToHex My Text`
+    - `-edit` - starts quest editing functionality, and changes parameters made for read write.
+        - **Note:** Replace the `m` with `a` or `b` to indicate subobjectives, e.g. `-mobjType` -> `bobjType` or `aobjType`.
+        - `-edit -mobjType` - changes the quest goal, note this dictates dictionary to use. e.g. delivery -> item OR slay -> monster - `QuestTool ./path/to/file.bin -edit -mobjType 01,02,00,00`
+        - `-edit -mobjGoal` - changes the quest goal - `QuestTool ./path/to/file.bin -edit -mobjGoal 176`
+        - `-edit objLocal` - changes the quest location - `QuestTool ./path/to/file.bin -edit -objLocal 95`
 
 ### Prerequisites 
 - HxD / 010

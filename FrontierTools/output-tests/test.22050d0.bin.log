@@ -1,0 +1,436 @@
+22050d0.bin
+======================
+===== QUEST DATA =====
+======================
+
+
+===============================
+========== RANK DATA ==========
+===============================
+
+
+===== RANK INFO: =====
+Value: 6   |   Lower
+Int32 (LE): 6
+By Index: 6
+By Index (Hex): 0x06
+Index: 72
+
+===== RANK VALUE: =====
+Value: 6
+Int32 (LE): 6
+By Index: 6
+By Index (Hex): 0x06
+Index: 72
+
+===== RANK BANDS: =====
+Value: Lower
+Int32 (LE): 6
+By Index: 6
+By Index (Hex): 0x06
+Index: 72
+
+==== RANK UNK: =====
+Value: 
+Int32 (LE): 6
+By Index: 6
+By Index (Hex): 0x06
+Index: 72
+
+
+===== QUEST FEE: =====
+Value: 100
+Int32 (LE): 100
+By Index: 100
+By Index (Hex): 0x64
+Index: 204
+
+===== PRIMARY REWARD: =====
+Value: 100
+Int32 (LE): 100
+By Index: 100
+By Index (Hex): 0x64
+Index: 208
+
+===== REWARD A =====
+Value: 0
+Int32 (LE): 0
+By Index: 0
+By Index (Hex): 0x00
+Index: 216
+
+===== REWARD B =====
+Value: 0
+Int32 (LE): 0
+By Index: 0
+By Index (Hex): 0x00
+Index: 220
+
+
+===================================
+========== LOCATION DATA ==========
+===================================
+
+
+===== LOCATION: =====
+Value: Great Forest Day
+Int32 (LE): 26
+By Index: 26
+By Index (Hex): 0x1A
+Index: 228
+
+
+==========================================
+========== MONSTER VARIANT DATA ==========
+==========================================
+
+
+===== MONSTER VARIANT 1A: =====
+Value: 00
+Data: 0
+By Index: 0
+By Index (Hex): 0x00
+Index: 337
+String: X2
+
+===== MONSTER VARIANT 1B: =====
+Value: 00
+Data: 0
+By Index: 0
+By Index (Hex): 0x00
+Index: 338
+String: X2
+
+===== MONSTER VARIANT 2A: =====
+Value: 00
+Data: 0
+By Index: 0
+By Index (Hex): 0x00
+Index: 345
+String: X2
+
+===== MONSTER VARIANT 2B: =====
+Value: 00
+Data: 0
+By Index: 0
+By Index (Hex): 0x00
+Index: 346
+String: X2
+
+
+===================================
+========== MAIN OBJ DATA ==========
+===================================
+
+
+===== OBJECTIVE HEX: =====
+Value: 02000000
+Indexes 1: INDEX: 2 | INDEX+1: 0 | INDEX+2: 0 | INDEX+3: 0
+Hex 1: 02-00-00-00
+Hex 2: 2 0 0 0
+Index: 240
+
+===== ITEM INFO: =====
+Value: Map
+Int16 (LE ?): 657
+By Index: 145
+By Index (Hex): 0x91
+Index: 244
+
+
+
+
+===== OBJECTIVE HEX: =====
+Value: 02000000
+Indexes 1: INDEX: 2 | INDEX+1: 0 | INDEX+2: 0 | INDEX+3: 0
+Hex 1: 02-00-00-00
+Hex 2: 2 0 0 0
+Index: 240
+
+
+
+===== OBJECTIVE HEX: =====
+Value: 02000000
+Indexes 1: INDEX: 2 | INDEX+1: 0 | INDEX+2: 0 | INDEX+3: 0
+Hex 1: 02-00-00-00
+Hex 2: 2 0 0 0
+Index: 240
+
+
+
+===== MAIN OBJECTIVE HEX: =====
+Value: 02000000
+ReturnObjHex: 02000000
+Hex 1: (IndexInfo): (BCtoSTR): INDEX: 2 | INDEX+1: 0 | INDEX+2: 0 | INDEX+3: 0
+Hex 2: 02-00-00-00
+Hex 3: 2 0 0 0
+Index: 240
+
+===== MAIN OBJECTIVE TYPE: =====
+Value: Deliver
+Index: N/A
+
+===== MAIN OBJECTIVE QUANT: =====
+Value: 1 (* 100)
+Int16 (LE ?): 1
+Index: 246
+
+===== MAIN OBJECTIVE: =====
+Value: Map
+Int16 (LE ?): 657 / 657
+By Index: 145
+By Index (Hex): 0x91
+Index: 244
+
+
+====================================
+========== SUB A OBJ DATA ==========
+====================================
+
+
+===== OBJECTIVE HEX: =====
+Value: 00000000
+Indexes 1: INDEX: 0 | INDEX+1: 0 | INDEX+2: 0 | INDEX+3: 0
+Hex 1: 00-00-00-00
+Hex 2: 0 0 0 0
+Index: 248
+
+===== ITEM INFO: =====
+Value: -
+Int16 (LE ?): 0
+By Index: 0
+By Index (Hex): 0x00
+Index: 252
+
+
+
+
+===== OBJECTIVE HEX: =====
+Value: 00000000
+Indexes 1: INDEX: 0 | INDEX+1: 0 | INDEX+2: 0 | INDEX+3: 0
+Hex 1: 00-00-00-00
+Hex 2: 0 0 0 0
+Index: 248
+
+
+
+===== OBJECTIVE HEX: =====
+Value: 00000000
+Indexes 1: INDEX: 0 | INDEX+1: 0 | INDEX+2: 0 | INDEX+3: 0
+Hex 1: 00-00-00-00
+Hex 2: 0 0 0 0
+Index: 248
+
+
+
+===== SUB A OBJECTIVE HEX: =====
+Value: None
+ReturnObjHex: 00000000
+Hex 1: (IndexInfo): (BCtoSTR): INDEX: 0 | INDEX+1: 0 | INDEX+2: 0 | INDEX+3: 0
+Hex 2: 00-00-00-00
+Hex 3: 0 0 0 0
+Index: 248
+
+===== SUB A OBJECTIVE TYPE: =====
+Value: 
+Index: N/A
+
+===== SUB A OBJECTIVE QUANT: =====
+Value: 0 (* 100)
+Int16 (LE ?): 0
+Index: 254
+
+===== SUB A OBJECTIVE: =====
+Value: -
+Int16 (LE ?): 0 / 0
+By Index: 0
+By Index (Hex): 0x00
+Index: 252
+
+
+====================================
+========== SUB B OBJ DATA ==========
+====================================
+
+
+===== OBJECTIVE HEX: =====
+Value: 00000000
+Indexes 1: INDEX: 0 | INDEX+1: 0 | INDEX+2: 0 | INDEX+3: 0
+Hex 1: 00-00-00-00
+Hex 2: 0 0 0 0
+Index: 256
+
+===== ITEM INFO: =====
+Value: -
+Int16 (LE ?): 0
+By Index: 0
+By Index (Hex): 0x00
+Index: 260
+
+
+
+
+===== OBJECTIVE HEX: =====
+Value: 00000000
+Indexes 1: INDEX: 0 | INDEX+1: 0 | INDEX+2: 0 | INDEX+3: 0
+Hex 1: 00-00-00-00
+Hex 2: 0 0 0 0
+Index: 256
+
+
+
+===== OBJECTIVE HEX: =====
+Value: 00000000
+Indexes 1: INDEX: 0 | INDEX+1: 0 | INDEX+2: 0 | INDEX+3: 0
+Hex 1: 00-00-00-00
+Hex 2: 0 0 0 0
+Index: 256
+
+
+
+===== SUB B OBJECTIVE HEX: =====
+Value: None
+ReturnObjHex: 00000000
+Hex 1: (IndexInfo): (BCtoSTR): INDEX: 0 | INDEX+1: 0 | INDEX+2: 0 | INDEX+3: 0
+Hex 2: 00-00-00-00
+Hex 3: 0 0 0 0
+Index: 256
+
+===== SUB B OBJECTIVE TYPE: =====
+Value: 
+Index: N/A
+
+===== SUB B OBJECTIVE QUANT: =====
+Value: 0 (* 100)
+Int16 (LE ?): 0
+Index: 262
+
+===== SUB B OBJECTIVE: =====
+Value: -
+Int16 (LE ?): 0 / 0
+By Index: 0
+By Index (Hex): 0x00
+Index: 260
+
+
+========================================
+========== QUEST TEXT STRINGS ==========
+========================================
+
+
+===== NULL TERMINATED STRING =====
+Value: 依頼の品を全て納品しました
+
+Bytes: 136, 203, 151, 138, 130, 204, 149, 105, 130, 240, 145, 83, 130, 196, 148, 91, 149, 105, 130, 181, 130, 220, 130, 181, 130, 189, 
+
+Hex: 88 CB 97 8A 82 CC 95 69 82 F0 91 53 82 C4 94 5B 95 69 82 B5 82 DC 82 B5 82 BD 
+
+===== DELIVER STRING =====
+Value: 依頼の品を全て納品しました
+
+
+
+
+===== NULL TERMINATED STRING =====
+Value: ≪樹海探索≫<NLINE>樹海の特産【下位】
+
+Bytes: 129, 225, 142, 247, 138, 67, 146, 84, 141, 245, 129, 226, 10, 142, 247, 138, 67, 130, 204, 147, 193, 142, 89, 129, 121, 137, 186, 136, 202, 129, 122, 
+
+Hex: 81 E1 8E F7 8A 43 92 54 8D F5 81 E2 0A 8E F7 8A 43 82 CC 93 C1 8E 59 81 79 89 BA 88 CA 81 7A 
+
+===== QUEST TYPE NAME =====
+Value: ≪樹海探索≫<NLINE>樹海の特産【下位】
+
+
+
+
+===== NULL TERMINATED STRING =====
+Value: 地図１個の納品
+
+Bytes: 146, 110, 144, 125, 130, 80, 140, 194, 130, 204, 148, 91, 149, 105, 
+
+Hex: 92 6E 90 7D 82 50 8C C2 82 CC 94 5B 95 69 
+
+===== OBJ MAIN STRING =====
+Value: 地図１個の納品
+
+
+
+
+===== NULL TERMINATED STRING =====
+Value: なし
+
+Bytes: 130, 200, 130, 181, 
+
+Hex: 82 C8 82 B5 
+
+===== OBJ A STRING =====
+Value: なし
+
+
+
+
+===== NULL TERMINATED STRING =====
+Value: なし
+
+Bytes: 130, 200, 130, 181, 
+
+Hex: 82 C8 82 B5 
+
+===== OBJ B STRING =====
+Value: なし
+
+
+
+
+===== NULL TERMINATED STRING =====
+Value: メインターゲットの達成
+
+Bytes: 131, 129, 131, 67, 131, 147, 131, 94, 129, 91, 131, 81, 131, 98, 131, 103, 130, 204, 146, 66, 144, 172, 
+
+Hex: 83 81 83 43 83 93 83 5E 81 5B 83 51 83 62 83 67 82 CC 92 42 90 AC 
+
+===== CLEAR REQ STRING =====
+Value: メインターゲットの達成
+
+
+
+
+===== NULL TERMINATED STRING =====
+Value: 報酬金ゼロ<NLINE>タイムアップ
+
+Bytes: 149, 241, 143, 86, 139, 224, 131, 91, 131, 141, 10, 131, 94, 131, 67, 131, 128, 131, 65, 131, 98, 131, 118, 
+
+Hex: 95 F1 8F 56 8B E0 83 5B 83 8D 0A 83 5E 83 43 83 80 83 41 83 62 83 76 
+
+===== FAIL REQ STRING =====
+Value: 報酬金ゼロ<NLINE>タイムアップ
+
+
+
+
+===== NULL TERMINATED STRING =====
+Value: ハンターズギルド
+
+Bytes: 131, 110, 131, 147, 131, 94, 129, 91, 131, 89, 131, 77, 131, 139, 131, 104, 
+
+Hex: 83 6E 83 93 83 5E 81 5B 83 59 83 4D 83 8B 83 68 
+
+===== HIRER STRING =====
+Value: ハンターズギルド
+
+
+
+
+===== NULL TERMINATED STRING =====
+Value: ≪樹海≫は、<NLINE>ギルドでも調査中の地<NLINE>ですが、ハンターさんも、<NLINE>採取、調査のために<NLINE>一度行ってみてはいかがで<NLINE>しょうか？<NLINE>帰りたくなったら地図を<NLINE>納品してください！
+
+Bytes: 129, 225, 142, 247, 138, 67, 129, 226, 130, 205, 129, 65, 10, 131, 77, 131, 139, 131, 104, 130, 197, 130, 224, 146, 178, 141, 184, 146, 134, 130, 204, 146, 110, 10, 130, 197, 130, 183, 130, 170, 129, 65, 131, 110, 131, 147, 131, 94, 129, 91, 130, 179, 130, 241, 130, 224, 129, 65, 10, 141, 204, 142, 230, 129, 65, 146, 178, 141, 184, 130, 204, 130, 189, 130, 223, 130, 201, 10, 136, 234, 147, 120, 141, 115, 130, 193, 130, 196, 130, 221, 130, 196, 130, 205, 130, 162, 130, 169, 130, 170, 130, 197, 10, 130, 181, 130, 229, 130, 164, 130, 169, 129, 72, 10, 139, 65, 130, 232, 130, 189, 130, 173, 130, 200, 130, 193, 130, 189, 130, 231, 146, 110, 144, 125, 130, 240, 10, 148, 91, 149, 105, 130, 181, 130, 196, 130, 173, 130, 190, 130, 179, 130, 162, 129, 73, 
+
+Hex: 81 E1 8E F7 8A 43 81 E2 82 CD 81 41 0A 83 4D 83 8B 83 68 82 C5 82 E0 92 B2 8D B8 92 86 82 CC 92 6E 0A 82 C5 82 B7 82 AA 81 41 83 6E 83 93 83 5E 81 5B 82 B3 82 F1 82 E0 81 41 0A 8D CC 8E E6 81 41 92 B2 8D B8 82 CC 82 BD 82 DF 82 C9 0A 88 EA 93 78 8D 73 82 C1 82 C4 82 DD 82 C4 82 CD 82 A2 82 A9 82 AA 82 C5 0A 82 B5 82 E5 82 A4 82 A9 81 48 0A 8B 41 82 E8 82 BD 82 AD 82 C8 82 C1 82 BD 82 E7 92 6E 90 7D 82 F0 0A 94 5B 95 69 82 B5 82 C4 82 AD 82 BE 82 B3 82 A2 81 49 
+
+===== DESCRIPTION STRING =====
+Value: ≪樹海≫は、<NLINE>ギルドでも調査中の地<NLINE>ですが、ハンターさんも、<NLINE>採取、調査のために<NLINE>一度行ってみてはいかがで<NLINE>しょうか？<NLINE>帰りたくなったら地図を<NLINE>納品してください！
+
+
+

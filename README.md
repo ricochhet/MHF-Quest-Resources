@@ -4,6 +4,12 @@ A lot of what is in this repo is experimental and is not guarenteed to be functi
 ## Contributing 
 If you have information, resources, or code to share, please do! Feel free to open an issue or a pull request. Any help would be greatly appreciated!
 
+### TODO / IMPORTANT INFORMATION / THINGS TO CONTRIBUTE (Feel free to contribute if you know anything listed here).
+- The quest tool cannot reliably edit files other than ones ending in `d0` (day, warm). Whether this affects replacing quests is untested.
+    - It might be possible to simply duplicate the quest multiple times, replacing the `d0` with other values. If someone tested or knows about this, that would be amazing.
+    - Although the quest tool works the best on `d0` type quests, it does work on other types with mixed results. (Different offsets?) How this affects quest replacing is untested.
+- The `FrontierTools\output-tests` directory includes a couple of examples of valid quest logs. You can use these as a reference point.
+
 ## Resources
 - [MHFZ Progression Files](https://archive.org/details/mhfz_progression)
 - [Standalone ReFrontier Tools](https://github.com/mhvuze/ReFrontier)

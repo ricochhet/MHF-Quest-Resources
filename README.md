@@ -2,7 +2,7 @@
 A lot of what is in this repo is experimental and is not guarenteed to be functional.
 
 ## Contributing 
-If you have information, resources, or code to share, please do! Feel free to open an issue or a pull request. Having as much information as we can get will be greatly appreciated! 
+If you have information, resources, or code to share, please do! Feel free to open an issue or a pull request. Any help would be greatly appreciated!
 
 ## Resources
 - [MHFZ Progression Files](https://archive.org/details/mhfz_progression)

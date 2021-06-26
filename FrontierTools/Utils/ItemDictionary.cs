@@ -3,7 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 
-namespace QuestEditor
+namespace FrontierTools
 {
     public class Items
     {

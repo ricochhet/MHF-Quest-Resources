@@ -1,5 +1,5 @@
 
-namespace QuestEditor
+namespace FrontierTools
 {
     public class Structs
     {

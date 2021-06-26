@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using DamienG.Security.Cryptography;
 using System.Text.RegularExpressions;
 
-namespace QuestEditor
+namespace FrontierTools
 {
     class StringUtils
     {

@@ -8,7 +8,7 @@ using DamienG.Security.Cryptography;
 using System.Text.RegularExpressions;
 using ReFrontier;
 
-namespace QuestEditor
+namespace FrontierTools
 {
     class Program
     {

@@ -1,0 +1,1740 @@
+{
+	DEC,
+	new Dictionary<int, string>
+	{
+		{DEC, ""},
+		{DEC, " (Camp Base)"},
+		{DEC, " (Area 1)"},
+		{DEC, " (Area 2)"},
+		{DEC, " (Area 3)"},
+		{DEC, "  (Area 4)"},
+		{DEC, " (Area 5)"},
+		{DEC, " (Area 6)"},
+		{DEC, " (Area 7)"},
+		{DEC, " (Area 8)"},
+		{DEC, " (Area 9)"},
+		{DEC, " (Area 10)"},
+		{DEC, " (Area 11)"},
+		{DEC, " (Area 12)"}
+	}
+},
+{
+	1,
+	new Dictionary<int, string>
+	{
+		{1, "Siege Fortress Day"},
+		{10, "Siege Fortress Day (Camp Base)"},
+		{14, "Siege Fortress Day (Area 1)"},
+		{30, "Siege Fortress Day (Area 2)"},
+		{28, "Siege Fortress Day (Area 3)"},
+		{11, "Siege Fortress Day  (Area 4)"},
+		{12, "Siege Fortress Day (Area 5)"},
+		{31, "Siege Fortress Day (Area 6)"},
+		{, "Siege Fortress Day (Area 7)"},
+		{, "Siege Fortress Day (Area 8)"},
+		{, "Siege Fortress Day (Area 9)"},
+		{, "Siege Fortress Day (Area 10)"},
+		{, "Siege Fortress Day (Area 11)"},
+		{, "Siege Fortress Day (Area 12)"}
+	}
+},
+{
+	2,
+	new Dictionary<int, string>
+	{
+		{2, "Forest and Hills Day"},
+		{21, "Forest and Hills Day (Camp Base)"},
+		{32, "Forest and Hills Day (Area 1)"},
+		{33, "Forest and Hills Day (Area 2)"},
+		{34, "Forest and Hills Day (Area 3)"},
+		{35, "Forest and Hills Day  (Area 4)"},
+		{36, "Forest and Hills Day (Area 5)"},
+		{37, "Forest and Hills Day (Area 6)"},
+		{38, "Forest and Hills Day (Area 7)"},
+		{39, "Forest and Hills Day (Area 8)"},
+		{40, "Forest and Hills Day (Area 9)"},
+		{41, "Forest and Hills Day (Area 10)"},
+		{42, "Forest and Hills Day (Area 11)"},
+		{43, "Forest and Hills Day (Area 12)"}
+	}
+},
+{
+	3,
+	new Dictionary<int, string>
+	{
+		{3, "Desert Day"},
+		{140, "Desert Day (Camp Base)"},
+		{141, "Desert Day (Area 1)"},
+		{142, "Desert Day (Area 2)"},
+		{143, "Desert Day (Area 3)"},
+		{144, "Desert Day  (Area 4)"},
+		{145, "Desert Day (Area 5)"},
+		{146, "Desert Day (Area 6)"},
+		{147, "Desert Day (Area 7)"},
+		{148, "Desert Day (Area 8)"},
+		{149, "Desert Day (Area 9)"},
+		{150, "Desert Day (Area 10)"},
+		{7, "Desert Day (Area 11)"},
+		{, "Desert Day (Area 12)"}
+	}
+},
+{
+	4,
+	new Dictionary<int, string>
+	{
+		{4, "Swamp Day"},
+		{151, "Swamp Day (Camp Base)"},
+		{152, "Swamp Day (Area 1)"},
+		{153, "Swamp Day (Area 2)"},
+		{154, "Swamp Day (Area 3)"},
+		{155, "Swamp Day  (Area 4)"},
+		{156, "Swamp Day (Area 5)"},
+		{157, "Swamp Day (Area 6)"},
+		{158, "Swamp Day (Area 7)"},
+		{159, "Swamp Day (Area 8)"},
+		{160, "Swamp Day (Area 9)"},
+		{9, "Swamp Day (Area 10)"},
+		{, "Swamp Day (Area 11)"},
+		{, "Swamp Day (Area 12)"}
+	}
+},
+{
+	5,
+	new Dictionary<int, string>
+	{
+		{5, "Volcano Day"},
+		{161, "Volcano Day (Camp Base)"},
+		{162, "Volcano Day (Area 1)"},
+		{163, "Volcano Day (Area 2)"},
+		{164, "Volcano Day (Area 3)"},
+		{165, "Volcano Day  (Area 4)"},
+		{166, "Volcano Day (Area 5)"},
+		{167, "Volcano Day (Area 6)"},
+		{168, "Volcano Day (Area 7)"},
+		{169, "Volcano Day (Area 8)"},
+		{74, "Volcano Day (Area 9)"},
+		{, "Volcano Day (Area 10)"},
+		{, "Volcano Day (Area 11)"},
+		{, "Volcano Day (Area 12)"}
+	}
+},
+{
+	6,
+	new Dictionary<int, string>
+	{
+		{6, "Jungle Day"},
+		{110, "Jungle Day (Camp Base)"},
+		{111, "Jungle Day (Area 1)"},
+		{112, "Jungle Day (Area 2)"},
+		{113, "Jungle Day (Area 3)"},
+		{114, "Jungle Day  (Area 4)"},
+		{115, "Jungle Day (Area 5)"},
+		{116, "Jungle Day (Area 6)"},
+		{117, "Jungle Day (Area 7)"},
+		{118, "Jungle Day (Area 8)"},
+		{119, "Jungle Day (Area 9)"},
+		{120, "Jungle Day (Area 10)"},
+		{, "Jungle Day (Area 11)"},
+		{, "Jungle Day (Area 12)"}
+	}
+},
+{
+	7,
+	new Dictionary<int, string>
+	{
+		{7, "Castle Schrade"},
+		{25, "Castle Schrade (Camp Base)"},
+		{20, "Castle Schrade (Area 1)"},
+		{, "Castle Schrade (Area 2)"},
+		{, "Castle Schrade (Area 3)"},
+		{, "Castle Schrade  (Area 4)"},
+		{, "Castle Schrade (Area 5)"},
+		{, "Castle Schrade (Area 6)"},
+		{, "Castle Schrade (Area 7)"},
+		{, "Castle Schrade (Area 8)"},
+		{, "Castle Schrade (Area 9)"},
+		{, "Castle Schrade (Area 10)"},
+		{, "Castle Schrade (Area 11)"},
+		{, "Castle Schrade (Area 12)"}
+	}
+},
+{
+	8,
+	new Dictionary<int, string>
+	{
+		{8, "Crimson Battleground"},
+		{8, "Crimson Battleground (Camp Base)"},
+		{88, "Crimson Battleground (Area 1)"},
+		{, "Crimson Battleground (Area 2)"},
+		{, "Crimson Battleground (Area 3)"},
+		{, "Crimson Battleground  (Area 4)"},
+		{, "Crimson Battleground (Area 5)"},
+		{, "Crimson Battleground (Area 6)"},
+		{, "Crimson Battleground (Area 7)"},
+		{, "Crimson Battleground (Area 8)"},
+		{, "Crimson Battleground (Area 9)"},
+		{, "Crimson Battleground (Area 10)"},
+		{, "Crimson Battleground (Area 11)"},
+		{, "Crimson Battleground (Area 12)"}
+	}
+},
+{
+	9,
+	new Dictionary<int, string>
+	{
+		{9, "Arena with Ledge Day"},
+		{89, "Arena with Ledge Day (Camp Base)"},
+		{90, "Arena with Ledge Day (Area 1)"},
+		{, "Arena with Ledge Day (Area 2)"},
+		{, "Arena with Ledge Day (Area 3)"},
+		{, "Arena with Ledge Day  (Area 4)"},
+		{, "Arena with Ledge Day (Area 5)"},
+		{, "Arena with Ledge Day (Area 6)"},
+		{, "Arena with Ledge Day (Area 7)"},
+		{, "Arena with Ledge Day (Area 8)"},
+		{, "Arena with Ledge Day (Area 9)"},
+		{, "Arena with Ledge Day (Area 10)"},
+		{, "Arena with Ledge Day (Area 11)"},
+		{, "Arena with Ledge Day (Area 12)"}
+	}
+},
+{
+	10,
+	new Dictionary<int, string>
+	{
+		{10, "Arena with Pillar Day"},
+		{89, "Arena with Pillar Day (Camp Base)"},
+		{91, "Arena with Pillar Day (Area 1)"},
+		{, "Arena with Pillar Day (Area 2)"},
+		{, "Arena with Pillar Day (Area 3)"},
+		{, "Arena with Pillar Day  (Area 4)"},
+		{, "Arena with Pillar Day (Area 5)"},
+		{, "Arena with Pillar Day (Area 6)"},
+		{, "Arena with Pillar Day (Area 7)"},
+		{, "Arena with Pillar Day (Area 8)"},
+		{, "Arena with Pillar Day (Area 9)"},
+		{, "Arena with Pillar Day (Area 10)"},
+		{, "Arena with Pillar Day (Area 11)"},
+		{, "Arena with Pillar Day (Area 12)"}
+	}
+},
+{
+	11,
+	new Dictionary<int, string>
+	{
+		{11, "Snowy Mountains Day"},
+		{98, "Snowy Mountains Day (Camp Base)"},
+		{92, "Snowy Mountains Day (Area 1)"},
+		{93, "Snowy Mountains Day (Area 2)"},
+		{94, "Snowy Mountains Day (Area 3)"},
+		{95, "Snowy Mountains Day  (Area 4)"},
+		{96, "Snowy Mountains Day (Area 5)"},
+		{97, "Snowy Mountains Day (Area 6)"},
+		{99, "Snowy Mountains Day (Area 7)"},
+		{100, "Snowy Mountains Day (Area 8)"},
+		{6, "Snowy Mountains Day (Area 9)"},
+		{, "Snowy Mountains Day (Area 10)"},
+		{, "Snowy Mountains Day (Area 11)"},
+		{, "Snowy Mountains Day (Area 12)"}
+	}
+},
+{
+	12,
+	new Dictionary<int, string>
+	{
+		{12, "Town Siege Day"},
+		{179, "Town Siege Day (Camp Base)"},
+		{176, "Town Siege Day (Area 1)"},
+		{177, "Town Siege Day (Area 2)"},
+		{178, "Town Siege Day (Area 3)"},
+		{, "Town Siege Day  (Area 4)"},
+		{, "Town Siege Day (Area 5)"},
+		{, "Town Siege Day (Area 6)"},
+		{, "Town Siege Day (Area 7)"},
+		{, "Town Siege Day (Area 8)"},
+		{, "Town Siege Day (Area 9)"},
+		{, "Town Siege Day (Area 10)"},
+		{, "Town Siege Day (Area 11)"},
+		{, "Town Siege Day (Area 12)"}
+	}
+},
+{
+	13,
+	new Dictionary<int, string>
+	{
+		{13, "Tower 1"},
+		{121, "Tower 1 (Camp Base)"},
+		{122, "Tower 1 (Area 1)"},
+		{123, "Tower 1 (Area 2)"},
+		{130, "Tower 1 (Area 3)"},
+		{128, "Tower 1  (Area 4)"},
+		{129, "Tower 1 (Area 5)"},
+		{127, "Tower 1 (Area 6)"},
+		{125, "Tower 1 (Area 7)"},
+		{, "Tower 1 (Area 8)"},
+		{, "Tower 1 (Area 9)"},
+		{, "Tower 1 (Area 10)"},
+		{, "Tower 1 (Area 11)"},
+		{, "Tower 1 (Area 12)"}
+	}
+},
+{
+	14,
+	new Dictionary<int, string>
+	{
+		{14, "Tower 2"},
+		{129, "Tower 2 (Camp Base)"},
+		{122, "Tower 2 (Area 1)"},
+		{125, "Tower 2 (Area 2)"},
+		{127, "Tower 2 (Area 3)"},
+		{, "Tower 2  (Area 4)"},
+		{, "Tower 2 (Area 5)"},
+		{, "Tower 2 (Area 6)"},
+		{, "Tower 2 (Area 7)"},
+		{, "Tower 2 (Area 8)"},
+		{, "Tower 2 (Area 9)"},
+		{, "Tower 2 (Area 10)"},
+		{, "Tower 2 (Area 11)"},
+		{, "Tower 2 (Area 12)"}
+	}
+},
+{
+	15,
+	new Dictionary<int, string>
+	{
+		{15, "Tower 3"},
+		{83, "Tower 3 (Camp Base)"},
+		{84, "Tower 3 (Area 1)"},
+		{122, "Tower 3 (Area 2)"},
+		{123, "Tower 3 (Area 3)"},
+		{124, "Tower 3  (Area 4)"},
+		{125, "Tower 3 (Area 5)"},
+		{127, "Tower 3 (Area 6)"},
+		{128, "Tower 3 (Area 7)"},
+		{129, "Tower 3 (Area 8)"},
+		{130, "Tower 3 (Area 9)"},
+		{, "Tower 3 (Area 10)"},
+		{, "Tower 3 (Area 11)"},
+		{, "Tower 3 (Area 12)"}
+	}
+},
+{
+	16,
+	new Dictionary<int, string>
+	{
+		{16, "Forest and Hills Night"},
+		{21, "Forest and Hills Night (Camp Base)"},
+		{32, "Forest and Hills Night (Area 1)"},
+		{33, "Forest and Hills Night (Area 2)"},
+		{34, "Forest and Hills Night (Area 3)"},
+		{35, "Forest and Hills Night  (Area 4)"},
+		{36, "Forest and Hills Night (Area 5)"},
+		{37, "Forest and Hills Night (Area 6)"},
+		{38, "Forest and Hills Night (Area 7)"},
+		{39, "Forest and Hills Night (Area 8)"},
+		{40, "Forest and Hills Night (Area 9)"},
+		{41, "Forest and Hills Night (Area 10)"},
+		{42, "Forest and Hills Night (Area 11)"},
+		{43, "Forest and Hills Night (Area 12)"}
+	}
+},
+{
+	17,
+	new Dictionary<int, string>
+	{
+		{17, "Desert Night"},
+		{45, "Desert Night (Camp Base)"},
+		{47, "Desert Night (Area 1)"},
+		{48, "Desert Night (Area 2)"},
+		{49, "Desert Night (Area 3)"},
+		{50, "Desert Night  (Area 4)"},
+		{51, "Desert Night (Area 5)"},
+		{52, "Desert Night (Area 6)"},
+		{53, "Desert Night (Area 7)"},
+		{54, "Desert Night (Area 8)"},
+		{55, "Desert Night (Area 9)"},
+		{56, "Desert Night (Area 10)"},
+		{, "Desert Night (Area 11)"},
+		{, "Desert Night (Area 12)"}
+	}
+},
+{
+	18,
+	new Dictionary<int, string>
+	{
+		{18, "Swamp Night"},
+		{16, "Swamp Night (Camp Base)"},
+		{44, "Swamp Night (Area 1)"},
+		{67, "Swamp Night (Area 2)"},
+		{68, "Swamp Night (Area 3)"},
+		{69, "Swamp Night  (Area 4)"},
+		{73, "Swamp Night (Area 5)"},
+		{75, "Swamp Night (Area 6)"},
+		{29, "Swamp Night (Area 7)"},
+		{, "Swamp Night (Area 8)"},
+		{, "Swamp Night (Area 9)"},
+		{, "Swamp Night (Area 10)"},
+		{, "Swamp Night (Area 11)"},
+		{, "Swamp Night (Area 12)"}
+	}
+},
+{
+	19,
+	new Dictionary<int, string>
+	{
+		{19, "Volcano Night"},
+		{58, "Volcano Night (Camp Base)"},
+		{59, "Volcano Night (Area 1)"},
+		{60, "Volcano Night (Area 2)"},
+		{61, "Volcano Night (Area 3)"},
+		{62, "Volcano Night  (Area 4)"},
+		{63, "Volcano Night (Area 5)"},
+		{64, "Volcano Night (Area 6)"},
+		{65, "Volcano Night (Area 7)"},
+		{74, "Volcano Night (Area 8)"},
+		{, "Volcano Night (Area 9)"},
+		{, "Volcano Night (Area 10)"},
+		{, "Volcano Night (Area 11)"},
+		{, "Volcano Night (Area 12)"}
+	}
+},
+{
+	20,
+	new Dictionary<int, string>
+	{
+		{20, "Jungle Night"},
+		{1, "Jungle Night (Camp Base)"},
+		{2, "Jungle Night (Area 1)"},
+		{3, "Jungle Night (Area 2)"},
+		{4, "Jungle Night (Area 3)"},
+		{5, "Jungle Night  (Area 4)"},
+		{18, "Jungle Night (Area 5)"},
+		{19, "Jungle Night (Area 6)"},
+		{22, "Jungle Night (Area 7)"},
+		{23, "Jungle Night (Area 8)"},
+		{26, "Jungle Night (Area 9)"},
+		{, "Jungle Night (Area 10)"},
+		{, "Jungle Night (Area 11)"},
+		{, "Jungle Night (Area 12)"}
+	}
+},
+{
+	21,
+	new Dictionary<int, string>
+	{
+		{21, "Snowy Mountains Night"},
+		{107, "Snowy Mountains Night (Camp Base)"},
+		{101, "Snowy Mountains Night (Area 1)"},
+		{102, "Snowy Mountains Night (Area 2)"},
+		{103, "Snowy Mountains Night (Area 3)"},
+		{104, "Snowy Mountains Night  (Area 4)"},
+		{105, "Snowy Mountains Night (Area 5)"},
+		{106, "Snowy Mountains Night (Area 6)"},
+		{108, "Snowy Mountains Night (Area 7)"},
+		{109, "Snowy Mountains Night (Area 8)"},
+		{15, "Snowy Mountains Night (Area 9)"},
+		{, "Snowy Mountains Night (Area 10)"},
+		{, "Snowy Mountains Night (Area 11)"},
+		{, "Snowy Mountains Night (Area 12)"}
+	}
+},
+{
+	22,
+	new Dictionary<int, string>
+	{
+		{22, "Town Siege night"},
+		{183, "Town Siege night (Camp Base)"},
+		{, "Town Siege night (Area 1)"},
+		{, "Town Siege night (Area 2)"},
+		{, "Town Siege night (Area 3)"},
+		{, "Town Siege night  (Area 4)"},
+		{, "Town Siege night (Area 5)"},
+		{, "Town Siege night (Area 6)"},
+		{, "Town Siege night (Area 7)"},
+		{, "Town Siege night (Area 8)"},
+		{, "Town Siege night (Area 9)"},
+		{, "Town Siege night (Area 10)"},
+		{, "Town Siege night (Area 11)"},
+		{, "Town Siege night (Area 12)"}
+	}
+},
+{
+	23,
+	new Dictionary<int, string>
+	{
+		{23, "Siege Fortress Night"},
+		{79, "Siege Fortress Night (Camp Base)"},
+		{14, "Siege Fortress Night (Area 1)"},
+		{30, "Siege Fortress Night (Area 2)"},
+		{28, "Siege Fortress Night (Area 3)"},
+		{11, "Siege Fortress Night  (Area 4)"},
+		{12, "Siege Fortress Night (Area 5)"},
+		{31, "Siege Fortress Night (Area 6)"},
+		{, "Siege Fortress Night (Area 7)"},
+		{, "Siege Fortress Night (Area 8)"},
+		{, "Siege Fortress Night (Area 9)"},
+		{, "Siege Fortress Night (Area 10)"},
+		{, "Siege Fortress Night (Area 11)"},
+		{, "Siege Fortress Night (Area 12)"}
+	}
+},
+{
+	24,
+	new Dictionary<int, string>
+	{
+		{24, "Arena with Ledge Night"},
+		{46, "Arena with Ledge Night (Camp Base)"},
+		{90, "Arena with Ledge Night (Area 1)"},
+		{, "Arena with Ledge Night (Area 2)"},
+		{, "Arena with Ledge Night (Area 3)"},
+		{, "Arena with Ledge Night  (Area 4)"},
+		{, "Arena with Ledge Night (Area 5)"},
+		{, "Arena with Ledge Night (Area 6)"},
+		{, "Arena with Ledge Night (Area 7)"},
+		{, "Arena with Ledge Night (Area 8)"},
+		{, "Arena with Ledge Night (Area 9)"},
+		{, "Arena with Ledge Night (Area 10)"},
+		{, "Arena with Ledge Night (Area 11)"},
+		{, "Arena with Ledge Night (Area 12)"}
+	}
+},
+{
+	25,
+	new Dictionary<int, string>
+	{
+		{25, "Arena with Pillar Night"},
+		{46, "Arena with Pillar Night (Camp Base)"},
+		{91, "Arena with Pillar Night (Area 1)"},
+		{, "Arena with Pillar Night (Area 2)"},
+		{, "Arena with Pillar Night (Area 3)"},
+		{, "Arena with Pillar Night  (Area 4)"},
+		{, "Arena with Pillar Night (Area 5)"},
+		{, "Arena with Pillar Night (Area 6)"},
+		{, "Arena with Pillar Night (Area 7)"},
+		{, "Arena with Pillar Night (Area 8)"},
+		{, "Arena with Pillar Night (Area 9)"},
+		{, "Arena with Pillar Night (Area 10)"},
+		{, "Arena with Pillar Night (Area 11)"},
+		{, "Arena with Pillar Night (Area 12)"}
+	}
+},
+{
+	26,
+	new Dictionary<int, string>
+	{
+		{26, "Great Forest Day"},
+		{224, "Great Forest Day (Camp Base)"},
+		{226, "Great Forest Day (Area 1)"},
+		{228, "Great Forest Day (Area 2)"},
+		{230, "Great Forest Day (Area 3)"},
+		{232, "Great Forest Day  (Area 4)"},
+		{234, "Great Forest Day (Area 5)"},
+		{236, "Great Forest Day (Area 6)"},
+		{238, "Great Forest Day (Area 7)"},
+		{240, "Great Forest Day (Area 8)"},
+		{, "Great Forest Day (Area 9)"},
+		{, "Great Forest Day (Area 10)"},
+		{, "Great Forest Day (Area 11)"},
+		{, "Great Forest Day (Area 12)"}
+	}
+},
+{
+	27,
+	new Dictionary<int, string>
+	{
+		{27, "Great Forest Night"},
+		{225, "Great Forest Night (Camp Base)"},
+		{227, "Great Forest Night (Area 1)"},
+		{229, "Great Forest Night (Area 2)"},
+		{231, "Great Forest Night (Area 3)"},
+		{233, "Great Forest Night  (Area 4)"},
+		{235, "Great Forest Night (Area 5)"},
+		{237, "Great Forest Night (Area 6)"},
+		{239, "Great Forest Night (Area 7)"},
+		{241, "Great Forest Night (Area 8)"},
+		{, "Great Forest Night (Area 9)"},
+		{, "Great Forest Night (Area 10)"},
+		{, "Great Forest Night (Area 11)"},
+		{, "Great Forest Night (Area 12)"}
+	}
+},
+{
+	28,
+	new Dictionary<int, string>
+	{
+		{28, "Volcano 2 Day"},
+		{161, "Volcano 2 Day (Camp Base)"},
+		{59, "Volcano 2 Day (Area 1)"},
+		{60, "Volcano 2 Day (Area 2)"},
+		{61, "Volcano 2 Day (Area 3)"},
+		{60, "Volcano 2 Day  (Area 4)"},
+		{62, "Volcano 2 Day (Area 5)"},
+		{63, "Volcano 2 Day (Area 6)"},
+		{64, "Volcano 2 Day (Area 7)"},
+		{65, "Volcano 2 Day (Area 8)"},
+		{27, "Volcano 2 Day (Area 9)"},
+		{221, "Volcano 2 Day (Area 10)"},
+		{223, "Volcano 2 Day (Area 11)"},
+		{, "Volcano 2 Day (Area 12)"}
+	}
+},
+{
+	29,
+	new Dictionary<int, string>
+	{
+		{29, "Volcano 2 Night"},
+		{58, "Volcano 2 Night (Camp Base)"},
+		{59, "Volcano 2 Night (Area 1)"},
+		{60, "Volcano 2 Night (Area 2)"},
+		{61, "Volcano 2 Night (Area 3)"},
+		{62, "Volcano 2 Night  (Area 4)"},
+		{63, "Volcano 2 Night (Area 5)"},
+		{64, "Volcano 2 Night (Area 6)"},
+		{65, "Volcano 2 Night (Area 7)"},
+		{27, "Volcano 2 Night (Area 8)"},
+		{221, "Volcano 2 Night (Area 9)"},
+		{223, "Volcano 2 Night (Area 10)"},
+		{, "Volcano 2 Night (Area 11)"},
+		{, "Volcano 2 Night (Area 12)"}
+	}
+},
+{
+	30,
+	new Dictionary<int, string>
+	{
+		{30, "Jungle Dream"},
+		{120, "Jungle Dream (Camp Base)"},
+		{, "Jungle Dream (Area 1)"},
+		{, "Jungle Dream (Area 2)"},
+		{, "Jungle Dream (Area 3)"},
+		{, "Jungle Dream  (Area 4)"},
+		{, "Jungle Dream (Area 5)"},
+		{, "Jungle Dream (Area 6)"},
+		{, "Jungle Dream (Area 7)"},
+		{, "Jungle Dream (Area 8)"},
+		{, "Jungle Dream (Area 9)"},
+		{, "Jungle Dream (Area 10)"},
+		{, "Jungle Dream (Area 11)"},
+		{, "Jungle Dream (Area 12)"}
+	}
+},
+{
+	31,
+	new Dictionary<int, string>
+	{
+		{31, "Gorge Day"},
+		{288, "Gorge Day (Camp Base)"},
+		{290, "Gorge Day (Area 1)"},
+		{292, "Gorge Day (Area 2)"},
+		{294, "Gorge Day (Area 3)"},
+		{296, "Gorge Day  (Area 4)"},
+		{298, "Gorge Day (Area 5)"},
+		{300, "Gorge Day (Area 6)"},
+		{, "Gorge Day (Area 7)"},
+		{, "Gorge Day (Area 8)"},
+		{, "Gorge Day (Area 9)"},
+		{, "Gorge Day (Area 10)"},
+		{, "Gorge Day (Area 11)"},
+		{, "Gorge Day (Area 12)"}
+	}
+},
+{
+	32,
+	new Dictionary<int, string>
+	{
+		{32, "Gorge Night"},
+		{289, "Gorge Night (Camp Base)"},
+		{291, "Gorge Night (Area 1)"},
+		{293, "Gorge Night (Area 2)"},
+		{295, "Gorge Night (Area 3)"},
+		{297, "Gorge Night  (Area 4)"},
+		{299, "Gorge Night (Area 5)"},
+		{301, "Gorge Night (Area 6)"},
+		{, "Gorge Night (Area 7)"},
+		{, "Gorge Night (Area 8)"},
+		{, "Gorge Night (Area 9)"},
+		{, "Gorge Night (Area 10)"},
+		{, "Gorge Night (Area 11)"},
+		{, "Gorge Night (Area 12)"}
+	}
+},
+{
+	35,
+	new Dictionary<int, string>
+	{
+		{35, "Battlefield Day"},
+		{8, "Battlefield Day (Camp Base)"},
+		{197, "Battlefield Day (Area 1)"},
+		{, "Battlefield Day (Area 2)"},
+		{, "Battlefield Day (Area 3)"},
+		{, "Battlefield Day  (Area 4)"},
+		{, "Battlefield Day (Area 5)"},
+		{, "Battlefield Day (Area 6)"},
+		{, "Battlefield Day (Area 7)"},
+		{, "Battlefield Day (Area 8)"},
+		{, "Battlefield Day (Area 9)"},
+		{, "Battlefield Day (Area 10)"},
+		{, "Battlefield Day (Area 11)"},
+		{, "Battlefield Day (Area 12)"}
+	}
+},
+{
+	44,
+	new Dictionary<int, string>
+	{
+		{44, "Top of Great Forest"},
+		{245, "Top of Great Forest (Camp Base)"},
+		{246, "Top of Great Forest (Area 1)"},
+		{, "Top of Great Forest (Area 2)"},
+		{, "Top of Great Forest (Area 3)"},
+		{, "Top of Great Forest  (Area 4)"},
+		{, "Top of Great Forest (Area 5)"},
+		{, "Top of Great Forest (Area 6)"},
+		{, "Top of Great Forest (Area 7)"},
+		{, "Top of Great Forest (Area 8)"},
+		{, "Top of Great Forest (Area 9)"},
+		{, "Top of Great Forest (Area 10)"},
+		{, "Top of Great Forest (Area 11)"},
+		{, "Top of Great Forest (Area 12)"}
+	}
+},
+{
+	45,
+	new Dictionary<int, string>
+	{
+		{45, "Caravan Balloon Day"},
+		{258, "Caravan Balloon Day (Camp Base)"},
+		{, "Caravan Balloon Day (Area 1)"},
+		{, "Caravan Balloon Day (Area 2)"},
+		{, "Caravan Balloon Day (Area 3)"},
+		{, "Caravan Balloon Day  (Area 4)"},
+		{, "Caravan Balloon Day (Area 5)"},
+		{, "Caravan Balloon Day (Area 6)"},
+		{, "Caravan Balloon Day (Area 7)"},
+		{, "Caravan Balloon Day (Area 8)"},
+		{, "Caravan Balloon Day (Area 9)"},
+		{, "Caravan Balloon Day (Area 10)"},
+		{, "Caravan Balloon Day (Area 11)"},
+		{, "Caravan Balloon Day (Area 12)"}
+	}
+},
+{
+	46,
+	new Dictionary<int, string>
+	{
+		{46, "Caravan Balloon Night"},
+		{259, "Caravan Balloon Night (Camp Base)"},
+		{, "Caravan Balloon Night (Area 1)"},
+		{, "Caravan Balloon Night (Area 2)"},
+		{, "Caravan Balloon Night (Area 3)"},
+		{, "Caravan Balloon Night  (Area 4)"},
+		{, "Caravan Balloon Night (Area 5)"},
+		{, "Caravan Balloon Night (Area 6)"},
+		{, "Caravan Balloon Night (Area 7)"},
+		{, "Caravan Balloon Night (Area 8)"},
+		{, "Caravan Balloon Night (Area 9)"},
+		{, "Caravan Balloon Night (Area 10)"},
+		{, "Caravan Balloon Night (Area 11)"},
+		{, "Caravan Balloon Night (Area 12)"}
+	}
+},
+{
+	47,
+	new Dictionary<int, string>
+	{
+		{47, "Solitude Isle 1"},
+		{311, "Solitude Isle 1 (Camp Base)"},
+		{314, "Solitude Isle 1 (Area 1)"},
+		{, "Solitude Isle 1 (Area 2)"},
+		{, "Solitude Isle 1 (Area 3)"},
+		{, "Solitude Isle 1  (Area 4)"},
+		{, "Solitude Isle 1 (Area 5)"},
+		{, "Solitude Isle 1 (Area 6)"},
+		{, "Solitude Isle 1 (Area 7)"},
+		{, "Solitude Isle 1 (Area 8)"},
+		{, "Solitude Isle 1 (Area 9)"},
+		{, "Solitude Isle 1 (Area 10)"},
+		{, "Solitude Isle 1 (Area 11)"},
+		{, "Solitude Isle 1 (Area 12)"}
+	}
+},
+{
+	48,
+	new Dictionary<int, string>
+	{
+		{48, "Solitude Isle 2"},
+		{311, "Solitude Isle 2 (Camp Base)"},
+		{317, "Solitude Isle 2 (Area 1)"},
+		{, "Solitude Isle 2 (Area 2)"},
+		{, "Solitude Isle 2 (Area 3)"},
+		{, "Solitude Isle 2  (Area 4)"},
+		{, "Solitude Isle 2 (Area 5)"},
+		{, "Solitude Isle 2 (Area 6)"},
+		{, "Solitude Isle 2 (Area 7)"},
+		{, "Solitude Isle 2 (Area 8)"},
+		{, "Solitude Isle 2 (Area 9)"},
+		{, "Solitude Isle 2 (Area 10)"},
+		{, "Solitude Isle 2 (Area 11)"},
+		{, "Solitude Isle 2 (Area 12)"}
+	}
+},
+{
+	49,
+	new Dictionary<int, string>
+	{
+		{49, "Solitude Isle 3"},
+		{311, "Solitude Isle 3 (Camp Base)"},
+		{320, "Solitude Isle 3 (Area 1)"},
+		{, "Solitude Isle 3 (Area 2)"},
+		{, "Solitude Isle 3 (Area 3)"},
+		{, "Solitude Isle 3  (Area 4)"},
+		{, "Solitude Isle 3 (Area 5)"},
+		{, "Solitude Isle 3 (Area 6)"},
+		{, "Solitude Isle 3 (Area 7)"},
+		{, "Solitude Isle 3 (Area 8)"},
+		{, "Solitude Isle 3 (Area 9)"},
+		{, "Solitude Isle 3 (Area 10)"},
+		{, "Solitude Isle 3 (Area 11)"},
+		{, "Solitude Isle 3 (Area 12)"}
+	}
+},
+{
+	50,
+	new Dictionary<int, string>
+	{
+		{50, "Highlands Day"},
+		{247, "Highlands Day (Camp Base)"},
+		{249, "Highlands Day (Area 1)"},
+		{251, "Highlands Day (Area 2)"},
+		{253, "Highlands Day (Area 3)"},
+		{255, "Highlands Day  (Area 4)"},
+		{303, "Highlands Day (Area 5)"},
+		{305, "Highlands Day (Area 6)"},
+		{307, "Highlands Day (Area 7)"},
+		{, "Highlands Day (Area 8)"},
+		{, "Highlands Day (Area 9)"},
+		{, "Highlands Day (Area 10)"},
+		{, "Highlands Day (Area 11)"},
+		{, "Highlands Day (Area 12)"}
+	}
+},
+{
+	51,
+	new Dictionary<int, string>
+	{
+		{51, "Highlands Night"},
+		{248, "Highlands Night (Camp Base)"},
+		{250, "Highlands Night (Area 1)"},
+		{252, "Highlands Night (Area 2)"},
+		{254, "Highlands Night (Area 3)"},
+		{302, "Highlands Night  (Area 4)"},
+		{304, "Highlands Night (Area 5)"},
+		{306, "Highlands Night (Area 6)"},
+		{308, "Highlands Night (Area 7)"},
+		{, "Highlands Night (Area 8)"},
+		{, "Highlands Night (Area 9)"},
+		{, "Highlands Night (Area 10)"},
+		{, "Highlands Night (Area 11)"},
+		{, "Highlands Night (Area 12)"}
+	}
+},
+{
+	52,
+	new Dictionary<int, string>
+	{
+		{52, "Tower with Nesthole"},
+		{121, "Tower with Nesthole (Camp Base)"},
+		{122, "Tower with Nesthole (Area 1)"},
+		{125, "Tower with Nesthole (Area 2)"},
+		{127, "Tower with Nesthole (Area 3)"},
+		{129, "Tower with Nesthole  (Area 4)"},
+		{, "Tower with Nesthole (Area 5)"},
+		{, "Tower with Nesthole (Area 6)"},
+		{, "Tower with Nesthole (Area 7)"},
+		{, "Tower with Nesthole (Area 8)"},
+		{, "Tower with Nesthole (Area 9)"},
+		{, "Tower with Nesthole (Area 10)"},
+		{, "Tower with Nesthole (Area 11)"},
+		{, "Tower with Nesthole (Area 12)"}
+	}
+},
+{
+	53,
+	new Dictionary<int, string>
+	{
+		{53, "Arena with Moat Day"},
+		{280, "Arena with Moat Day (Camp Base)"},
+		{13, "Arena with Moat Day (Area 1)"},
+		{, "Arena with Moat Day (Area 2)"},
+		{, "Arena with Moat Day (Area 3)"},
+		{, "Arena with Moat Day  (Area 4)"},
+		{, "Arena with Moat Day (Area 5)"},
+		{, "Arena with Moat Day (Area 6)"},
+		{, "Arena with Moat Day (Area 7)"},
+		{, "Arena with Moat Day (Area 8)"},
+		{, "Arena with Moat Day (Area 9)"},
+		{, "Arena with Moat Day (Area 10)"},
+		{, "Arena with Moat Day (Area 11)"},
+		{, "Arena with Moat Day (Area 12)"}
+	}
+},
+{
+	54,
+	new Dictionary<int, string>
+	{
+		{54, "Arena with Moat Night"},
+		{281, "Arena with Moat Night (Camp Base)"},
+		{17, "Arena with Moat Night (Area 1)"},
+		{, "Arena with Moat Night (Area 2)"},
+		{, "Arena with Moat Night (Area 3)"},
+		{, "Arena with Moat Night  (Area 4)"},
+		{, "Arena with Moat Night (Area 5)"},
+		{, "Arena with Moat Night (Area 6)"},
+		{, "Arena with Moat Night (Area 7)"},
+		{, "Arena with Moat Night (Area 8)"},
+		{, "Arena with Moat Night (Area 9)"},
+		{, "Arena with Moat Night (Area 10)"},
+		{, "Arena with Moat Night (Area 11)"},
+		{, "Arena with Moat Night (Area 12)"}
+	}
+},
+{
+	55,
+	new Dictionary<int, string>
+	{
+		{55, "Fortress Day"},
+		{272, "Fortress Day (Camp Base)"},
+		{274, "Fortress Day (Area 1)"},
+		{276, "Fortress Day (Area 2)"},
+		{278, "Fortress Day (Area 3)"},
+		{, "Fortress Day  (Area 4)"},
+		{, "Fortress Day (Area 5)"},
+		{, "Fortress Day (Area 6)"},
+		{, "Fortress Day (Area 7)"},
+		{, "Fortress Day (Area 8)"},
+		{, "Fortress Day (Area 9)"},
+		{, "Fortress Day (Area 10)"},
+		{, "Fortress Day (Area 11)"},
+		{, "Fortress Day (Area 12)"}
+	}
+},
+{
+	56,
+	new Dictionary<int, string>
+	{
+		{56, "Fortress Night"},
+		{273, "Fortress Night (Camp Base)"},
+		{275, "Fortress Night (Area 1)"},
+		{277, "Fortress Night (Area 2)"},
+		{279, "Fortress Night (Area 3)"},
+		{, "Fortress Night  (Area 4)"},
+		{, "Fortress Night (Area 5)"},
+		{, "Fortress Night (Area 6)"},
+		{, "Fortress Night (Area 7)"},
+		{, "Fortress Night (Area 8)"},
+		{, "Fortress Night (Area 9)"},
+		{, "Fortress Night (Area 10)"},
+		{, "Fortress Night (Area 11)"},
+		{, "Fortress Night (Area 12)"}
+	}
+},
+{
+	57,
+	new Dictionary<int, string>
+	{
+		{57, "Tidal Island Day"},
+		{322, "Tidal Island Day (Camp Base)"},
+		{323, "Tidal Island Day (Area 1)"},
+		{324, "Tidal Island Day (Area 2)"},
+		{325, "Tidal Island Day (Area 3)"},
+		{335, "Tidal Island Day  (Area 4)"},
+		{, "Tidal Island Day (Area 5)"},
+		{, "Tidal Island Day (Area 6)"},
+		{, "Tidal Island Day (Area 7)"},
+		{, "Tidal Island Day (Area 8)"},
+		{, "Tidal Island Day (Area 9)"},
+		{, "Tidal Island Day (Area 10)"},
+		{, "Tidal Island Day (Area 11)"},
+		{, "Tidal Island Day (Area 12)"}
+	}
+},
+{
+	58,
+	new Dictionary<int, string>
+	{
+		{58, "Tidal Island Night"},
+		{330, "Tidal Island Night (Camp Base)"},
+		{331, "Tidal Island Night (Area 1)"},
+		{332, "Tidal Island Night (Area 2)"},
+		{333, "Tidal Island Night (Area 3)"},
+		{339, "Tidal Island Night  (Area 4)"},
+		{, "Tidal Island Night (Area 5)"},
+		{, "Tidal Island Night (Area 6)"},
+		{, "Tidal Island Night (Area 7)"},
+		{, "Tidal Island Night (Area 8)"},
+		{, "Tidal Island Night (Area 9)"},
+		{, "Tidal Island Night (Area 10)"},
+		{, "Tidal Island Night (Area 11)"},
+		{, "Tidal Island Night (Area 12)"}
+	}
+},
+{
+	60,
+	new Dictionary<int, string>
+	{
+		{60, "Polar Sea Day"},
+		{345, "Polar Sea Day (Camp Base)"},
+		{347, "Polar Sea Day (Area 1)"},
+		{349, "Polar Sea Day (Area 2)"},
+		{351, "Polar Sea Day (Area 3)"},
+		{353, "Polar Sea Day  (Area 4)"},
+		{355, "Polar Sea Day (Area 5)"},
+		{357, "Polar Sea Day (Area 6)"},
+		{, "Polar Sea Day (Area 7)"},
+		{, "Polar Sea Day (Area 8)"},
+		{, "Polar Sea Day (Area 9)"},
+		{, "Polar Sea Day (Area 10)"},
+		{, "Polar Sea Day (Area 11)"},
+		{, "Polar Sea Day (Area 12)"}
+	}
+},
+{
+	61,
+	new Dictionary<int, string>
+	{
+		{61, "Polar Sea Night"},
+		{346, "Polar Sea Night (Camp Base)"},
+		{348, "Polar Sea Night (Area 1)"},
+		{350, "Polar Sea Night (Area 2)"},
+		{352, "Polar Sea Night (Area 3)"},
+		{354, "Polar Sea Night  (Area 4)"},
+		{356, "Polar Sea Night (Area 5)"},
+		{358, "Polar Sea Night (Area 6)"},
+		{, "Polar Sea Night (Area 7)"},
+		{, "Polar Sea Night (Area 8)"},
+		{, "Polar Sea Night (Area 9)"},
+		{, "Polar Sea Night (Area 10)"},
+		{, "Polar Sea Night (Area 11)"},
+		{, "Polar Sea Night (Area 12)"}
+	}
+},
+{
+	62,
+	new Dictionary<int, string>
+	{
+		{62, "World's End"},
+		{359, "World's End (Camp Base)"},
+		{360, "World's End (Area 1)"},
+		{, "World's End (Area 2)"},
+		{, "World's End (Area 3)"},
+		{, "World's End  (Area 4)"},
+		{, "World's End (Area 5)"},
+		{, "World's End (Area 6)"},
+		{, "World's End (Area 7)"},
+		{, "World's End (Area 8)"},
+		{, "World's End (Area 9)"},
+		{, "World's End (Area 10)"},
+		{, "World's End (Area 11)"},
+		{, "World's End (Area 12)"}
+	}
+},
+{
+	63,
+	new Dictionary<int, string>
+	{
+		{63, "Large Airship"},
+		{343, "Large Airship (Camp Base)"},
+		{, "Large Airship (Area 1)"},
+		{, "Large Airship (Area 2)"},
+		{, "Large Airship (Area 3)"},
+		{, "Large Airship  (Area 4)"},
+		{, "Large Airship (Area 5)"},
+		{, "Large Airship (Area 6)"},
+		{, "Large Airship (Area 7)"},
+		{, "Large Airship (Area 8)"},
+		{, "Large Airship (Area 9)"},
+		{, "Large Airship (Area 10)"},
+		{, "Large Airship (Area 11)"},
+		{, "Large Airship (Area 12)"}
+	}
+},
+{
+	64,
+	new Dictionary<int, string>
+	{
+		{64, "Flower Field Day"},
+		{361, "Flower Field Day (Camp Base)"},
+		{363, "Flower Field Day (Area 1)"},
+		{365, "Flower Field Day (Area 2)"},
+		{367, "Flower Field Day (Area 3)"},
+		{369, "Flower Field Day  (Area 4)"},
+		{371, "Flower Field Day (Area 5)"},
+		{, "Flower Field Day (Area 6)"},
+		{, "Flower Field Day (Area 7)"},
+		{, "Flower Field Day (Area 8)"},
+		{, "Flower Field Day (Area 9)"},
+		{, "Flower Field Day (Area 10)"},
+		{, "Flower Field Day (Area 11)"},
+		{, "Flower Field Day (Area 12)"}
+	}
+},
+{
+	65,
+	new Dictionary<int, string>
+	{
+		{65, "Flower Field Night"},
+		{362, "Flower Field Night (Camp Base)"},
+		{364, "Flower Field Night (Area 1)"},
+		{366, "Flower Field Night (Area 2)"},
+		{368, "Flower Field Night (Area 3)"},
+		{370, "Flower Field Night  (Area 4)"},
+		{372, "Flower Field Night (Area 5)"},
+		{, "Flower Field Night (Area 6)"},
+		{, "Flower Field Night (Area 7)"},
+		{, "Flower Field Night (Area 8)"},
+		{, "Flower Field Night (Area 9)"},
+		{, "Flower Field Night (Area 10)"},
+		{, "Flower Field Night (Area 11)"},
+		{, "Flower Field Night (Area 12)"}
+	}
+},
+{
+	66,
+	new Dictionary<int, string>
+	{
+		{66, "Deep Crater"},
+		{374, "Deep Crater (Camp Base)"},
+		{380, "Deep Crater (Area 1)"},
+		{, "Deep Crater (Area 2)"},
+		{, "Deep Crater (Area 3)"},
+		{, "Deep Crater  (Area 4)"},
+		{, "Deep Crater (Area 5)"},
+		{, "Deep Crater (Area 6)"},
+		{, "Deep Crater (Area 7)"},
+		{, "Deep Crater (Area 8)"},
+		{, "Deep Crater (Area 9)"},
+		{, "Deep Crater (Area 10)"},
+		{, "Deep Crater (Area 11)"},
+		{, "Deep Crater (Area 12)"}
+	}
+},
+{
+	67,
+	new Dictionary<int, string>
+	{
+		{67, "Bamboo Forest Day"},
+		{375, "Bamboo Forest Day (Camp Base)"},
+		{377, "Bamboo Forest Day (Area 1)"},
+		{, "Bamboo Forest Day (Area 2)"},
+		{, "Bamboo Forest Day (Area 3)"},
+		{, "Bamboo Forest Day  (Area 4)"},
+		{, "Bamboo Forest Day (Area 5)"},
+		{, "Bamboo Forest Day (Area 6)"},
+		{, "Bamboo Forest Day (Area 7)"},
+		{, "Bamboo Forest Day (Area 8)"},
+		{, "Bamboo Forest Day (Area 9)"},
+		{, "Bamboo Forest Day (Area 10)"},
+		{, "Bamboo Forest Day (Area 11)"},
+		{, "Bamboo Forest Day (Area 12)"}
+	}
+},
+{
+	68,
+	new Dictionary<int, string>
+	{
+		{68, "Bamboo Forest Night"},
+		{376, "Bamboo Forest Night (Camp Base)"},
+		{378, "Bamboo Forest Night (Area 1)"},
+		{, "Bamboo Forest Night (Area 2)"},
+		{, "Bamboo Forest Night (Area 3)"},
+		{, "Bamboo Forest Night  (Area 4)"},
+		{, "Bamboo Forest Night (Area 5)"},
+		{, "Bamboo Forest Night (Area 6)"},
+		{, "Bamboo Forest Night (Area 7)"},
+		{, "Bamboo Forest Night (Area 8)"},
+		{, "Bamboo Forest Night (Area 9)"},
+		{, "Bamboo Forest Night (Area 10)"},
+		{, "Bamboo Forest Night (Area 11)"},
+		{, "Bamboo Forest Night (Area 12)"}
+	}
+},
+{
+	69,
+	new Dictionary<int, string>
+	{
+		{69, "Battlefield 2 Day"},
+		{8, "Battlefield 2 Day (Camp Base)"},
+		{396, "Battlefield 2 Day (Area 1)"},
+		{, "Battlefield 2 Day (Area 2)"},
+		{, "Battlefield 2 Day (Area 3)"},
+		{, "Battlefield 2 Day  (Area 4)"},
+		{, "Battlefield 2 Day (Area 5)"},
+		{, "Battlefield 2 Day (Area 6)"},
+		{, "Battlefield 2 Day (Area 7)"},
+		{, "Battlefield 2 Day (Area 8)"},
+		{, "Battlefield 2 Day (Area 9)"},
+		{, "Battlefield 2 Day (Area 10)"},
+		{, "Battlefield 2 Day (Area 11)"},
+		{, "Battlefield 2 Day (Area 12)"}
+	}
+},
+{
+	70,
+	new Dictionary<int, string>
+	{
+		{70, "Unimplemented map"},
+		{, "Unimplemented map (Camp Base)"},
+		{, "Unimplemented map (Area 1)"},
+		{, "Unimplemented map (Area 2)"},
+		{, "Unimplemented map (Area 3)"},
+		{, "Unimplemented map  (Area 4)"},
+		{, "Unimplemented map (Area 5)"},
+		{, "Unimplemented map (Area 6)"},
+		{, "Unimplemented map (Area 7)"},
+		{, "Unimplemented map (Area 8)"},
+		{, "Unimplemented map (Area 9)"},
+		{, "Unimplemented map (Area 10)"},
+		{, "Unimplemented map (Area 11)"},
+		{, "Unimplemented map (Area 12)"}
+	}
+},
+{
+	71,
+	new Dictionary<int, string>
+	{
+		{71, "1st Dist Tower 1"},
+		{391, "1st Dist Tower 1 (Camp Base)"},
+		{392, "1st Dist Tower 1 (Area 1)"},
+		{399, "1st Dist Tower 1 (Area 2)"},
+		{, "1st Dist Tower 1 (Area 3)"},
+		{, "1st Dist Tower 1  (Area 4)"},
+		{, "1st Dist Tower 1 (Area 5)"},
+		{, "1st Dist Tower 1 (Area 6)"},
+		{, "1st Dist Tower 1 (Area 7)"},
+		{, "1st Dist Tower 1 (Area 8)"},
+		{, "1st Dist Tower 1 (Area 9)"},
+		{, "1st Dist Tower 1 (Area 10)"},
+		{, "1st Dist Tower 1 (Area 11)"},
+		{, "1st Dist Tower 1 (Area 12)"}
+	}
+},
+{
+	72,
+	new Dictionary<int, string>
+	{
+		{72, "1st Dist Tower 2"},
+		{391, "1st Dist Tower 2 (Camp Base)"},
+		{392, "1st Dist Tower 2 (Area 1)"},
+		{399, "1st Dist Tower 2 (Area 2)"},
+		{, "1st Dist Tower 2 (Area 3)"},
+		{, "1st Dist Tower 2  (Area 4)"},
+		{, "1st Dist Tower 2 (Area 5)"},
+		{, "1st Dist Tower 2 (Area 6)"},
+		{, "1st Dist Tower 2 (Area 7)"},
+		{, "1st Dist Tower 2 (Area 8)"},
+		{, "1st Dist Tower 2 (Area 9)"},
+		{, "1st Dist Tower 2 (Area 10)"},
+		{, "1st Dist Tower 2 (Area 11)"},
+		{, "1st Dist Tower 2 (Area 12)"}
+	}
+},
+{
+	73,
+	new Dictionary<int, string>
+	{
+		{73, "2nd Dist Tower 1"},
+		{391, "2nd Dist Tower 1 (Camp Base)"},
+		{392, "2nd Dist Tower 1 (Area 1)"},
+		{414, "2nd Dist Tower 1 (Area 2)"},
+		{, "2nd Dist Tower 1 (Area 3)"},
+		{, "2nd Dist Tower 1  (Area 4)"},
+		{, "2nd Dist Tower 1 (Area 5)"},
+		{, "2nd Dist Tower 1 (Area 6)"},
+		{, "2nd Dist Tower 1 (Area 7)"},
+		{, "2nd Dist Tower 1 (Area 8)"},
+		{, "2nd Dist Tower 1 (Area 9)"},
+		{, "2nd Dist Tower 1 (Area 10)"},
+		{, "2nd Dist Tower 1 (Area 11)"},
+		{, "2nd Dist Tower 1 (Area 12)"}
+	}
+},
+{
+	74,
+	new Dictionary<int, string>
+	{
+		{74, "2nd Dist Tower 2"},
+		{391, "2nd Dist Tower 2 (Camp Base)"},
+		{392, "2nd Dist Tower 2 (Area 1)"},
+		{414, "2nd Dist Tower 2 (Area 2)"},
+		{, "2nd Dist Tower 2 (Area 3)"},
+		{, "2nd Dist Tower 2  (Area 4)"},
+		{, "2nd Dist Tower 2 (Area 5)"},
+		{, "2nd Dist Tower 2 (Area 6)"},
+		{, "2nd Dist Tower 2 (Area 7)"},
+		{, "2nd Dist Tower 2 (Area 8)"},
+		{, "2nd Dist Tower 2 (Area 9)"},
+		{, "2nd Dist Tower 2 (Area 10)"},
+		{, "2nd Dist Tower 2 (Area 11)"},
+		{, "2nd Dist Tower 2 (Area 12)"}
+	}
+},
+{
+	75,
+	new Dictionary<int, string>
+	{
+		{75, "Urgent Tower"},
+		{391, "Urgent Tower (Camp Base)"},
+		{392, "Urgent Tower (Area 1)"},
+		{399, "Urgent Tower (Area 2)"},
+		{, "Urgent Tower (Area 3)"},
+		{, "Urgent Tower  (Area 4)"},
+		{, "Urgent Tower (Area 5)"},
+		{, "Urgent Tower (Area 6)"},
+		{, "Urgent Tower (Area 7)"},
+		{, "Urgent Tower (Area 8)"},
+		{, "Urgent Tower (Area 9)"},
+		{, "Urgent Tower (Area 10)"},
+		{, "Urgent Tower (Area 11)"},
+		{, "Urgent Tower (Area 12)"}
+	}
+},
+{
+	76,
+	new Dictionary<int, string>
+	{
+		{76, "3rd Dist Tower 1"},
+		{391, "3rd Dist Tower 1 (Camp Base)"},
+		{392, "3rd Dist Tower 1 (Area 1)"},
+		{399, "3rd Dist Tower 1 (Area 2)"},
+		{, "3rd Dist Tower 1 (Area 3)"},
+		{, "3rd Dist Tower 1  (Area 4)"},
+		{, "3rd Dist Tower 1 (Area 5)"},
+		{, "3rd Dist Tower 1 (Area 6)"},
+		{, "3rd Dist Tower 1 (Area 7)"},
+		{, "3rd Dist Tower 1 (Area 8)"},
+		{, "3rd Dist Tower 1 (Area 9)"},
+		{, "3rd Dist Tower 1 (Area 10)"},
+		{, "3rd Dist Tower 1 (Area 11)"},
+		{, "3rd Dist Tower 1 (Area 12)"}
+	}
+},
+{
+	77,
+	new Dictionary<int, string>
+	{
+		{77, "3rd Dist Tower 2"},
+		{391, "3rd Dist Tower 2 (Camp Base)"},
+		{392, "3rd Dist Tower 2 (Area 1)"},
+		{399, "3rd Dist Tower 2 (Area 2)"},
+		{, "3rd Dist Tower 2 (Area 3)"},
+		{, "3rd Dist Tower 2  (Area 4)"},
+		{, "3rd Dist Tower 2 (Area 5)"},
+		{, "3rd Dist Tower 2 (Area 6)"},
+		{, "3rd Dist Tower 2 (Area 7)"},
+		{, "3rd Dist Tower 2 (Area 8)"},
+		{, "3rd Dist Tower 2 (Area 9)"},
+		{, "3rd Dist Tower 2 (Area 10)"},
+		{, "3rd Dist Tower 2 (Area 11)"},
+		{, "3rd Dist Tower 2 (Area 12)"}
+	}
+},
+{
+	78,
+	new Dictionary<int, string>
+	{
+		{78, "4th Dist Tower"},
+		{391, "4th Dist Tower (Camp Base)"},
+		{392, "4th Dist Tower (Area 1)"},
+		{399, "4th Dist Tower (Area 2)"},
+		{, "4th Dist Tower (Area 3)"},
+		{, "4th Dist Tower  (Area 4)"},
+		{, "4th Dist Tower (Area 5)"},
+		{, "4th Dist Tower (Area 6)"},
+		{, "4th Dist Tower (Area 7)"},
+		{, "4th Dist Tower (Area 8)"},
+		{, "4th Dist Tower (Area 9)"},
+		{, "4th Dist Tower (Area 10)"},
+		{, "4th Dist Tower (Area 11)"},
+		{, "4th Dist Tower (Area 12)"}
+	}
+},
+{
+	79,
+	new Dictionary<int, string>
+	{
+		{79, "White Lake Day"},
+		{400, "White Lake Day (Camp Base)"},
+		{402, "White Lake Day (Area 1)"},
+		{404, "White Lake Day (Area 2)"},
+		{406, "White Lake Day (Area 3)"},
+		{408, "White Lake Day  (Area 4)"},
+		{410, "White Lake Day (Area 5)"},
+		{, "White Lake Day (Area 6)"},
+		{, "White Lake Day (Area 7)"},
+		{, "White Lake Day (Area 8)"},
+		{, "White Lake Day (Area 9)"},
+		{, "White Lake Day (Area 10)"},
+		{, "White Lake Day (Area 11)"},
+		{, "White Lake Day (Area 12)"}
+	}
+},
+{
+	80,
+	new Dictionary<int, string>
+	{
+		{80, "White Lake Night"},
+		{401, "White Lake Night (Camp Base)"},
+		{403, "White Lake Night (Area 1)"},
+		{405, "White Lake Night (Area 2)"},
+		{407, "White Lake Night (Area 3)"},
+		{409, "White Lake Night  (Area 4)"},
+		{411, "White Lake Night (Area 5)"},
+		{, "White Lake Night (Area 6)"},
+		{, "White Lake Night (Area 7)"},
+		{, "White Lake Night (Area 8)"},
+		{, "White Lake Night (Area 9)"},
+		{, "White Lake Night (Area 10)"},
+		{, "White Lake Night (Area 11)"},
+		{, "White Lake Night (Area 12)"}
+	}
+},
+{
+	81,
+	new Dictionary<int, string>
+	{
+		{81, "Solitude Depths Slay 1"},
+		{417, "Solitude Depths Slay 1 (Camp Base)"},
+		{418, "Solitude Depths Slay 1 (Area 1)"},
+		{, "Solitude Depths Slay 1 (Area 2)"},
+		{, "Solitude Depths Slay 1 (Area 3)"},
+		{, "Solitude Depths Slay 1  (Area 4)"},
+		{, "Solitude Depths Slay 1 (Area 5)"},
+		{, "Solitude Depths Slay 1 (Area 6)"},
+		{, "Solitude Depths Slay 1 (Area 7)"},
+		{, "Solitude Depths Slay 1 (Area 8)"},
+		{, "Solitude Depths Slay 1 (Area 9)"},
+		{, "Solitude Depths Slay 1 (Area 10)"},
+		{, "Solitude Depths Slay 1 (Area 11)"},
+		{, "Solitude Depths Slay 1 (Area 12)"}
+	}
+},
+{
+	82,
+	new Dictionary<int, string>
+	{
+		{82, "Solitude Depths Slay 2"},
+		{417, "Solitude Depths Slay 2 (Camp Base)"},
+		{, "Solitude Depths Slay 2 (Area 1)"},
+		{, "Solitude Depths Slay 2 (Area 2)"},
+		{, "Solitude Depths Slay 2 (Area 3)"},
+		{, "Solitude Depths Slay 2  (Area 4)"},
+		{, "Solitude Depths Slay 2 (Area 5)"},
+		{, "Solitude Depths Slay 2 (Area 6)"},
+		{, "Solitude Depths Slay 2 (Area 7)"},
+		{, "Solitude Depths Slay 2 (Area 8)"},
+		{, "Solitude Depths Slay 2 (Area 9)"},
+		{, "Solitude Depths Slay 2 (Area 10)"},
+		{, "Solitude Depths Slay 2 (Area 11)"},
+		{, "Solitude Depths Slay 2 (Area 12)"}
+	}
+},
+{
+	83,
+	new Dictionary<int, string>
+	{
+		{83, "Solitude Depths Slay 3"},
+		{417, "Solitude Depths Slay 3 (Camp Base)"},
+		{, "Solitude Depths Slay 3 (Area 1)"},
+		{, "Solitude Depths Slay 3 (Area 2)"},
+		{, "Solitude Depths Slay 3 (Area 3)"},
+		{, "Solitude Depths Slay 3  (Area 4)"},
+		{, "Solitude Depths Slay 3 (Area 5)"},
+		{, "Solitude Depths Slay 3 (Area 6)"},
+		{, "Solitude Depths Slay 3 (Area 7)"},
+		{, "Solitude Depths Slay 3 (Area 8)"},
+		{, "Solitude Depths Slay 3 (Area 9)"},
+		{, "Solitude Depths Slay 3 (Area 10)"},
+		{, "Solitude Depths Slay 3 (Area 11)"},
+		{, "Solitude Depths Slay 3 (Area 12)"}
+	}
+},
+{
+	84,
+	new Dictionary<int, string>
+	{
+		{84, "Solitude Depths Slay 4"},
+		{417, "Solitude Depths Slay 4 (Camp Base)"},
+		{, "Solitude Depths Slay 4 (Area 1)"},
+		{, "Solitude Depths Slay 4 (Area 2)"},
+		{, "Solitude Depths Slay 4 (Area 3)"},
+		{, "Solitude Depths Slay 4  (Area 4)"},
+		{, "Solitude Depths Slay 4 (Area 5)"},
+		{, "Solitude Depths Slay 4 (Area 6)"},
+		{, "Solitude Depths Slay 4 (Area 7)"},
+		{, "Solitude Depths Slay 4 (Area 8)"},
+		{, "Solitude Depths Slay 4 (Area 9)"},
+		{, "Solitude Depths Slay 4 (Area 10)"},
+		{, "Solitude Depths Slay 4 (Area 11)"},
+		{, "Solitude Depths Slay 4 (Area 12)"}
+	}
+},
+{
+	85,
+	new Dictionary<int, string>
+	{
+		{85, "Solitude Depths Slay 5"},
+		{417, "Solitude Depths Slay 5 (Camp Base)"},
+		{, "Solitude Depths Slay 5 (Area 1)"},
+		{, "Solitude Depths Slay 5 (Area 2)"},
+		{, "Solitude Depths Slay 5 (Area 3)"},
+		{, "Solitude Depths Slay 5  (Area 4)"},
+		{, "Solitude Depths Slay 5 (Area 5)"},
+		{, "Solitude Depths Slay 5 (Area 6)"},
+		{, "Solitude Depths Slay 5 (Area 7)"},
+		{, "Solitude Depths Slay 5 (Area 8)"},
+		{, "Solitude Depths Slay 5 (Area 9)"},
+		{, "Solitude Depths Slay 5 (Area 10)"},
+		{, "Solitude Depths Slay 5 (Area 11)"},
+		{, "Solitude Depths Slay 5 (Area 12)"}
+	}
+},
+{
+	86,
+	new Dictionary<int, string>
+	{
+		{86, "Solitude Depths Support 1"},
+		{417, "Solitude Depths Support 1 (Camp Base)"},
+		{440, "Solitude Depths Support 1 (Area 1)"},
+		{, "Solitude Depths Support 1 (Area 2)"},
+		{, "Solitude Depths Support 1 (Area 3)"},
+		{, "Solitude Depths Support 1  (Area 4)"},
+		{, "Solitude Depths Support 1 (Area 5)"},
+		{, "Solitude Depths Support 1 (Area 6)"},
+		{, "Solitude Depths Support 1 (Area 7)"},
+		{, "Solitude Depths Support 1 (Area 8)"},
+		{, "Solitude Depths Support 1 (Area 9)"},
+		{, "Solitude Depths Support 1 (Area 10)"},
+		{, "Solitude Depths Support 1 (Area 11)"},
+		{, "Solitude Depths Support 1 (Area 12)"}
+	}
+},
+{
+	87,
+	new Dictionary<int, string>
+	{
+		{87, "Solitude Depths Support 2"},
+		{417, "Solitude Depths Support 2 (Camp Base)"},
+		{, "Solitude Depths Support 2 (Area 1)"},
+		{, "Solitude Depths Support 2 (Area 2)"},
+		{, "Solitude Depths Support 2 (Area 3)"},
+		{, "Solitude Depths Support 2  (Area 4)"},
+		{, "Solitude Depths Support 2 (Area 5)"},
+		{, "Solitude Depths Support 2 (Area 6)"},
+		{, "Solitude Depths Support 2 (Area 7)"},
+		{, "Solitude Depths Support 2 (Area 8)"},
+		{, "Solitude Depths Support 2 (Area 9)"},
+		{, "Solitude Depths Support 2 (Area 10)"},
+		{, "Solitude Depths Support 2 (Area 11)"},
+		{, "Solitude Depths Support 2 (Area 12)"}
+	}
+},
+{
+	88,
+	new Dictionary<int, string>
+	{
+		{88, "Solitude Depths Support 3"},
+		{417, "Solitude Depths Support 3 (Camp Base)"},
+		{, "Solitude Depths Support 3 (Area 1)"},
+		{, "Solitude Depths Support 3 (Area 2)"},
+		{, "Solitude Depths Support 3 (Area 3)"},
+		{, "Solitude Depths Support 3  (Area 4)"},
+		{, "Solitude Depths Support 3 (Area 5)"},
+		{, "Solitude Depths Support 3 (Area 6)"},
+		{, "Solitude Depths Support 3 (Area 7)"},
+		{, "Solitude Depths Support 3 (Area 8)"},
+		{, "Solitude Depths Support 3 (Area 9)"},
+		{, "Solitude Depths Support 3 (Area 10)"},
+		{, "Solitude Depths Support 3 (Area 11)"},
+		{, "Solitude Depths Support 3 (Area 12)"}
+	}
+},
+{
+	89,
+	new Dictionary<int, string>
+	{
+		{89, "Solitude Depths Support 4"},
+		{417, "Solitude Depths Support 4 (Camp Base)"},
+		{, "Solitude Depths Support 4 (Area 1)"},
+		{, "Solitude Depths Support 4 (Area 2)"},
+		{, "Solitude Depths Support 4 (Area 3)"},
+		{, "Solitude Depths Support 4  (Area 4)"},
+		{, "Solitude Depths Support 4 (Area 5)"},
+		{, "Solitude Depths Support 4 (Area 6)"},
+		{, "Solitude Depths Support 4 (Area 7)"},
+		{, "Solitude Depths Support 4 (Area 8)"},
+		{, "Solitude Depths Support 4 (Area 9)"},
+		{, "Solitude Depths Support 4 (Area 10)"},
+		{, "Solitude Depths Support 4 (Area 11)"},
+		{, "Solitude Depths Support 4 (Area 12)"}
+	}
+},
+{
+	90,
+	new Dictionary<int, string>
+	{
+		{90, "Solitude Depths Support 5"},
+		{417, "Solitude Depths Support 5 (Camp Base)"},
+		{, "Solitude Depths Support 5 (Area 1)"},
+		{, "Solitude Depths Support 5 (Area 2)"},
+		{, "Solitude Depths Support 5 (Area 3)"},
+		{, "Solitude Depths Support 5  (Area 4)"},
+		{, "Solitude Depths Support 5 (Area 5)"},
+		{, "Solitude Depths Support 5 (Area 6)"},
+		{, "Solitude Depths Support 5 (Area 7)"},
+		{, "Solitude Depths Support 5 (Area 8)"},
+		{, "Solitude Depths Support 5 (Area 9)"},
+		{, "Solitude Depths Support 5 (Area 10)"},
+		{, "Solitude Depths Support 5 (Area 11)"},
+		{, "Solitude Depths Support 5 (Area 12)"}
+	}
+},
+{
+	91,
+	new Dictionary<int, string>
+	{
+		{91, "Cloud Viewing Fortress"},
+		{438, "Cloud Viewing Fortress (Camp Base)"},
+		{439, "Cloud Viewing Fortress (Area 1)"},
+		{, "Cloud Viewing Fortress (Area 2)"},
+		{, "Cloud Viewing Fortress (Area 3)"},
+		{, "Cloud Viewing Fortress  (Area 4)"},
+		{, "Cloud Viewing Fortress (Area 5)"},
+		{, "Cloud Viewing Fortress (Area 6)"},
+		{, "Cloud Viewing Fortress (Area 7)"},
+		{, "Cloud Viewing Fortress (Area 8)"},
+		{, "Cloud Viewing Fortress (Area 9)"},
+		{, "Cloud Viewing Fortress (Area 10)"},
+		{, "Cloud Viewing Fortress (Area 11)"},
+		{, "Cloud Viewing Fortress (Area 12)"}
+	}
+},
+{
+	92,
+	new Dictionary<int, string>
+	{
+		{92, "Painted Falls Day"},
+		{423, "Painted Falls Day (Camp Base)"},
+		{425, "Painted Falls Day (Area 1)"},
+		{427, "Painted Falls Day (Area 2)"},
+		{429, "Painted Falls Day (Area 3)"},
+		{431, "Painted Falls Day  (Area 4)"},
+		{433, "Painted Falls Day (Area 5)"},
+		{435, "Painted Falls Day (Area 6)"},
+		{, "Painted Falls Day (Area 7)"},
+		{, "Painted Falls Day (Area 8)"},
+		{, "Painted Falls Day (Area 9)"},
+		{, "Painted Falls Day (Area 10)"},
+		{, "Painted Falls Day (Area 11)"},
+		{, "Painted Falls Day (Area 12)"}
+	}
+},
+{
+	93,
+	new Dictionary<int, string>
+	{
+		{93, "Painted Falls Night"},
+		{424, "Painted Falls Night (Camp Base)"},
+		{426, "Painted Falls Night (Area 1)"},
+		{428, "Painted Falls Night (Area 2)"},
+		{430, "Painted Falls Night (Area 3)"},
+		{432, "Painted Falls Night  (Area 4)"},
+		{434, "Painted Falls Night (Area 5)"},
+		{436, "Painted Falls Night (Area 6)"},
+		{, "Painted Falls Night (Area 7)"},
+		{, "Painted Falls Night (Area 8)"},
+		{, "Painted Falls Night (Area 9)"},
+		{, "Painted Falls Night (Area 10)"},
+		{, "Painted Falls Night (Area 11)"},
+		{, "Painted Falls Night (Area 12)"}
+	}
+},
+{
+	94,
+	new Dictionary<int, string>
+	{
+		{94, "Sanctuary"},
+		{448, "Sanctuary (Camp Base)"},
+		{449, "Sanctuary (Area 1)"},
+		{, "Sanctuary (Area 2)"},
+		{, "Sanctuary (Area 3)"},
+		{, "Sanctuary  (Area 4)"},
+		{, "Sanctuary (Area 5)"},
+		{, "Sanctuary (Area 6)"},
+		{, "Sanctuary (Area 7)"},
+		{, "Sanctuary (Area 8)"},
+		{, "Sanctuary (Area 9)"},
+		{, "Sanctuary (Area 10)"},
+		{, "Sanctuary (Area 11)"},
+		{, "Sanctuary (Area 12)"}
+	}
+},
+{
+	95,
+	new Dictionary<int, string>
+	{
+		{95, "Hunter's Road"},
+		{459, "Hunter's Road (Camp Base)"},
+		{, "Hunter's Road (Area 1)"},
+		{, "Hunter's Road (Area 2)"},
+		{, "Hunter's Road (Area 3)"},
+		{, "Hunter's Road  (Area 4)"},
+		{, "Hunter's Road (Area 5)"},
+		{, "Hunter's Road (Area 6)"},
+		{, "Hunter's Road (Area 7)"},
+		{, "Hunter's Road (Area 8)"},
+		{, "Hunter's Road (Area 9)"},
+		{, "Hunter's Road (Area 10)"},
+		{, "Hunter's Road (Area 11)"},
+		{, "Hunter's Road (Area 12)"}
+	}
+},
+{
+	96,
+	new Dictionary<int, string>
+	{
+		{96, "Sacred Pinnacle"},
+		{446, "Sacred Pinnacle (Camp Base)"},
+		{447, "Sacred Pinnacle (Area 1)"},
+		{, "Sacred Pinnacle (Area 2)"},
+		{, "Sacred Pinnacle (Area 3)"},
+		{, "Sacred Pinnacle  (Area 4)"},
+		{, "Sacred Pinnacle (Area 5)"},
+		{, "Sacred Pinnacle (Area 6)"},
+		{, "Sacred Pinnacle (Area 7)"},
+		{, "Sacred Pinnacle (Area 8)"},
+		{, "Sacred Pinnacle (Area 9)"},
+		{, "Sacred Pinnacle (Area 10)"},
+		{, "Sacred Pinnacle (Area 11)"},
+		{, "Sacred Pinnacle (Area 12)"}
+	}
+},
+{
+	97,
+	new Dictionary<int, string>
+	{
+		{97, "Historic Site"},
+		{460, "Historic Site (Camp Base)"},
+		{461, "Historic Site (Area 1)"},
+		{, "Historic Site (Area 2)"},
+		{, "Historic Site (Area 3)"},
+		{, "Historic Site  (Area 4)"},
+		{, "Historic Site (Area 5)"},
+		{, "Historic Site (Area 6)"},
+		{, "Historic Site (Area 7)"},
+		{, "Historic Site (Area 8)"},
+		{, "Historic Site (Area 9)"},
+		{, "Historic Site (Area 10)"},
+		{, "Historic Site (Area 11)"},
+		{, "Historic Site (Area 12)"}
+	}
+},
